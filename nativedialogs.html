@@ -63,8 +63,8 @@
                     let text = document.getElementById("text");
                     dialog.open = true;
                     if(result==='' || result===null) { result = "No Input" }
-                    let clean = DOMPurify.sanitize(result, {USE_PROFILES: {html: true}, FORBID_ATTR: ['style','onclick','onmouseover']});
-                    let tempStr = `Confirmed Result: ${result}`;
+                    let clean = DOMPurify.sanitize(result, {FORBID_TAGS: ['style','script']} );
+                    let tempStr = `Confirmed Result: ${clean}`;
                     text.innerHTML= tempStr;
                 });
                 //<b onmouseover="alert('pwned')">Roll Me </b>
