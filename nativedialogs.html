@@ -17,8 +17,7 @@
                 document.body.appendChild(clon);
             });
         </script> -->
-        <script async type="module">
-            document.addEventListener('DOMContentLoaded', function(){
+        <script async type="module" defer>
                 const alertBtn = document.getElementById('alert');
                 const confirmBtn = document.getElementById('confirm');
                 const promptBtn = document.getElementById('prompt');
@@ -58,7 +57,6 @@
                     let safer_prompt_echo = document.getElementById("safer_prompt_echo");
                     safer_prompt_echo.innerHTML = `User Input: `+clean;
                 });
-            });
         </script>
     </head>
     <body>
