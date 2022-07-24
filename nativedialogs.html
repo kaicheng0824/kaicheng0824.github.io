@@ -4,44 +4,7 @@
         <meta charset='utf-8'/>
         <meta name="viewport" content="width=device-width, initial-scale=0.5">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.js"></script>
-        <script async type="module">
-            const alertBtn = document.getElementById('alert');
-            const confirmBtn = document.getElementById('confirm');
-            const promptBtn = document.getElementById('prompt');
-            const safe_prompt = document.getElementById('safer_prompt');
-
-            alertBtn.addEventListener('click', function() {
-                window.alert('You Clicked Alert!');
-            });
-
-            confirmBtn.addEventListener('click', function() {
-                let result = window.confirm('Please confirm');
-                let confirm_echo = document.getElementById("confirm_echo");
-                confirm_echo.innerHTML = 'The value returned by the confirm method is : '+result;
-            });
-
-            promptBtn.addEventListener('click', ()=>{
-                let result = window.prompt('Say something');
-                if(result==='') {
-                    let prompt_echo = document.getElementById("prompt_echo");
-                    prompt_echo.innerHTML = `The User Didn't Input Anything`;
-                }
-                let prompt_echo = document.getElementById("prompt_echo");
-                prompt_echo.innerHTML = `User Input: `+result;
-                //alert(result)
-            });
-
-            safe_prompt.addEventListener('click', function() {
-                let result = window.prompt('Say something');
-                if(result==='') {
-                    safer_prompt_echo.innerHTML = `The User Didn't Input Anything`;
-                }
-                let clean = DOMPurify.sanitize(result, { USE_PROFILES: { html: true } });
-                let safer_prompt_echo = document.getElementById("safer_prompt_echo");
-                safer_prompt_echo.innerHTML = `User Input: `+clean;
-            });
-        </script>
-        <script async type="module" src="./customdialog.js">
+        <!-- <script type="text/javascript" src="./customdialog.js">
             const alertBtn2 = document.getElementById('alert');
             const confirmBtn2 = document.getElementById('confirm');
             const promptBtn2 = document.getElementById('prompt');
@@ -49,24 +12,69 @@
 
             alertBtn2.addEventListener('click', function() {
                 let dialog = document.getElementById('dialog')
-                dialog.open = true;
-                dialog.innerHTML = "You Clicked Alert";
-
+                let template = document.getElementById('template')
+                var clon = template.content.cloneNode(true);
+                document.body.appendChild(clon);
             });
-            
+        </script> -->
+        <script async type="module">
+            document.addEventListener('DOMContentLoaded', function(){
+                const alertBtn = document.getElementById('alert');
+                const confirmBtn = document.getElementById('confirm');
+                const promptBtn = document.getElementById('prompt');
+                const safe_prompt = document.getElementById('safer_prompt');
+
+                alertBtn.addEventListener('click', function() {
+                    window.alert('You Clicked Alert!');
+                });
+
+                confirmBtn.addEventListener('click', function() {
+                    let result = window.confirm('Please confirm');
+                    let output = document.getElementById("output");
+                    let temp = document.getElementById("template")
+                    var clon = temp.content.cloneNode(true);
+                    document.body.appendChild(clon);
+                    let tempStr = `Confirmed Result: ${result}`;
+                    output.innerHTML="HELO"
+                });
+
+                promptBtn.addEventListener('click', ()=>{
+                    let result = window.prompt('Say something');
+                    if(result==='') {
+                        let prompt_echo = document.getElementById("prompt_echo");
+                        prompt_echo.innerHTML = `The User Didn't Input Anything`;
+                    }
+                    let prompt_echo = document.getElementById("prompt_echo");
+                    prompt_echo.innerHTML = `User Input: `+result;
+                    //alert(result)
+                });
+
+                safe_prompt.addEventListener('click', function() {
+                    let result = window.prompt('Say something');
+                    if(result==='') {
+                        safer_prompt_echo.innerHTML = `The User Didn't Input Anything`;
+                    }
+                    let clean = DOMPurify.sanitize(result, { USE_PROFILES: { html: true } });
+                    let safer_prompt_echo = document.getElementById("safer_prompt_echo");
+                    safer_prompt_echo.innerHTML = `User Input: `+clean;
+                });
+            });
         </script>
     </head>
     <body>
         <header>
             <button id="alert">Alert</button>
             <button id="confirm">Confirm</button>
-            <output id="confirm_echo"></output>
             <button id="prompt">Prompt</button>
-            <output id="prompt_echo"></output>
             <button id="safer_prompt">Safer Prompt</button>
-            <output id="safe_prompt_echo"></output>
-            <dialog id="dialog">
-            </dialog>
+            <template id="template">
+                <h2>Dialog</h2>
+                <dialog id="dialog">
+                    <output id="output">
+                    </output>
+                </dialog>
+            </template>
+
         </header>
     </body>
 </html>
