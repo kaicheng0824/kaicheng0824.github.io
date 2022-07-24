@@ -5,14 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=0.5">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.js"></script>
         <script async type="module">
-            
             const alertBtn = document.getElementById('alert');
             const confirmBtn = document.getElementById('confirm');
             const promptBtn = document.getElementById('prompt');
             const safe_prompt = document.getElementById('safer_prompt');
 
             alertBtn.addEventListener('click', function() {
-                window.alert('Alert!');
+                window.alert('You Clicked Alert!');
             });
 
             confirmBtn.addEventListener('click', function() {
@@ -28,7 +27,7 @@
                     prompt_echo.innerHTML = `The User Didn't Input Anything`;
                 }
                 let prompt_echo = document.getElementById("prompt_echo");
-                prompt_echo.innerHTML = result
+                prompt_echo.innerHTML = `User Input: `+result;
                 //alert(result)
             });
 
@@ -39,10 +38,22 @@
                 }
                 let clean = DOMPurify.sanitize(result, { USE_PROFILES: { html: true } });
                 let safer_prompt_echo = document.getElementById("safer_prompt_echo");
-                safer_prompt_echo.innerHTML = clean;
-                //alert(clean)
+                safer_prompt_echo.innerHTML = `User Input: `+clean;
             });
+        </script>
+        <script async type="module" src="./customdialog.js">
+            const alertBtn2 = document.getElementById('alert');
+            const confirmBtn2 = document.getElementById('confirm');
+            const promptBtn2 = document.getElementById('prompt');
+            const safe_prompt2 = document.getElementById('safer_prompt');
 
+            alertBtn2.addEventListener('click', function() {
+                let dialog = document.getElementById('dialog')
+                dialog.open = true;
+                dialog.innerHTML = "You Clicked Alert";
+
+            });
+            
         </script>
     </head>
     <body>
@@ -54,6 +65,9 @@
             <output id="prompt_echo"></output>
             <button id="safer_prompt">Safer Prompt</button>
             <output id="safe_prompt_echo"></output>
+            <dialog open id="dialog">
+                This
+            </dialog>
         </header>
     </body>
 </html>
