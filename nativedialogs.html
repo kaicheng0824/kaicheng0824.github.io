@@ -24,9 +24,10 @@
             promptBtn.addEventListener('click', ()=>{
                 let result = window.prompt('Say something');
                 if(result==='') {
-                    alert(`The user didn't input anything`);
+                    let prompt_echo = document.getElementById("prompt_echo");
+                    prompt_echo.innerHTML = `The User Didn't Input Anything`;
                 }
-                let prompt_echo = document.getElementById("prompt_echo");
+                //let prompt_echo = document.getElementById("prompt_echo");
                 //prompt_echo.innerHTML = result;
                 //alert(result)
             });
