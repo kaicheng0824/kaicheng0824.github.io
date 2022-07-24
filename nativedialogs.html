@@ -25,7 +25,7 @@
             <button id="prompt">Prompt</button>
             <button id="safer_prompt">Safer Prompt</button>
             <template id="template">
-                <h2>Dialog</h2>
+                <h2 id="h2">Dialog</h2>
                 <dialog id="dialog">
                     <output id="output">
                     </output>
@@ -44,23 +44,30 @@
 
                 confirmBtn.addEventListener('click', function() {
                     let result = window.confirm('Please confirm');
-                    let output = document.getElementById("output");
+                    let output = document.getElementById("h2");
+                    let h2 = document.getElementById("output");
                     let temp = document.getElementById("template")
                     var clon = temp.content.cloneNode(true);
                     document.body.appendChild(clon);
                     let tempStr = `Confirmed Result: ${result}`;
-                    output.innerHTML="HELO"
+                    h2.innerHTML="HELLO";
+                    output.innerHTML="HELO";
                 });
 
                 promptBtn.addEventListener('click', ()=>{
                     let result = window.prompt('Say something');
                     if(result==='') {
-                        let prompt_echo = document.getElementById("prompt_echo");
-                        prompt_echo.innerHTML = `The User Didn't Input Anything`;
+                        let temp = document.getElementById("template")
+                        var clon = temp.content.cloneNode(true);
+                        document.body.appendChild(clon);
+                        //let tempStr = `Confirmed Result: ${result}`;
+                        output.innerHTML="No Input"
                     }
-                    let prompt_echo = document.getElementById("prompt_echo");
-                    prompt_echo.innerHTML = `User Input: `+result;
-                    //alert(result)
+                    let temp = document.getElementById("template")
+                    var clon = temp.content.cloneNode(true);
+                    document.body.appendChild(clon);
+                    let tempStr = `Confirmed Result: ${result}`;
+                    output.innerHTML="HELO"
                 });
 
                 safe_prompt.addEventListener('click', function() {
