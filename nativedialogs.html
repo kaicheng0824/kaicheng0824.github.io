@@ -63,7 +63,7 @@
                     let text = document.getElementById("text");
                     dialog.open = true;
                     if(result==='' || result===null) { result = "No Input" }
-                    let clean = DOMPurify.sanitize(result);
+                    let clean = DOMPurify.sanitize(result, {USE_PROFILES: {html: true}, FORBID_ATTR: ['style','onclick','onmouseover']});
                     let tempStr = `Confirmed Result: ${result}`;
                     text.innerHTML= tempStr;
                 });
