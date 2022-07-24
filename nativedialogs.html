@@ -17,7 +17,22 @@
                 document.body.appendChild(clon);
             });
         </script> -->
-        <script async type="module" defer>
+    </head>
+    <body>
+        <header>
+            <button id="alert">Alert</button>
+            <button id="confirm">Confirm</button>
+            <button id="prompt">Prompt</button>
+            <button id="safer_prompt">Safer Prompt</button>
+            <template id="template">
+                <h2>Dialog</h2>
+                <dialog id="dialog">
+                    <output id="output">
+                    </output>
+                </dialog>
+            </template>
+
+            <script async type="module">
                 const alertBtn = document.getElementById('alert');
                 const confirmBtn = document.getElementById('confirm');
                 const promptBtn = document.getElementById('prompt');
@@ -58,20 +73,6 @@
                     safer_prompt_echo.innerHTML = `User Input: `+clean;
                 });
         </script>
-    </head>
-    <body>
-        <header>
-            <button id="alert">Alert</button>
-            <button id="confirm">Confirm</button>
-            <button id="prompt">Prompt</button>
-            <button id="safer_prompt">Safer Prompt</button>
-            <template id="template">
-                <h2>Dialog</h2>
-                <dialog id="dialog">
-                    <output id="output">
-                    </output>
-                </dialog>
-            </template>
 
         </header>
     </body>
