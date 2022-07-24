@@ -44,11 +44,11 @@
 
                 confirmBtn.addEventListener('click', function() {
                     let result = window.confirm('Please confirm');
-                    let output = document.getElementById("h2");
-                    let h2 = document.getElementById("output");
                     let temp = document.getElementById("template")
                     var clon = temp.content.cloneNode(true);
                     document.body.appendChild(clon);
+                    let output = document.getElementById("h2");
+                    let h2 = document.getElementById("output");
                     let tempStr = `Confirmed Result: ${result}`;
                     h2.innerHTML="HELLO";
                     output.innerHTML="HELO";
