@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.js"></script>
+        <script async type="module">
+            
+            const alertBtn = document.getElementById('alert');
+            const confirmBtn = document.getElementById('confirm');
+            const promptBtn = document.getElementById('prompt');
+            const safe_prompt = document.getElementById('safer_prompt');
+
+            alertBtn.addEventListener('click', function() {
+                window.alert('Alert!');
+            });
+
+            confirmBtn.addEventListener('click', function() {
+                let result = window.confirm('Please confirm');
+                let confirm_echo = document.getElementById("confirm_echo");
+                confirm_echo.innerHTML = 'The value returned by the confirm method is : '+result;
+            });
+
+            promptBtn.addEventListener('click', ()=>{
+                let result = window.prompt('Say something');
+                if(result==='') {
+                    alert(`The user didn't input anything`);
+                }
+                let prompt_echo = document.getElementById("prompt_echo");
+                //prompt_echo.innerHTML = result;
+                //alert(result)
+            });
+
+            safe_prompt.addEventListener('click', function() {
+                let result = window.prompt('Say something');
+                if(result==='') {
+                    alert(`The user didn't input anything`);
+                }
+                let clean = DOMPurify.sanitize(result, { USE_PROFILES: { html: true } });
+                let safer_prompt_echo = document.getElementById("safer_prompt_echo");
+                //safer_prompt_echo.innerHTML = clean;
+                //alert(clean)
+            });
+
+        </script>
+    </head>
+    <body>
+        <header>
+            <button id="alert">Alert</button>
+            <button id="confirm">Confirm</button>
+            <output id="confirm_echo"></output>
+            <button id="prompt">Prompt</button>
+            <output id="prompt_echo"></output>
+            <button id="safer_prompt">Safer Prompt</button>
+            <output id="safe_prompt_echo"></output>
+        </header>
+    </body>
+</html>
