@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <title>Kai-Wen Cheng | About</title>
+        <link rel="icon" type="image/x-icon" href="/image/favicon.ico">
+        <link rel="stylesheet" media="(max-device-width: 600px)" href="./style/header_footer_subpage_phone.css">  
+        <link rel="stylesheet" media="(min-device-width: 600px) and (max-device-width: 899px)" href="./style/header_footer_subpage_tablet.css"> 
+        <link rel="stylesheet" media="(min-device-width: 900px)" href="./style/header_footer_subpage_desktop.css">
+        <style>
+            section {
+                padding: 0.5em;
+            }
+
+            main {
+                    background-color: rgb(255,255,255,0.5);
+                    display: grid;
+                    grid-template-columns: 1fr;
+            }
+
+            section > ul {
+                display: grid;
+                padding: 1em;
+                grid-template-columns: 1fr 2fr;
+                grid-template-rows: 1fr; 
+            }
+
+            #intro {
+                margin-top: auto;
+                margin-bottom: auto;
+                /* border: solid 1px black; */
+                grid-row: 1;
+                /* display: block; */
+                /* grid-template-columns: 1fr 2fr; */
+            }
+
+            #education {
+                margin-top: 0px;
+                margin-bottom: auto;
+                /* border: solid 1px black; */
+                grid-row: 2;
+                display: block;
+                /* grid-template-columns: 1fr 2fr; */
+            }
+
+            #funfact {
+                /* border: solid 1px black; */
+                margin-top: auto;
+                margin-bottom: auto;
+                grid-row: 3;
+                display: block;
+                grid-template-columns: 1fr 2fr;
+            }
+
+            #funfact_list {
+                padding: 1em;
+                margin: 2em;
+                margin-top: 1em;
+                border-radius: 2em;
+            }
+
+            #intro_pic {
+                margin-top: auto;
+                margin-bottom: auto;
+                padding: 0.5em;
+                /* border: solid 1px black; */
+            }
+
+            #intro_text {
+                text-align: left;
+                padding: 0.5em;
+                /* border: solid 1px black; */
+            }
+
+            #intro_text > p::first-letter {
+                font-size: 1.5em;
+            }
+
+            .about_img {
+                margin-top: auto;
+                margin-bottom: auto;
+                padding: 0.5em;
+                /* border: solid 1px black;                 */
+            }
+
+            #education_text {
+                padding: 0.5em;
+                /* border: solid 1px black; */
+            }
+
+            #education_text > ul > li {
+                padding: 0.5em;
+                text-decoration: underline;
+                
+            }
+
+            #funfact_text > ul > li {
+                padding: 0.5em;
+            }
+
+            #funfact_text > ul > li > * {
+                margin-top: 10px;
+            }
+
+            #funfact_text > ul > li > h4 {
+                margin-top: 0;
+                text-decoration: underline;
+                font-size: 1.1em;
+            }
+
+            #education_text > ul > li:hover {
+                color: brown;
+            }
+
+            #education_text > ul > li > details > ul {
+                color: black;
+            }
+
+
+            #intro_text a {
+                margin: 0;
+                padding: 0;
+                text-decoration: underline;
+                display: inline; 
+            }
+
+            #intro_text p {
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+
+            #intro_text > aside > details:hover {
+                color: brown;
+            }
+
+            .major-list {
+                font-size: 0.8em;
+                padding: 1em;
+            }
+
+            a[href^=“http“] {
+                color: brown;
+            }
+
+            @media screen and (max-device-width: 900px){
+                section > ul {
+                   /* border: solid 1px black; */
+                   display: grid;
+                    padding: 1em;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr; 
+                }
+                section > ul > li {
+                    margin: 2em;
+                    text-align: center;
+                }
+
+                aside {
+                    padding: 2em;
+                }
+            }
+
+            @media screen and (max-width:800px) {
+                section > ul {
+                    /* border: solid 1px black; */
+                    display: grid;
+                    padding: 1em;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr; 
+                }
+            }
+
+            /*#education {
+                grid-row: 2;
+                grid-column: 2;
+            }
+
+            #funfact {
+                grid-row: 3;
+                grid-column: 2;
+            } */
+
+            
+        </style>
+    </head>
+    <body>
+        <header>
+            <section>
+                <ol>
+                    <li id="name_cn">
+                        <a href="index.html" title="back to home">
+                        <img src="asset/chinese.png" alt="chinese caligraphy"/></a>
+                    </li>
+                    <li id="name">
+                        <h1> <a href="index.html" title="back to home">
+                            Kai-Wen Cheng</a> 
+                        </h1>
+                    </li>
+                    <li id="quote">
+                        <p><svg height="10" width="10">
+                            <circle cx="5" cy="5" r="4" stroke="black" stroke-width="2" fill="red" />
+                          </svg> 
+                          <i>True heroism is to see the world as it, and to love it. -Roman Rolland</i>
+                          </p>
+                    </li>
+                </ol>
+            </section>
+            <nav id="nav_bar">
+                <details id="hamburger">
+                    <summary><img src="asset/hamburger_icon.png" alt="hamburger menu icon" width="60" height="60"></summary>
+                    <ol id="nav_list_phone">
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="professional.html">Professional</a></li>
+                        <li><a href="personal.html">Personal</a></li>
+                        <li><a href="contactme.html">Contact Me</a></li>
+                        <li>
+                            <form>
+                                <label for="query_mobile">Search:</label>
+                                <input list="search_mobile" name="query" id="query_mobile">
+                                <datalist id="search_mobile">
+                                    <option value="Professional"></option>
+                                    <option value="Resume"></option>
+                                    <option value="Personal"></option>
+                                    <option value="Experience"></option>
+                                </datalist>
+                                <button type="submit" id="search_btn_nav_mobile">
+                                    Submit
+                                </button>
+                            </form>
+                        </li>
+                    </ol>        
+                </details>
+                <ol id="nav_list_desktop">
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="professional.html">Professional</a></li>
+                    <li><a href="personal.html">Personal</a></li>
+                    <li><a href="contactme.html">Contact Me</a></li>
+                    <li>
+                        <form>
+                            <label for="query">Search:</label>
+                            <input list="search" name="query" id="query">
+                            <datalist id="search">
+                                <option value="Professional"></option>
+                                <option value="Resume"></option>
+                                <option value="Personal"></option>
+                                <option value="Experience"></option>
+                            </datalist>
+                            <button type="submit" id="search_btn_nav">
+                                Submit
+                            </button>
+                        </form>
+                    </li>
+                </ol>
+            </nav>
+
+
+            <template>
+                <p>Latest Update: </p>
+            </template>
+        </header>
+        <main>
+            <!-- <h2>About Main Page</h2> -->
+            <!-- <section id="pic">
+                <img src="asset/profile-2.png" height="200" width="150" alt="Profile Picture"/>
+            </section> -->
+            <section id="intro">
+                <ul>
+                    <li class="about_img">
+                        <figure>
+                            <picture>
+                                <!-- Big -->
+                                <source srcset="asset/profile.webp" media="(min-width:1500px)"/>
+                                <!-- other case -->
+                                <img width="300px" height="200px" src="asset/profile-small.webp" alt="a profile pic"/>
+                            </picture>
+                            <figcaption>Mission Peak Hike, Fremont</figcaption>
+                        </figure>     
+                    </li>
+                    <li id="intro_text">
+                            <h3 style="text-align: center;">Introduction</h3>
+                            <p>Kai-Wen Cheng, also known as Kai, is a current 3rd year Electrical Engineering studying at the University of California,
+                                San Diego. He is originally from <b><a href="https://en.wikipedia.org/wiki/Taipei">Taipei, Taiwan</a></b>, and he moved to the
+                                US when he was 15 years old. Kai is passionate about <strong>Electronics, Software Design, Computer System</strong>, and numerous field of
+                                knowledge related to technology. On top of that, he also holds great interest in <strong>Macroeconomics</strong>. 
+                            </p>
+                            <p>Kai's hobby surrounds traveling, hiking, and reading. Kai also loves learning different languages. Currently, Kai
+                                speaks around 4 langauges (Cantonese, Mandarin, Taiwanese, English) fluently and knows about 2 other languages (Spanish and 
+                                Japanese).
+                            </p>
+                            <aside>  
+                                <details>
+                                    <summary><h4 style="text-align: center;">Being A Generalist</h4></summary>
+ 
+                                        <p>Kai was personally inspired by his favorite book <em>Range: Why Generalists Triumph in a Specialized World</em>
+                                            where the concept of Generalist is discussed. Kai believe that as an intelectual being, it is important to be curious
+                                            and educated on different field of knowledge. Aberration from a specialist world is one of the best decision he made. 
+                                            </p>
+                                </details>
+                            </aside>                               
+                    </li>
+                </ul>                 
+            </section>
+            <section id="education">
+                <ul>
+                    <li class="about_img">
+                        <figure>
+                            <picture>
+                                <img id="schoolPic" width="300px" height="200px" src="asset/ucsd.webp" alt="picture of school"/>
+                            </picture>
+                            <figcaption>UC San Diego's Giesel Library</figcaption>
+                        </figure>   
+                    </li>
+                    <li id="education_text">
+                        <h3 style="text-align: center;">Education</h3>
+                        <ul>
+                            <li>
+                                <details>
+                                    <summary id="UCSD">
+                                        University of California - San Deigo 
+                                    </summary> 
+                                    <ul class="major-list">
+                                        <li style="text-decoration: none;"></li>
+                                            Sept 2019 - Present
+                                        </li>
+                                        <li style="text-decoration: none;"></li>
+                                            BSc in Electrical Engineering
+                                        </li>
+                                        <li style="text-decoration: none;"></li>
+                                            BA in Economics
+                                        </li>
+                                    </ul>
+
+                                </details>
+                                </li>
+                            <li>
+                                <details>
+                                    <summary>
+                                        EF Academy New York
+                                    </summary> 
+                                    <ul class="major-list">
+                                        <li style="text-decoration: none;"></li>
+                                            Sept 2016 - May 2019
+                                        </li>
+                                        <li style="text-decoration: none;"></li>
+                                            IB Diploma
+                                        </li>
+                                    </ul>
+                                </details>
+                                </li>
+                            <li>
+                                <details>
+                                    <summary>
+                                        Taipei Fuhsing Private School 
+                                    </summary> 
+                                    <ul class="major-list">
+                                        <li style="text-decoration: none;"></li>
+                                            Sept 2013 - June 2016
+                                        </li>
+                                        <li style="text-decoration: none;"></li>
+                                            Taiwanese Middle School Diploma
+                                        </li>
+                                    </ul>
+                                </details>
+                                </li>
+                        </ul>                        
+                    </li>
+                </ul>
+            </section>
+
+            <section id="funfact">
+                <ul>
+                    <li class="about_img">
+                        <figure>
+                            <picture>
+                                <img width="300px" height="250px" src="asset/Gyudon.webp" alt="gyudon bowl"/>
+                            </picture>
+                            <figcaption>Gyudon Bowl</figcaption>
+                        </figure>   
+                    </li>
+                    <li id="funfact_text">
+                        <h3 style="text-align: center;">Fun facts</h3>
+                        <ul id="funfact_list" class="major-list" style="background-color: rgb(127, 115, 115,0.2);">
+                            <li>
+                                <h4>Favorite Piece of Code</h4>
+                                <pre>
+                                    <code>
+#include &lt;stdio.h>
+int main() {
+    for(;;){
+        printf(<span>"Hello World\n"</span>);
+    }
+}
+                                    </code>
+                                </pre>
+                            </li>
+                            <li>
+                                <h4>Favorite Food</h4>
+                                <p>Gyudon Bowl</p>
+                            </li>
+                            <li>
+                                <h4>Favorite Book</h4>
+                                <p><em>Range: Why Generalists Triumph in a Specialized World</em></p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+
+        </main>
+        <footer>
+            <ul>
+                <li id="legal"><p>Made By, Kai-Wen Cheng 2022 &nbsp;&copy;</p></li>
+                <li><a href="mailto:kac003@ucsd.edu">Email</a></li>
+                <li>+1 (571)-274-1675</li>
+                <li>San Diego, CA</li>
+            </ul>
+        </footer>
+    </body>
+</html>

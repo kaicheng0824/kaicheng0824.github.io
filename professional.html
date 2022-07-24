@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <title>Kai-Wen Cheng | Professional</title>
+        <link rel="icon" type="image/x-icon" href="/image/favicon.ico"/>
+        <link rel="stylesheet" media="(max-device-width: 600px)" href="./style/header_footer_subpage_phone.css">  
+        <link rel="stylesheet" media="(min-device-width: 600px) and (max-device-width: 899px)" href="./style/header_footer_subpage_tablet.css"> 
+        <link rel="stylesheet" media="(min-device-width: 900px)" href="./style/header_footer_subpage_desktop.css">
+        <style>
+            main {
+                padding: 1em;
+            }
+    
+            main > ul > li > section > h3 {
+                font-size: 2em;
+                text-decoration: underline;
+            }
+    
+            main > ul > li > section > * {
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+    
+            #table {
+                margin-left: auto;
+                margin-right: auto;
+            }
+    
+            #table > section > table {
+                margin-left: 0;
+                margin-right: auto;
+                width: 85%
+            }
+            
+            #table > section, #past_experience > section {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                grid-template-rows: 1fr 1fr;
+            }
+    
+            #table > section > section > h3, #past_experience > section > h3 {
+                grid-row: 1;
+                grid-column: 1;
+            }
+    
+            #table > section > section > :nth-child(2), 
+            #past_experience > section > :nth-child(2) {
+                grid-row: 2;
+                grid-column: 1;
+                margin-top: 1em;
+                margin-bottom: auto;
+            }
+    
+            .exp_tag > * {
+                border-radius: 1em;
+                font-size: 0.7em;
+                padding: 0.5em;
+                margin: 0.2em;
+                border: 1px solid black;
+                display: inline-block;
+            }
+    
+            .exp_tag > *:hover {
+                background-color: #D1D1D1;
+            }
+    
+    
+            #table > section > :nth-child(3)
+            ,#past_experience > section > :nth-child(3) {
+                margin-left: 4em;
+                grid-row: 1 /span 2;
+                grid-column: 2;
+            }
+    
+            #table > section > ul > li > ul, #past_experience > section > ul > li > ul {
+                padding-top: 1em ;
+                text-align: left;
+            }
+    
+            #past_experience > section > ul > li > ul > * {
+                padding-bottom: 1em;
+            }
+            #past_experience > section > ul > li > ul > li> p {
+                font-size: 0.8em;
+            }
+    
+            th {
+                background-color: rgb(193, 193, 153);
+                border: 1px solid black;
+                padding: 0.5em;
+            }
+    
+            tr:nth-child(even) {
+                background-color: #E1E1E1;
+            }
+    
+            td {
+                border: 1px solid black;
+                padding: 0.5em;
+            }
+    
+            td > ol > * {
+                list-style-type:square;
+                margin-left: 2em;
+                text-align: left;
+            }
+    
+            h4 {
+                font-size: 2rem;
+            }
+            caption > h4 {
+                padding-bottom: 1rem;
+            }
+            h5 {
+                font-size: 1.5rem;
+            }
+    
+            @media screen and (max-device-width: 900px){
+                #table > section, #past_experience > section {
+                    display: block;
+                }
+                .exp_tag {
+                    margin-top: 1em;
+                    margin-bottom: 1em;
+                    font-size: 2em;
+                }
+                table {
+                    font-size: 1.5em;
+                }
+            }
+            @media screen and (max-width:800px) {
+                #table > section, #past_experience > section {
+                    display: block;
+                }
+                .exp_tag {
+                    margin-top: 1em;
+                    margin-bottom: 1em;
+                    font-size: 2em;
+                }
+                table {
+                    font-size: 1.5em;
+                }
+            }
+    
+    
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <section>
+                <ol>
+                    <li id="name_cn">
+                        <a href="index.html" title="back to home">
+                        <img src="asset/chinese.png" alt="chinese caligraphy"/></a>
+                    </li>
+                    <li id="name">
+                        <h1> <a href="index.html" title="back to home">
+                            Kai-Wen Cheng</a> 
+                        </h1>
+                    </li>
+                    <li id="quote">
+                        <p><svg height="10" width="10">
+                            <circle cx="5" cy="5" r="4" stroke="black" stroke-width="2" fill="red" />
+                          </svg> 
+                          <i>You miss 100% of the shot that you don't take - Michael Scott </i>
+                          </p>
+                    </li>
+                </ol>
+            </section>
+            <nav id="nav_bar">
+                <details id="hamburger">
+                    <summary><img src="asset/hamburger_icon.png" alt="hamburger menu icon" width="60" height="60"></summary>
+                    <ol id="nav_list_phone">
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="professional.html">Professional</a></li>
+                        <li><a href="personal.html">Personal</a></li>
+                        <li><a href="contactme.html">Contact Me</a></li>
+                        <li>
+                            <form>
+                                <label for="query_mobile">Search:</label>
+                                <input list="search_mobile" name="query" id="query_mobile">
+                                <datalist id="search_mobile">
+                                    <option value="Professional"></option>
+                                    <option value="Resume"></option>
+                                    <option value="Personal"></option>
+                                    <option value="Experience"></option>
+                                </datalist>
+                                <button type="submit" id="search_btn_nav_mobile">
+                                    Submit
+                                </button>
+                            </form>
+                        </li>
+                    </ol>        
+                </details>
+                <ol id="nav_list_desktop">
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="professional.html">Professional</a></li>
+                    <li><a href="personal.html">Personal</a></li>
+                    <li><a href="contactme.html">Contact Me</a></li>
+                    <li>
+                        <form>
+                            <label for="query">Search:</label>
+                            <input list="search" name="query" id="query">
+                            <datalist id="search">
+                                <option value="Professional"></option>
+                                <option value="Resume"></option>
+                                <option value="Personal"></option>
+                                <option value="Experience"></option>
+                            </datalist>
+                            <button type="submit" id="search_btn_nav">
+                                Submit
+                            </button>
+                        </form>
+                    </li>
+                </ol>
+            </nav>
+
+
+            <template>
+                <p>Latest Update: </p>
+            </template>
+        </header>
+        <main>
+            <ul>
+                <li id="past_experience">
+                    <section>
+                        <h3>Past Experience</h3>
+                        <ul class="exp_tag">
+                            <li>#Power Electronics</li>
+                            <li>#Data Sciences</li>
+                            <li>#Circuit Design</li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <ul>
+                                    <li>
+                                        <h4>UC San Diego Jacob’s School of Engineering</h4>
+                                    </li>
+                                    <li>
+                                        <h5>Data Analytics Research Intern</h5>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            ●	Research under professor Yuanyuan Shi to conduct data analytics of carbon emission data from the California grid.
+                                        </p>
+                                        <p>
+                                        ●	Organize and visualized more than 100,000 entries of grid marginal emission data into heatmaps using pandas and numpy.
+                                        </p>
+                                        <p>
+                                        ●	Help develop and simulate a carbon minimizing strategy for electric vehicles using carbon emission data and charging data.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li>
+                                        <h4>UC San Diego Jacob’s School of Engineering</h4>
+                                    </li>
+                                    <li>
+                                        <h5>Power Electronics Research Intern</h5>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            ●	Research under professor Hanh-Phuc Le to conduct simulation and hardware implementation for DC-DC power converter.
+                                        </p>
+                                        <p>
+                                            ●	Simulate a close-loop synchronous buck converter that steps down from 12V to 3V under ideal and non-ideal implementations.                                         </p>
+                                        <p>
+                                            ●	Implement and measure the designed buck converter on PCB to validate simulation results with empirical findings.                                        </p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                </li>
+                <li id="table">
+                    <section>
+                        <h3>Academics</h3>
+                        <ul class="exp_tag">
+                            <li>#Power Electronics</li>
+                            <li>#Data Sciences</li>
+                            <li>#GIS</li>
+                            <li>#Software Engingeering</li>
+                            <li>#Circuit Design</li>
+                            <li>#Economics</li>
+                        </ul>
+                        <table style="border: 1px solid black;">
+                            <caption><h4>Courses Taken</h4></caption>
+                            <colgroup>
+                                <col span="1">
+                                <col >
+                              </colgroup>
+                            <tr>
+                                <th>Discipline</th>
+                                <th>Courses</th>
+                                </tr>
+                            <tr>
+                                <td>
+                                    Computer Science
+                                </td>
+                                <td>
+                                    <ol>
+                                        <li>Advance Data Structures</li>
+                                        <li>Software Engineering</li>
+                                        <li>Web Client Languages</li>
+                                    </ol>
+                                </td>
+                                </tr>
+                            <tr>
+                                <td>
+                                    Computer Engineering
+                                </td>
+                                <td>
+                                    <ol>
+                                        <li>C Programming / System Programing</li>
+                                        <li>Digital Design (WIP)</li>
+                                        <li>Computer Architecture (WIP)</li>
+                                    </ol>
+                                </td>
+                                </tr>
+                            <tr>
+                                <td>
+                                    Circuits
+                                </td>
+                                <td>
+                                    <ol>
+                                        <li>Digital IC Design</li>
+                                        <li>Analog IC Design</li>
+                                        <li>Analog Circuits and System</li>
+                                    </ol>
+                                </td>
+                                </tr>
+                            <tr>
+                                <td>
+                                    Mathematics
+                                </td>
+                                <td>
+                                    <ol>
+                                        <li>Graph Theory</li>
+                                        <li>Calculus I, II, III</li>
+                                        <li>Discrete Math</li>
+                                    </ol>
+                                </td>
+                                </tr>
+                        </table>
+                    </section>
+                </li>
+            </ul>
+        </main>
+        <footer>
+            <ul>
+                <li id="legal"><p>Made By, Kai-Wen Cheng 2022 &nbsp;&copy;</p></li>
+                <li><a href="mailto:kac003@ucsd.edu">Email</a></li>
+                <li>+1 (571)-274-1675</li>
+                <li>San Diego, CA</li>
+            </ul>
+        </footer>
+    </body>
+</html>

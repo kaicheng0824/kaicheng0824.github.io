@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <title>Kai-Wen Cheng | Personal</title>
+        <link rel="icon" type="image/x-icon" href="/image/favicon.ico">    
+        <link rel="stylesheet" media="(max-device-width: 600px)" href="./style/header_footer_subpage_phone.css">  
+        <link rel="stylesheet" media="(min-device-width: 600px) and (max-device-width: 899px)" href="./style/header_footer_subpage_tablet.css"> 
+        <link rel="stylesheet" media="(min-device-width: 900px)" href="./style/header_footer_subpage_desktop.css">
+        <style>
+            main summary {
+                margin-left: auto;
+                margin-right: auto;
+                border: 4px solid transparent;
+                outline: none;
+                padding: 1rem;
+                display: block;
+                background: rgba(99, 87, 87, 0.5);
+                color: white;
+                padding-left: 2.2rem;
+                position: relative;
+                cursor: pointer;
+                border-radius: 3rem;
+            }
+
+            .pics {
+                padding: 1em;
+            }
+            main summary:hover {
+                background: rgb(127, 115, 115);
+            }
+
+            main details {
+                transition: height 1s ease;
+                border-radius: 3rem;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 1rem;
+                max-width: 900px;
+                box-sizing: border-box;
+                margin-top: 5px;
+                background: rgb(127, 115, 115,0.2);
+            }
+
+            main p {
+                padding: 1em;
+            }
+
+            main section {
+                margin-top: 30px;
+            }
+
+            main details[open] summary {
+                animation: expand 0.6s ease-in-out;
+                animation-fill-mode: forwards;
+            }
+
+            @keyframes expand {
+                0%    {opacity: 1; margin-bottom: -10px}
+                100%  {opacity: 1; margin-top: 0px}
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <section>
+                <ol>
+                    <li id="name_cn">
+                        <a href="index.html" title="back to home">
+                        <img src="asset/chinese.png" alt="chinese caligraphy"/></a>
+                    </li>
+                    <li id="name">
+                        <h1> <a href="/index.html" title="back to home">
+                            Kai-Wen Cheng</a> 
+                        </h1>
+                    </li>
+                    <li id="quote">
+                        <p><svg height="10" width="10">
+                            <circle cx="5" cy="5" r="4" stroke="black" stroke-width="2" fill="red" />
+                          </svg> 
+                          <i>Through discipline comes freedom - Aristotle</i>
+                          </p>
+                    </li>
+                </ol>
+            </section>
+            <nav id="nav_bar">
+                <details id="hamburger">
+                    <summary><img src="asset/hamburger_icon.png" alt="hamburger menu icon" width="60" height="60"></summary>
+                    <ol id="nav_list_phone">
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="professional.html">Professional</a></li>
+                        <li><a href="personal.html">Personal</a></li>
+                        <li><a href="contactme.html">Contact Me</a></li>
+                        <li>
+                            <form>
+                                <label for="query_mobile">Search:</label>
+                                <input list="search_mobile" name="query" id="query_mobile">
+                                <datalist id="search_mobile">
+                                    <option value="Professional"></option>
+                                    <option value="Resume"></option>
+                                    <option value="Personal"></option>
+                                    <option value="Experience"></option>
+                                </datalist>
+                                <button type="submit" id="search_btn_nav_mobile">
+                                    Submit
+                                </button>
+                            </form>
+                        </li>
+                    </ol>        
+                </details>
+                <ol id="nav_list_desktop">
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="professional.html">Professional</a></li>
+                    <li><a href="personal.html">Personal</a></li>
+                    <li><a href="contactme.html">Contact Me</a></li>
+                    <li>
+                        <form>
+                            <label for="query">Search:</label>
+                            <input list="search" name="query" id="query">
+                            <datalist id="search">
+                                <option value="Professional"></option>
+                                <option value="Resume"></option>
+                                <option value="Personal"></option>
+                                <option value="Experience"></option>
+                            </datalist>
+                            <button type="submit" id="search_btn_nav">
+                                Submit
+                            </button>
+                        </form>
+                    </li>
+                </ol>
+            </nav>
+
+
+            <template>
+                <p>Latest Update: </p>
+            </template>
+        </header>
+        <main>
+            <section>
+                <details open>
+                    <summary><h2>Travelling</h2></summary>
+                    <p>
+                        I love travelling to different places across the country and across the globe. I have been to
+                        Europe, North Americas, South America, East Asia, and Austrailia. I am looking forward to go 
+                        to more places when COVID ends!
+                    </p>
+
+                    
+                    <ul style="display: flex;flex-wrap:wrap; justify-content: center;">
+                        <li class="pics">
+                            <img src="asset/sd.webp" alt="San Diego" width="200" height="200"/>
+                        </li>
+                        <li class="pics">
+                            <img src="asset/spain.webp" alt="Spain" width="200" height="200"/>
+                        </li>
+                        <li class="pics">
+                            <video width="200" height="200" controls style="border-radius: 1em;">
+                                <source src="asset/travel-1.mp4"/>
+                                <strong>HTML5 Element Not Supported</strong>
+                            </video>
+                        </li>
+                        <li class="pics">
+                            <img src="asset/house.webp" alt="Fallen Starts" width="200" height="200"/>
+                        </li>
+                        <li class="pics">
+                            <img src="asset/highway.webp" alt="Annie's canyon" width="200" height="200"/>
+                        </li>
+                        <li class="pics">
+                            <img src="asset/giesel.webp" alt="Giesel Library" width="200" height="200"/>
+                        </li>
+                    </ul>
+                </details>
+            </section>
+
+            <section>
+                <details open>
+                    <summary><h2>Hiking</h2></summary>
+                    <p>
+                        I consider myself an ameture hiker. I love going on hikes. My crecent hike is
+                        the Annie's Canyon trail in Solana Beach, CA. 
+                    </p>
+                </details>
+            </section>
+
+        </main>
+        <footer>
+            <ul>
+                <li id="legal"><p>Made By, Kai-Wen Cheng 2022 &nbsp;&copy;</p></li>
+                <li><a href="mailto:kac003@ucsd.edu">Email</a></li>
+                <li>+1 (571)-274-1675</li>
+                <li>San Diego, CA</li>
+            </ul>
+        </footer>
+    </body>
+</html>

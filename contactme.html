@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <title>Kai-Wen Cheng | Contact Me</title>
+        <link rel="icon" type="image/x-icon" href="/image/favicon.ico">
+        <link rel="stylesheet" media="(max-device-width: 600px)" href="./style/header_footer_subpage_phone.css">  
+        <link rel="stylesheet" media="(min-device-width: 600px) and (max-device-width: 899px)" href="./style/header_footer_subpage_tablet.css"> 
+        <link rel="stylesheet" media="(min-device-width: 900px)" href="./style/header_footer_subpage_desktop.css">
+        <style>
+            #send_message > form {
+                margin-left: auto;
+                margin-right: auto;
+                width:90%;
+            }
+/* 
+            #name {
+                width:70%;
+                height: 2em;
+            } */
+
+            #email {
+                width:70%;
+                height: 2em;
+            }
+
+            #submit_btn {
+                margin-top: 10px;
+                text-align: center;
+                height: 2em;
+                width: 6em;
+                font-size: 1.5em;
+                /* padding-top: auto;
+                padding-bottom: auto; */
+            }
+
+            @media screen and (max-device-width:900px) {
+                main > label {
+                    font-size: 2em;
+                }
+
+                .form-field > label {
+                    font-size: 1.5em;
+                }
+
+                #submit_btn {
+                    margin-top: 10px;
+                    height: 2em;
+                    width: 5em;
+                    font-size: 1em;
+                }
+
+                .form-field {
+                    font-size: 1.5em;
+                }
+
+                option {
+                    text-align: center;
+                }
+
+                /* #name {
+                    width:90%;
+                    height: 2em;
+                } */
+
+                #email {
+                    width:90%;
+                    height: 2em;
+                }                
+            }
+
+
+
+
+            .form-field {
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                margin-left: 20px;
+                text-align: left;
+                padding: 0.5em;
+            }
+
+            textarea {
+                border-width: 3px;
+                width: 70%;
+                margin-top: 0.7em;
+                font-size: 1.1em;
+            }
+
+            fieldset {
+                text-align: left;
+                font-size: 1em;
+            }
+
+        </style>  
+    </head>
+    <body>
+        <header>
+            <section>
+                <ol>
+                    <li id="name_cn">
+                        <a href="index.html" title="back to home">
+                        <img src="asset/chinese.png" alt="chinese caligraphy"/></a>
+                    </li>
+                    <li id="name">
+                        <h1> <a href="index.html" title="back to home">
+                            Kai-Wen Cheng</a> 
+                        </h1>
+                    </li>
+                    <li id="quote">
+                        <p><svg height="10" width="10">
+                            <circle cx="5" cy="5" r="4" stroke="black" stroke-width="2" fill="red" />
+                          </svg> 
+                          <i>True heroism is to see the world as it, and to love it. -Roman Rolland</i>
+                          </p>
+                    </li>
+                </ol>
+            </section>
+            <nav id="nav_bar">
+                <details id="hamburger">
+                    <summary><img src="asset/hamburger_icon.png" alt="hamburger menu icon" width="60" height="60"></summary>
+                    <ol id="nav_list_phone">
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="professional.html">Professional</a></li>
+                        <li><a href="personal.html">Personal</a></li>
+                        <li><a href="contactme.html">Contact Me</a></li>
+                        <li>
+                            <form>
+                                <label for="query">Search:</label>
+                                <input list="search_mobile" name="query" id="query_mobile">
+                                <datalist id="search_mobile">
+                                    <option value="Professional"></option>
+                                    <option value="Resume"></option>
+                                    <option value="Personal"></option>
+                                    <option value="Experience"></option>
+                                </datalist>
+                                <button type="submit" id="search_btn_nav_mobile">
+                                    Submit
+                                </button>
+                            </form>
+                        </li>
+                    </ol>        
+                </details>
+                <ol id="nav_list_desktop">
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="professional.html">Professional</a></li>
+                    <li><a href="personal.html">Personal</a></li>
+                    <li><a href="contactme.html">Contact Me</a></li>
+                    <li>
+                        <form>
+                            <label for="query_mobile">Search:</label>
+                            <input list="search" name="query" id="query">
+                            <datalist id="search">
+                                <option value="Professional"></option>
+                                <option value="Resume"></option>
+                                <option value="Personal"></option>
+                                <option value="Experience"></option>
+                            </datalist>
+                            <button type="submit" id="search_btn_nav">
+                                Submit
+                            </button>
+                        </form>
+                    </li>
+                </ol>
+            </nav>
+
+
+            <template>
+                <p>Latest Update: </p>
+            </template>
+        </header>
+        <main>
+            <section>
+                <h3>My Calendar</h3>
+                <br/>
+                <iframe src="https://calendar.google.com/calendar/embed?src=kac003%40ucsd.edu&ctz=America%2FLos_Angeles" style="border: 0" width="600" height="600"></iframe>
+            </section>
+            <section id="send_message">
+                <h3>Send Me A Message!</h3>
+                <form>
+                    <fieldset>
+                        <legend class="form-field">Basic Info:</legend>
+                        <div class="form-field">
+                            <label for="nameInput">Name: </label>
+                            <input type="text" id="nameInput" name="nameInput">
+                        </div>
+                        <div class="form-field">
+                            <label for="email">Email: </label>
+                            <input type="email" id="email" name="email">
+                        </div>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="form-field"><h4>Message:</h4></legend>
+                        <label for="contactType" class="form-field" style="display: inline-block;"> Subject Matter: </label>
+                        <select id="contactType" name="contactType">
+                            <optgroup label="Professional">
+                                <option value="recruiting">Recruiting</option>
+                                <option value="networking">Networking</option>
+                            </optgroup>
+                            <optgroup label="Personal">
+                                <option value="friends">Make a Friend</option>
+                                <option value="suggestion">Asking for Suggestions</option>
+                            </optgroup>
+                            <optgroup label="Site Related">
+                                <option value="site-feedback">Site Feedback</option>
+                                <option value="problem">Report a Problem</option>
+                            </optgroup>
+                            <optgroup label="Site Related">
+                                <option value="other">Other</option>
+                            </optgroup>
+
+                          </select>
+                    
+                          <div class="form-field">
+                            <label for="message">Your Message:</label>
+                            <div>
+                                <textarea id="message" name="message" rows="4" cols="50" placeholder="Hi Kai, My name is..."></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <input id="submit_btn" type="submit" value="Submit">
+                </form>
+            </section>
+        </main>
+        <footer>
+            <ul>
+                <li id="legal"><p>Made By, Kai-Wen Cheng 2022 &nbsp;&copy;</p></li>
+                <li><a href="mailto:kac003@ucsd.edu">Email</a></li>
+                <li>+1 (571)-274-1675</li>
+                <li>San Diego, CA</li>
+            </ul>
+        </footer>
+    </body>
+</html>

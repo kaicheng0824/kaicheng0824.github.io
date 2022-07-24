@@ -1,0 +1,161 @@
+@font-face {font-family: ubuntu;
+    src: url('../Ubuntu-Regular.ttf');}
+
+:root {
+    --vw-lg: 1920px;
+    --vw-md: 1366px;
+    --vw-sm: 600px;
+    --primary_background: none;
+    --secondary_background: #2568FB;
+    --header_color: none;
+    --default-font-color: black;
+    font-size: 12px;
+    font-family: ubuntu, Sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    color: black
+}
+
+*:visited {
+    color: var(--default-font-color)
+}
+
+body {
+    display: block;
+    list-style-type: none;
+    background-image: url(../asset/zen2.webp);
+    background-size: 100% 100%;
+    height: 100%;
+    text-align: center;
+    padding: 1em; 
+}
+
+body > * {
+    background-color: rgb(255,255,255,0.5);
+    margin: 0;
+    padding: 1em;
+}
+
+header > section > ol > *{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5em;
+}
+
+#name_cn {
+    margin-top: 4em;
+}
+
+#name_cn > a >img {
+    width:50%;
+}
+
+#name > h1 {
+    font-size: 6rem;
+}
+#quote > p {
+    font-size: 1.2em;
+}
+
+#homeDir > li > a {
+    font-size: 0.8em;
+}
+
+#homeDir > * {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2em;
+    border: 1px solid black;
+    padding: 0.1em;
+    font-size: 2em;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    width: 10rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#homeDir > li {
+    width: 50%;
+    background-color: rgb(255,255,255,0.5);
+}
+
+h1 {
+    font-size: 3em;
+    
+}
+
+h2 {
+    font-size: 2em;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+#intro {
+    font-size: 1.5rem;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#name {
+    animation: typing 3s forwards;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 90%;}
+    }
+
+#profile_pic {
+    transition-property: all;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
+#profile_pic {
+    animation: swapPhoto 10s linear infinite alternate;
+}
+
+@keyframes swapPhoto {
+    0% {
+        content: url(../asset/profile-2.webp);
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        content: url(../asset/profile-3.webp);
+    }
+}
+
+
+footer {
+    background-color: rgb(255,255,255,1);
+    font-size: 1rem;
+    margin-top: 2em;
+}
+
+footer > ul {
+    margin-top: 1em;
+    font-size: 1.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+footer > ul > :nth-child(1) {
+    grid-row: 1;
+    grid-column: 1/span 3;
+    margin-top: 1em;
+    font-size: 1rem;
+}
