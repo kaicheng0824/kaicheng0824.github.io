@@ -27,19 +27,19 @@
                     let prompt_echo = document.getElementById("prompt_echo");
                     prompt_echo.innerHTML = `The User Didn't Input Anything`;
                 }
-                //let prompt_echo = document.getElementById("prompt_echo");
-                //prompt_echo.innerHTML = result;
+                let prompt_echo = document.getElementById("prompt_echo");
+                prompt_echo.innerHTML = result
                 //alert(result)
             });
 
             safe_prompt.addEventListener('click', function() {
                 let result = window.prompt('Say something');
                 if(result==='') {
-                    alert(`The user didn't input anything`);
+                    safer_prompt_echo.innerHTML = `The User Didn't Input Anything`;
                 }
                 let clean = DOMPurify.sanitize(result, { USE_PROFILES: { html: true } });
                 let safer_prompt_echo = document.getElementById("safer_prompt_echo");
-                //safer_prompt_echo.innerHTML = clean;
+                safer_prompt_echo.innerHTML = clean;
                 //alert(clean)
             });
 
