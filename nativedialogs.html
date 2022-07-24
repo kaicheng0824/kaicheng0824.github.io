@@ -24,14 +24,10 @@
             <button id="confirm">Confirm</button>
             <button id="prompt">Prompt</button>
             <button id="safer_prompt">Safer Prompt</button>
-            <template id="template">
-                <h2 id="h2">Dialog</h2>
-                <dialog id="dialog">
-                    <output id="output">
-                    </output>
-                </dialog>
-            </template>
-
+            <dialog id="dialog">
+                <output id="output"><p id="text"></p>
+                </output>
+            </dialog>
             <script async type="module">
                 const alertBtn = document.getElementById('alert');
                 const confirmBtn = document.getElementById('confirm');
@@ -44,41 +40,34 @@
 
                 confirmBtn.addEventListener('click', function() {
                     let result = window.confirm('Please confirm');
-                    let temp = document.getElementById("template")
-                    var clon = temp.content.cloneNode(true);
-                    document.body.appendChild(clon);
-                    let output = document.getElementById("h2");
-                    let h2 = document.getElementById("output");
+                    let dialog = document.getElementById("dialog")
+                    dialog.open = true;
+                    let text = document.getElementById("text");
                     let tempStr = `Confirmed Result: ${result}`;
-                    h2.innerHTML="HELLO";
-                    output.innerHTML="HELO";
+                    text.innerHTML = tempStr;
                 });
 
                 promptBtn.addEventListener('click', ()=>{
-                    let result = window.prompt('Say something');
-                    if(result==='') {
-                        let temp = document.getElementById("template")
-                        var clon = temp.content.cloneNode(true);
-                        document.body.appendChild(clon);
-                        //let tempStr = `Confirmed Result: ${result}`;
-                        output.innerHTML="No Input"
-                    }
-                    let temp = document.getElementById("template")
-                    var clon = temp.content.cloneNode(true);
-                    document.body.appendChild(clon);
+                    let result = window.prompt('Type something');
+                    let dialog = document.getElementById("dialog")
+                    let text = document.getElementById("text");
+                    dialog.open = true;
+                    if(result==='' || result===null) { result = "No Input" }
                     let tempStr = `Confirmed Result: ${result}`;
-                    output.innerHTML="HELO"
+                    text.innerHTML= tempStr;
                 });
 
                 safe_prompt.addEventListener('click', function() {
-                    let result = window.prompt('Say something');
-                    if(result==='') {
-                        safer_prompt_echo.innerHTML = `The User Didn't Input Anything`;
-                    }
-                    let clean = DOMPurify.sanitize(result, { USE_PROFILES: { html: true } });
-                    let safer_prompt_echo = document.getElementById("safer_prompt_echo");
-                    safer_prompt_echo.innerHTML = `User Input: `+clean;
+                    let result = window.prompt('Type something');
+                    let dialog = document.getElementById("dialog")
+                    let text = document.getElementById("text");
+                    dialog.open = true;
+                    if(result==='' || result===null) { result = "No Input" }
+                    let clean = DOMPurify.sanitize(result);
+                    let tempStr = `Confirmed Result: ${result}`;
+                    text.innerHTML= tempStr;
                 });
+                //<b onmouseover="alert('pwned')">Roll Me </b>
         </script>
 
         </header>
