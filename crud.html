@@ -63,9 +63,10 @@
                     input.style.display = 'none';
                     // deleteBtn.addEventListener('click', (id)=>{Posts.deletePost(id)});
                     deleteBtn.addEventListener('click', ()=>{
+                        const container = document.getElementById('posts');
                         console.log('delete');
                         Posts.deletePost(id);
-                        Posts.redisplayAllPosts();
+                        Posts.redisplayAllPosts(container);
                     });
                 }
             });
