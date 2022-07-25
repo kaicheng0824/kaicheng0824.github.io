@@ -101,7 +101,6 @@
                         let submitEdit = document.getElementById('submitEdit');
                         let cancelEdit = document.getElementById('cancelEdit');
                         submitEdit.addEventListener('click', ()=>{
-                        
                             let postId = id;
                             let post = {
                                 'title': document.getElementById('titleEdit').value,
@@ -257,8 +256,8 @@
                 <input id="dateEdit" type="text" style="display:block"/>
                 <label for="summaryEdit">New Summary</label>
                 <input id="summaryEdit" type="text" style="display:block"/>
-                <button id="submitEdit" type="submit" style="display:block">Submit Edit</button>
-                <button id="cancelEdit" type="submit" style="display:block">Cancel Edit</button>
+                <button id="submitEdit" type="text" style="display:block">Submit Edit</button>
+                <button id="cancelEdit" type="text" style="display:block">Cancel Edit</button>
             </div>
         </dialog>
         <section id="posts"></section>
