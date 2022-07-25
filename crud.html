@@ -18,8 +18,10 @@
                 const post = Posts.examplePost;
                 Posts.redisplayAllPosts(container);
 
-                const add = document.getElementById('submitAdd');
-                add.addEventListener('click',function(){
+                const addPostForm = document.getElementById("insert-post");
+                addPostForm.addEventListener('submit',function(){
+                    ev.preventDefault();
+                    // const formData = new FormData(ev.target);
                     const container = document.getElementById('posts');
                     const id = Posts.generatePostId();
                     const title = document.getElementById('title').value;
@@ -63,7 +65,7 @@
         <section id="posts"></section>
         <button id="add">Add Blog Post</button>
         <dialog id="dialog" style="margin: 10px;">
-            <form action="">
+            <form id='insert-post' action="">
                 <label for="title">Post Title</label><br>
                 <input type="text" id="title" name="title"/><br/>
                 <label for="date">Date</label><br>
