@@ -28,45 +28,47 @@
                 <output id="output"><p id="text"></p>
                 </output>
             </dialog>
-            <script async type="module">
-                const alertBtn = document.getElementById('alert');
-                const confirmBtn = document.getElementById('confirm');
-                const promptBtn = document.getElementById('prompt');
-                const safe_prompt = document.getElementById('safer_prompt');
+            <script type="module" src="customdialog.js">
+                {
+                    const alertBtn = document.getElementById('alert');
+                    const confirmBtn = document.getElementById('confirm');
+                    const promptBtn = document.getElementById('prompt');
+                    const safe_prompt = document.getElementById('safer_prompt');
 
-                alertBtn.addEventListener('click', function() {
-                    window.alert('You Clicked Alert!');
-                });
+                    alertBtn.addEventListener('click', function() {
+                        window.alert('You Clicked Alert!');
+                    });
 
-                confirmBtn.addEventListener('click', function() {
-                    let result = window.confirm('Please confirm');
-                    let dialog = document.getElementById("dialog")
-                    dialog.open = true;
-                    let text = document.getElementById("text");
-                    let tempStr = `Confirmed Result: ${result}`;
-                    text.innerHTML = tempStr;
-                });
+                    confirmBtn.addEventListener('click', function() {
+                        let result = window.confirm('Please confirm');
+                        let dialog = document.getElementById("dialog")
+                        dialog.open = true;
+                        let text = document.getElementById("text");
+                        let tempStr = `Confirmed Result: ${result}`;
+                        text.innerHTML = tempStr;
+                    });
 
-                promptBtn.addEventListener('click', ()=>{
-                    let result = window.prompt('Type something');
-                    let dialog = document.getElementById("dialog")
-                    let text = document.getElementById("text");
-                    dialog.open = true;
-                    if(result==='' || result===null) { result = "No Input" }
-                    let tempStr = `Confirmed Result: ${result}`;
-                    text.innerHTML= tempStr;
-                });
+                    promptBtn.addEventListener('click', ()=>{
+                        let result = window.prompt('Type something');
+                        let dialog = document.getElementById("dialog")
+                        let text = document.getElementById("text");
+                        dialog.open = true;
+                        if(result==='' || result===null) { result = "No Input" }
+                        let tempStr = `Confirmed Result: ${result}`;
+                        text.innerHTML= tempStr;
+                    });
 
-                safe_prompt.addEventListener('click', function() {
-                    let result = window.prompt('Type something');
-                    let dialog = document.getElementById("dialog")
-                    let text = document.getElementById("text");
-                    dialog.open = true;
-                    if(result==='' || result===null) { result = "No Input" }
-                    let clean = DOMPurify.sanitize(result, {FORBID_TAGS: ['style','script']} );
-                    let tempStr = `Confirmed Result: ${clean}`;
-                    text.innerHTML= tempStr;
-                });
+                    safe_prompt.addEventListener('click', function() {
+                        let result = window.prompt('Type something');
+                        let dialog = document.getElementById("dialog")
+                        let text = document.getElementById("text");
+                        dialog.open = true;
+                        if(result==='' || result===null) { result = "No Input" }
+                        let clean = DOMPurify.sanitize(result, {FORBID_TAGS: ['style','script']} );
+                        let tempStr = `Confirmed Result: ${clean}`;
+                        text.innerHTML= tempStr;
+                    });                    
+                }
                 //<b onmouseover="alert('pwned')">Roll Me </b>
         </script>
 

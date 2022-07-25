@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.js"></script>
+        <script type="text/javascript" src="./customdialogs.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <button id="alert">Alert</button>
+            <button id="confirm">Confirm</button>
+            <button id="prompt">Prompt</button>
+            <dialog id="dialog">
+                <output id="output"><p id="text"></p></output>
+                <button id="ok" style="display:flex">Ok! </button>
+                <button id="cancel" style="display:flex">Cancel</button>
+                <input id="input" type="text" style="display:block"/>
+            </dialog>
+            <p style='display:none' id="result"></p>
+        </header>
+    </body>
+</html>
