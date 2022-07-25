@@ -54,16 +54,19 @@
 
                 function showDialog(){
                     let id = this.id;
-                    console.log(id);
-                    console.log('Show dialog called')
                     dialog_popup.open = true;
+
                     let edit = document.getElementById('edit');
                     let deleteBtn = document.getElementById('delete');
                     let cancel = document.getElementById('cancel');
-                    let input = document.getElementById('input');
+                    let titleEdit = document.getElementById('titleEdit');
+                    let dateEdit = document.getElementById('dateEdit');
+                    let summaryEdit = document.getElementById('summaryEdit');
                     let text = document.getElementById('text');
-                    input.style.display = 'none';
-                    // deleteBtn.addEventListener('click', (id)=>{Posts.deletePost(id)});
+                    titleEdit.style.display = 'none';
+                    dateEdit.style.display = 'none';
+                    summaryEdit.style.display = 'none';
+
                     deleteBtn.addEventListener('click', ()=>{
                         const container = document.getElementById('posts');
                         console.log('delete');
@@ -74,6 +77,21 @@
 
                     cancel.addEventListener('click', ()=> {
                         dialog_popup.open = false;
+                    })
+
+                    edit.addEventListener('click', ()=> {
+                        titleEdit.style.display = 'visible';
+                        dateEdit.style.display = 'visible';
+                        summaryEdit.style.display = 'visible';
+                        let postId = id;
+                        let post = {
+                            'title': titleEdit.value,
+                            'date': dateEdit.value,
+                            'summary': summaryEdit.value
+                        }
+                        Posts.updatePost(postId,post);
+                        const container = document.getElementById('posts');
+                        Posts.redisplayAllPosts(container);
                     })
                 }
                 function addListener() {
@@ -126,7 +144,9 @@
             <button id="edit" style="display:flex">Edit </button>
             <button id="delete" style="display:flex">Delete</button>
             <button id="cancel" style="display:flex">Cancel</button>
-            <input id="input" type="text" style="display:block"/>
+            <input id="titleEdit" type="text" style="display:block"/>
+            <input id="dateEdit" type="text" style="display:block"/>
+            <input id="summaryEdit" type="text" style="display:block"/>
         </dialog>
         <p style='display:none' id="result"></p>
     </body>
