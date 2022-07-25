@@ -119,7 +119,7 @@
                     let option = document.getElementsByClassName('option');
                     for (let i = 0 ; i < option.length; i++) {
                         option[i].addEventListener('click' , showDialog) ; 
-                        option[i].addEventListener('hover', function(){
+                        option[i].addEventListener('mouseover', function(){
                             option[i].style.backgroundColor = 'yellow';
                         })
                         console.log('eventListener Registered');
