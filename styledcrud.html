@@ -138,7 +138,10 @@
                 }
 
                 function styleContainer(container) {
-                    container.style.border = "1px solid black";
+                    let box = container.children[0];
+                    box.style.border = "1px solid black";
+                    box.style.padding = '10px';
+                    box.style.margin = '10px';
                 }
             });
         </script>
