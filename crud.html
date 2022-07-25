@@ -59,13 +59,9 @@
                     let edit = document.getElementById('edit');
                     let deleteBtn = document.getElementById('delete');
                     let cancel = document.getElementById('cancel');
-                    let titleEdit = document.getElementById('titleEdit');
-                    let dateEdit = document.getElementById('dateEdit');
-                    let summaryEdit = document.getElementById('summaryEdit');
                     let text = document.getElementById('text');
-                    titleEdit.style.display = 'none';
-                    dateEdit.style.display = 'none';
-                    summaryEdit.style.display = 'none';
+                    let modify = document.getElementById('modify');
+                    modify.style.display = 'none';
 
                     deleteBtn.addEventListener('click', ()=>{
                         const container = document.getElementById('posts');
@@ -80,18 +76,26 @@
                     })
 
                     edit.addEventListener('click', ()=> {
-                        titleEdit.style.display = 'block';
-                        dateEdit.style.display = 'block';
-                        summaryEdit.style.display = 'block';
+                        modify.style.display = 'block';
                         let postId = id;
                         let post = {
                             'title': titleEdit.value,
                             'date': dateEdit.value,
                             'summary': summaryEdit.value
                         }
-                        Posts.updatePost(postId,post);
-                        const container = document.getElementById('posts');
-                        Posts.redisplayAllPosts(container);
+                        this.style.display = 'none';
+                        let submitEdit = document.getElementById('submitEdit');
+                        let cancelEdit = document.getElementById('cancelEdit');
+                        submitEdit.addEventListener('click', ()=>{
+                            Posts.updatePost(postId,post);
+                            const container = document.getElementById('posts');
+                            Posts.redisplayAllPosts(container);
+                        });
+
+                        cancelEdit.addEventListener('click', ()=>{
+                            modify.style.display = 'none';
+                            edit.style.display = 'block';
+                        })
                     })
                 }
                 function addListener() {
@@ -144,9 +148,16 @@
             <button id="edit" style="display:flex">Edit </button>
             <button id="delete" style="display:flex">Delete</button>
             <button id="cancel" style="display:flex">Cancel</button>
-            <input id="titleEdit" type="text" style="display:block"/>
-            <input id="dateEdit" type="text" style="display:block"/>
-            <input id="summaryEdit" type="text" style="display:block"/>
+            <div id="modify" style="display: block">
+                <label for="titleEdit">New Title</label>
+                <input id="titleEdit" type="text" style="display:block"/>
+                <label for="dateEdit">New Date</label>
+                <input id="dateEdit" type="text" style="display:block"/>
+                <label for="summaryEdit">New Summary</label>
+                <input id="summaryEdit" type="text" style="display:block"/>
+                <button id="submitEdit" type="submit" style="display:block">Submit Edit</button>
+                <button id="cancelEdit" type="submit" style="display:block">Cancel Edit</button>
+            </div>
         </dialog>
         <p style='display:none' id="result"></p>
     </body>
