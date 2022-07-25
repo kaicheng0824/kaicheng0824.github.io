@@ -41,7 +41,7 @@
                 const addPostForm = document.getElementById("insert-post");
                 addPostForm.addEventListener('submit',(ev) =>{
                     ev.preventDefault();
-                    dialog.open = false;
+                    TurnOnDialog(false);
                     const container = document.getElementById('posts');
                     const id = Posts.generatePostId();
                     const post = {};
@@ -95,7 +95,7 @@
                         let dialog = document.getElementById('dialog');
                         let dialog_popup = document.getElementById('dialog_popup');
                         console.log('CANCEL PRESSEDDDDD');
-                        dialog_popup.open = 0;
+                        TurnOnDialog(false);
                         // window.location.reload(true);
                     })
 
@@ -137,6 +137,17 @@
                         });
                         console.log('eventListener Registered');
                     }
+                }
+
+                function TurnOnDialog(flag) {
+                    let dialog_popup = document.getElementById('dialog_popup');
+                    if(flag==false) {
+                        dialog_popup.style.display = 'none';
+                    }
+                    else{
+                        dialog_popup.style.display = 'block';
+                    }
+                    
                 }
 
                 function TurnOnEditInterface(flag) {
