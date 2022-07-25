@@ -120,7 +120,7 @@ export function renderPost(postId,post){
 
     //Style Container
     console.log('Styling Container......')
-    let box = container.children[0];
+    let box = postElement.children[0]
     console.log(box);
     if(box==null) {
 
