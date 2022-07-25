@@ -1,6 +1,6 @@
 export function definePost() {
     class Post extends HTMLElement { }
-    customElements.define('post', Post, { extends: 'div'})
+    customElements.define('post-articles', Post, { extends: 'div'})
 
     class PostTitle extends HTMLElement { }
     customElements.define('post-title', PostTitle, { extends: 'div'})
