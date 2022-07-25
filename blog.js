@@ -103,8 +103,8 @@ export function renderPost(postId,post){
     const postElement = template.content.cloneNode(true);
     postElement.children[0].dataset.postId = postId;
     console.log(postElement.children[0]);
-    console.log(postElement.children[0].children[4]);
-    postElement.children[0].children[4].id = postId;
+    console.log(postElement.children[0].querySelector('button'));
+    postElement.children[0].querySelector('button').id = postId;
     console.log(postElement.children[0]);
 
     const titleH1= postElement.querySelector("post-title > h1");
