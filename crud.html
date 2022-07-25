@@ -37,6 +37,7 @@
 
                 add_dialog.addEventListener('click', function(){
                     dialog.open = true;
+                    dialog_popup.open = false;
                 });
 
                 let dialog_popup = document.getElementById('dialog_popup');
@@ -45,9 +46,9 @@
                 let option = document.getElementsByClassName('option');
 
                 for (let i = 0 ; i < option.length; i++) {
-                    option[i].addEventListener('click' , showDialog) ; 
+                    option[i].addEventListener('click' , showDialog(option[i].id)) ; 
                 }
-                function showDialog(){
+                function showDialog(id){
                     dialog_popup.open = true;
                     let edit = document.getElementById('edit');
                     let deleteBtn = document.getElementById('delete');
@@ -55,15 +56,10 @@
                     let input = document.getElementById('input');
                     let text = document.getElementById('text');
                     input.style.diaply = 'none';
-                    deleteBtn.addEventListener('click',deletePost())
+                    deleteBtn.addEventListener('click',Posts.deletePost(id));
                     function editPost() {
 
                     }
-
-                    function deletePost() {
-                        // let postId = document.querySelector('')
-                    }
-
                 }
             });
         </script>
