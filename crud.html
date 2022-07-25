@@ -11,39 +11,45 @@
             Posts.definePost();
             document.addEventListener('DOMContentLoaded', (_ev) => {
                 const container = document.getElementById('posts');
-                console.log(container)
+                // console.log(container)
                 const id = Posts.generatePostId();
-                console.log(id)
+                // console.log(id)
                 const post = Posts.examplePost;
-                console.log(post)
+                // console.log(post)
                 Posts.displayPost(id, post, container);
-                console.log('Displayed')
-            });
-            
-            
-            // const exampleId = Posts.generatePostId();
-            // Posts.renderPost(exampleId,Posts.examplePost)
-        </script>
-        <style>
-            template {
-                border: 1px solid black;
-            }
-        </style>
+                // console.log('Displayed')
 
-<template id="post-template">
-    <post-articles>
-        <post-title>
-            <h1>Title</h1>
-        </post-title>
-        <post-date>
-            <h2>Date</h2>
-        </post-date>
-        <post-summary>
-            <h2>Summary</h2>
-            <p> Summary starts here...</p>
-        </post-summary>
-    </post-articles>
-</template>
+                const add = document.getElementById('submitAdd');
+                add.addEventListener('click',function(){
+                    const container = document.getElementById('posts');
+                    const id = Posts.generatePostId();
+                    const title = document.getElementById('title').value;
+                    const date = document.getElementById('date').value;
+                    const summary = document.getElementById('summary').value;
+                    const post = {
+                        "title": title,
+                        "date": date,
+                        "summary": summary
+                    };
+                    Posts.displayPost(id, post, container);
+                });
+            });
+        </script>
+
+        <template id="post-template">
+            <post-articles>
+                <post-title>
+                    <h1>Title</h1>
+                </post-title>
+                <post-date>
+                    <h2>Date</h2>
+                </post-date>
+                <post-summary>
+                    <h2>Summary</h2>
+                    <p> Summary starts here...</p>
+                </post-summary>
+            </post-articles>
+        </template>
 
     </head>
     <body>
@@ -60,7 +66,7 @@
                 <label for="summary">Summary</label><br>
                 <textarea id="summary" name="summary" rows="4" cols="50">Type Something here...
                 </textarea><br/>
-                <input id="submitAdd" type="submit" value="submitAdd">
+                <input id="submitAdd" type="submit" value="Add">
               </form> 
         </dialog>
     </body>
