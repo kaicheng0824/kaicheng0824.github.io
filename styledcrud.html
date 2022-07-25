@@ -41,7 +41,7 @@
                 const addPostForm = document.getElementById("insert-post");
                 addPostForm.addEventListener('submit',(ev) =>{
                     ev.preventDefault();
-                    dialog.open = 'false';
+                    dialog.open = false;
                     const container = document.getElementById('posts');
                     const id = Posts.generatePostId();
                     const post = {};
@@ -95,7 +95,7 @@
                         let dialog = document.getElementById('dialog');
                         let dialog_popup = document.getElementById('dialog_popup');
                         console.log('CANCEL PRESSEDDDDD');
-                        dialog_popup.open = false;
+                        dialog_popup.open = 0;
                         // window.location.reload(true);
                     })
 
