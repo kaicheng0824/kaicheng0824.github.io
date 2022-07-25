@@ -79,9 +79,7 @@
                     TurnOnEditInterface(false);
 
                     deleteBtn.addEventListener('click', ()=>{
-                        // let container = document.getElementById('posts');
-                        // Posts.redisplayAllPosts(container);
-                        document.getElementById('posts').innerHTML = '';
+                        ClearPostHTML();
                         Posts.deletePost(id);
                         let container = document.getElementById('posts');
                         Posts.redisplayAllPosts(container);
@@ -110,6 +108,8 @@
                                 'date': document.getElementById('dateEdit').value,
                                 'summary': document.getElementById('summaryEdit').value,
                             }
+
+                            ClearPostHTML();
                             Posts.updatePost(postId,post);
                             const container = document.getElementById('posts');
                             Posts.redisplayAllPosts(container);
@@ -147,6 +147,10 @@
                         dialog_popup.style.display = 'block';
                     }
                     
+                }
+
+                function ClearPostHTML() {
+                    document.getElementById('posts').innerHTML = '';
                 }
 
                 function TurnOnAddDialog(flag) {
