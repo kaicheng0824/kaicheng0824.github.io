@@ -82,7 +82,7 @@ export function deletePost(postId) {
     const posts = loadPosts();
 
     // If it's not there, just return false. If it is there, delete it.
-    if (!(postId in posts)) return false;
+    // if (!(postId in posts)) return false;
     delete posts[postId];
     
     storePosts(postId)
