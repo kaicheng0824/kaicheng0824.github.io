@@ -44,7 +44,10 @@
                 let result = document.getElementById('result');
                 let option = document.getElementsByClassName('option');
 
-                option.addEventListener('click', function(){
+                for (let i = 0 ; i < option.length; i++) {
+                    option[i].addEventListener('click' , showDialog) ; 
+                }
+                function showDialog(){
                     dialog_popup.open = true;
                     let edit = document.getElementById('edit');
                     let deleteBtn = document.getElementById('delete');
