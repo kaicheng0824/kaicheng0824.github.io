@@ -11,6 +11,7 @@
             }
             section {
                 display: flex;
+                flex-wrap: wrap;
                 margin: 20px;
                 padding: 20px;
                 border: 1px solid black;
@@ -31,20 +32,12 @@
                 const addPostForm = document.getElementById("insert-post");
                 addPostForm.addEventListener('submit',(ev) =>{
                     ev.preventDefault();
-                    // const formData = new FormData(ev.target);
                     const container = document.getElementById('posts');
                     const id = Posts.generatePostId();
-                    // const formData = new FormData(ev.target);
                     const post = {};
                     post['title'] = document.getElementById('title').value
                     post['date'] = document.getElementById('date').value
                     post['summary'] = document.getElementById('summary').value
-                    // for (const [key, value] of formData.entries()) {
-                    //     console.log(key);
-                    //     console.log(value);
-
-                    //     post[key] = value;
-                    // }
                     console.log(post)
                     Posts.insertPost(post);
                     Posts.redisplayAllPosts(container);
