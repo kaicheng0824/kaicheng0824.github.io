@@ -81,7 +81,7 @@
                     deleteBtn.addEventListener('click', ()=>{
                         // let container = document.getElementById('posts');
                         // Posts.redisplayAllPosts(container);
-                        container.innerHTML = '';
+                        document.getElementById('posts').innerHTML = '';
                         Posts.deletePost(id);
                         let container = document.getElementById('posts');
                         Posts.redisplayAllPosts(container);
