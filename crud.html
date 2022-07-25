@@ -24,14 +24,17 @@
                     // const formData = new FormData(ev.target);
                     const container = document.getElementById('posts');
                     const id = Posts.generatePostId();
-                    const formData = new FormData(ev.target);
+                    // const formData = new FormData(ev.target);
                     const post = {};
-                    for (const [key, value] of formData.entries()) {
-                        console.log(key);
-                        console.log(value);
+                    post['title'] = document.getElementById('title').value
+                    post['date'] = document.getElementById('date').value
+                    post['summary'] = document.getElementById('summary').value
+                    // for (const [key, value] of formData.entries()) {
+                    //     console.log(key);
+                    //     console.log(value);
 
-                        post[key] = value;
-                    }
+                    //     post[key] = value;
+                    // }
                     console.log('POST BELOW')
                     console.log(post)
                     Posts.insertPost(post);
