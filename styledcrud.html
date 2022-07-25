@@ -86,6 +86,7 @@
                         let container = document.getElementById('posts');
                         Posts.redisplayAllPosts(container);
                         stylePost();
+                        addListener();
                     });
 
                     cancelBtn.addEventListener('click', ()=> {
