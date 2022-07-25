@@ -12,7 +12,7 @@ function definePost() {
     customElements.define('post-summary', PostSummary, { extends: 'div'})
 }
 
-export function generatePostId() {
+function generatePostId() {
     return crypto.randomUUID();
 }
 
@@ -25,7 +25,7 @@ export function generatePostId() {
  */
 
 
-export const examplePost = {
+const examplePost = {
     "title": "A Day in UCSD",
     "date": "09/17/2021",
     "summary": "Today was a great day"
@@ -37,7 +37,7 @@ export const examplePost = {
  * @return {DocumentFragment}
  */
 
-export function renderPost(postId,post){
+function renderPost(postId,post){
     const template = document.getElementById('post-template')
     const postElement = template.content.cloneNode(true);
     postElement.children[0].dataset.postId = postId;
@@ -60,7 +60,7 @@ export function renderPost(postId,post){
  * @param {Post|undefined} post 
  * @param {HTMLElement} container 
  */
-export function displayPost(postId, post, container) {
+function displayPost(postId, post, container) {
     const postElement = renderPost(postId,post);
 
     const existing = container.querySelector(`[data-post-id]="${postId}"`)
