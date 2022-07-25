@@ -1,4 +1,4 @@
-export function definePost() {
+function definePost() {
     class Post extends HTMLElement { }
     customElements.define('post', Post, { extends: 'div'})
 
