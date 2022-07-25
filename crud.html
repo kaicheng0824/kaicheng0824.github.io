@@ -71,6 +71,10 @@
                         window.location.reload(true);
                         Posts.redisplayAllPosts(container);
                     });
+
+                    cancel.addEventListener('click', ()=> {
+                        dialog_popup.open = false;
+                    })
                 }
                 function addListener() {
                     let option = document.getElementsByClassName('option');
