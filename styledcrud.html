@@ -85,7 +85,7 @@
                         stylePost();
                     });
 
-                    cancel.addEventListener('click', ()=> {
+                    cancelBtn.addEventListener('click', ()=> {
                         TurnOnEditInterface(false);
                         dialog_popup.open = false;
                     })
@@ -164,8 +164,10 @@
                 function styleEdit() {
                     let dialog = document.getElementById('dialog_popup');
                     dialog.style.borderRadius = '1em';
+                    dialog.style.width = '10em';
+                    dialog.style.height = '5em';
                     dialog.style.display = 'flex';
-                    dialog.style.position = 'relative';
+                    dialog.style.position = 'sticky';
                     dialog.style.marginLeft = "5em";
                     dialog.style.marginTop = "5em";
 
