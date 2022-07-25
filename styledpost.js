@@ -102,22 +102,16 @@ export function renderPost(postId,post){
     const template = document.getElementById('post-template')
     const postElement = template.content.cloneNode(true);
     postElement.children[0].dataset.postId = postId;
-    // console.log(postElement.children[0]);
-    // console.log(postElement.children[0].querySelector('button'));
     postElement.children[0].querySelector('button').id = postId;
-    // console.log(postElement.children[0]);
 
     const titleH1= postElement.querySelector("post-title > h1");
     titleH1.textContent = post['title'];
-    // console.log(post.title)
-    // console.log(post)
 
     const dateH2= postElement.querySelector("post-date > h2");
     dateH2.textContent = post['date']
 
     const summaryP= postElement.querySelector("post-summary > p");
     summaryP.textContent = post['summary'];
-    stylePost();
 
     return postElement
 };
@@ -131,7 +125,6 @@ export function renderPost(postId,post){
  export function displayPost(postId, post, container) {
     console.log('Error in display');
     const postElement = renderPost(postId,post);
-    stylePost();
 
     const existing = container.querySelector(`[data-post-id="${postId}"]`)
     if(existing) {
@@ -152,23 +145,12 @@ export function renderPost(postId,post){
     const posts = selectAllPosts();
 
     for (const [id, post] of Object.entries(posts)) {
-        stylePost();
         console.log('Error in redisplay');
         displayPost(id, post, container);
     }
 }
 
 
-export function stylePost() {
-    let option = document.getElementsByTagName('post-articles');
-    for (let i = 0 ; i < option.length; i++) {
-        option[i].style.border = '1px solid black';
-        option[i].style.padding = '10px';
-        option[i].style.margin = '10px';
-
-        console.log('HERE');
-    }
-}
 
 //export { definePost, generatePostId, examplePost, renderPost,displayPost};
 
