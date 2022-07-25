@@ -40,12 +40,15 @@
                 });
 
                 // Edit and Delete
+                let del = document.getElementById('delete');
                 del.addEventListener('click', (ev)=>{
                     const post = document.querySelector('post-articles button:parent');
                     console.log(post);
                     console.log(post.id);
                     Posts.deletePost(post.id);
                 })
+
+                
 
             });
         </script>
