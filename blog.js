@@ -96,6 +96,9 @@ export function deletePost(postId) {
  */
 
 export function renderPost(postId,post){
+    console.log('--------')
+    console.log(postId)
+    console.log(post)
     const template = document.getElementById('post-template')
     const postElement = template.content.cloneNode(true);
     postElement.children[0].dataset.postId = postId;
