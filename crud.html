@@ -29,9 +29,9 @@
                 const container = document.getElementById('post');
 
                 const id = Posts.generatePostId();
-                const book = Posts.examplePost;
+                const post = Posts.examplePost;
 
-                Posts.displayBook(id, book, container);
+                Posts.displayBook(id, post, container);
             });
             
             
@@ -41,6 +41,7 @@
 
     </head>
     <body>
+        <section id="posts"></section>
         <h1>Blog Post Lists</h1>
         <button id="add">Add Blog Post</button>
         <dialog id="dialog" style="margin: 10px;">
