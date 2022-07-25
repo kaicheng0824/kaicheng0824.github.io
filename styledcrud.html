@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.js"></script>
+        <!-- <script type="text/javascript" src="./blog.js" defer></script> -->
+        <style>
+            body {
+                display: flexbox;
+            }
+            section {
+                margin: 20px;
+                padding: 20px;
+                border: 1px solid black;
+            }
+        </style>
+        <script type="module">
+            import * as Posts from './blog.js'
+
+            Posts.definePost();
+            document.addEventListener('DOMContentLoaded', (_ev) => {
+                const add_dialog = document.getElementById('add');
+                const dialog = document.getElementById('dialog');
+
+                const container = document.getElementById('posts');
+                const id = Posts.generatePostId();
+                const post = Posts.examplePost;
+                Posts.redisplayAllPosts(container);
+
+                const addPostForm = document.getElementById("insert-post");
+                addPostForm.addEventListener('submit',(ev) =>{
+                    ev.preventDefault();
+                    // const formData = new FormData(ev.target);
+                    const container = document.getElementById('posts');
+                    const id = Posts.generatePostId();
+                    // const formData = new FormData(ev.target);
+                    const post = {};
+                    post['title'] = document.getElementById('title').value
+                    post['date'] = document.getElementById('date').value
+                    post['summary'] = document.getElementById('summary').value
+                    // for (const [key, value] of formData.entries()) {
+                    //     console.log(key);
+                    //     console.log(value);
+
+                    //     post[key] = value;
+                    // }
+                    console.log('POST BELOW')
+                    console.log(post)
+                    Posts.insertPost(post);
+                    Posts.redisplayAllPosts(container);
+                    addListener();
+                });
+
+                add_dialog.addEventListener('click', function(){
+                    dialog.open = true;
+                    dialog_popup.open = false;
+                });
+
+                let dialog_popup = document.getElementById('dialog_popup');
+                let result = document.getElementById('result');
+                addListener();
+
+                function showDialog(){
+                    let id = this.id;
+                    dialog_popup.open = true;
+
+                    let edit = document.getElementById('edit');                    let deleteBtn = document.getElementById('delete');
+                    let cancelBtn = document.getElementById('cancel');
+                    let text = document.getElementById('text');
+                    let modify = document.getElementById('modify');
+                    TurnOnEditInterface(false);
+
+                    deleteBtn.addEventListener('click', ()=>{
+                        const container = document.getElementById('posts');
+                        console.log('delete');
+                        Posts.deletePost(id);
+                        window.location.reload(true);
+                        Posts.redisplayAllPosts(container);
+                    });
+
+                    cancel.addEventListener('click', ()=> {
+                        dialog_popup.open = false;
+                    })
+
+                    edit.addEventListener('click', ()=> {
+                        TurnOnEditInterface(true);
+                        
+                        let submitEdit = document.getElementById('submitEdit');
+                        let cancelEdit = document.getElementById('cancelEdit');
+                        submitEdit.addEventListener('click', ()=>{
+                        
+                            let postId = id;
+                            let post = {
+                                'title': document.getElementById('titleEdit').value,
+                                'date': document.getElementById('dateEdit').value,
+                                'summary': document.getElementById('summaryEdit').value,
+                            }
+                            Posts.updatePost(postId,post);
+                            const container = document.getElementById('posts');
+                            Posts.redisplayAllPosts(container);
+                            addListener();
+                            TurnOnEditInterface(false);
+                        });
+
+                        cancelEdit.addEventListener('click', ()=>{
+                            TurnOnEditInterface(false);
+                        })
+                    })
+                }
+                function addListener() {
+                    let option = document.getElementsByClassName('option');
+                    for (let i = 0 ; i < option.length; i++) {
+                        option[i].addEventListener('click' , showDialog) ; 
+                        console.log('eventListener Registered');
+                    }
+                }
+
+                function TurnOnEditInterface(flag) {
+                    let deleteBtn = document.getElementById('delete');
+                    let cancelBtn = document.getElementById('cancel');
+                    let text = document.getElementById('text');
+                    let modify = document.getElementById('modify');
+                    if(flag==false) {
+                        deleteBtn.style.display = 'block';
+                        cancelBtn.style.display = 'block';
+                        edit.style.display = 'block';
+                        modify.style.display = 'none';
+                    }
+                    else {
+                        deleteBtn.style.display = 'none';
+                        cancelBtn.style.display = 'none';
+                        edit.style.display = 'none';
+                        modify.style.display = 'block';
+                    }
+                }
+            });
+        </script>
+
+        <template id="post-template">
+            <post-articles>
+                <post-title>
+                    <h1>Title</h1>
+                </post-title>
+                <post-date>
+                    <h2>Date</h2>
+                </post-date>
+                <post-summary>
+                    <h2>Summary</h2>
+                    <p> Summary starts here...</p>
+                </post-summary>
+                <button class="option">Option</button>
+                <!-- <button>Delete</button> -->
+            </post-articles>
+        </template>
+
+    </head>
+    <body>
+        
+        <h1>Blog Post Lists</h1>
+        <section id="posts"></section>
+        <button id="add">Add Blog Post</button>
+        <dialog id="dialog" style="margin: 10px;">
+            <form id='insert-post' action="">
+                <label for="title">Post Title</label><br>
+                <input type="text" id="title" name="title"/><br/>
+                <label for="date">Date</label><br>
+                <input type="text" id="date" name="date"/><br/>
+                <label for="summary">Summary</label><br>
+                <textarea id="summary" name="summary" rows="4" cols="50">Type Something here...
+                </textarea><br/>
+                <input id="submitAdd" type="submit" value="Add">
+              </form> 
+        </dialog>
+        <dialog id="dialog_popup">
+            <output id="output"><p id="text"></p></output>
+            <button id="edit" style="display:flex">Edit </button>
+            <button id="delete" style="display:flex">Delete</button>
+            <button id="cancel" style="display:flex">Cancel</button>
+            <div id="modify" style="display: block">
+                <label for="titleEdit">New Title</label>
+                <input id="titleEdit" type="text" style="display:block"/>
+                <label for="dateEdit">New Date</label>
+                <input id="dateEdit" type="text" style="display:block"/>
+                <label for="summaryEdit">New Summary</label>
+                <input id="summaryEdit" type="text" style="display:block"/>
+                <button id="submitEdit" type="submit" style="display:block">Submit Edit</button>
+                <button id="cancelEdit" type="submit" style="display:block">Cancel Edit</button>
+            </div>
+        </dialog>
+        <p style='display:none' id="result"></p>
+    </body>
+</html>
