@@ -120,7 +120,7 @@ export function renderPost(postId,post){
 
     //Style Container
     console.log('Styling Container......')
-    let box = postElement.querySelector("post-articles");
+    let box = postElement;
     console.log(box);
     if(box==null) {
 
