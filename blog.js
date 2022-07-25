@@ -34,7 +34,7 @@ export const examplePost = {
 /**
  * @param {string} [postId] id of post
  * @param {Post} [post]  post
- * @return {HTMLElement}
+ * @return {DocumentFragment}
  */
 
 export function renderPost(postId,post){
@@ -44,7 +44,34 @@ export function renderPost(postId,post){
     const titleH1= postElement.querySelector("post-title > h1");
     titleH1.textContent = post.title;
 
+    const dateH2= postElement.querySelector("post-date > h2`");
+    dateH2.textContent = post.date;
+
+    const summaryP= postElement.querySelector("post-summary > p");
+    summaryP.textContent = post.summary;
+
+    return postElement
 };
+
+/**
+ * 
+ * @param {string} postId 
+ * @param {Post|undefined} post 
+ * @param {HTMLElement} container 
+ */
+export function displayPost(postId, post, container) {
+    const postElement = renderPost(postId,post);
+
+    const existing = container.querySelector(`[data-post-id]="${postId}"`)
+    if(existing) {
+        existing.remove();
+    }
+
+    if(post) {
+        container.appendChild(postElement);
+    }
+
+}
 
 
 // let posts = [{title:"title",date:"date",summary:"summary"}];

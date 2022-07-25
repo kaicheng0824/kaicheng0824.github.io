@@ -23,8 +23,20 @@
 
         <script type="module">
             import * as Posts from './blog.js'
+
             Posts.definePost();
-            Posts.renderPost(Posts.generatePostId(),Posts.examplePost)
+            document.addEventListener('DOMContentLoaded', (_ev) => {
+                const container = document.getElementById('post');
+
+                const id = Posts.generatePostId();
+                const book = Posts.examplePost;
+
+                Posts.displayBook(id, book, container);
+            });
+            
+            
+            // const exampleId = Posts.generatePostId();
+            // Posts.renderPost(exampleId,Posts.examplePost)
         </script>
 
     </head>
