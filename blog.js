@@ -102,6 +102,8 @@ export function renderPost(postId,post){
     const template = document.getElementById('post-template')
     const postElement = template.content.cloneNode(true);
     postElement.children[0].dataset.postId = postId;
+    console.log(postElement.children[0]);
+    console.log(postElement.children[0].children[4]);
     postElement.children[0].children[4].id = postId;
     console.log(postElement.children[0]);
 
