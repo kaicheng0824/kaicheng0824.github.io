@@ -42,7 +42,7 @@
                 let dialog_popup = document.getElementById('dialog_popup');
                 
                 let result = document.getElementById('result');
-                let option = document.getElementById('option');
+                let option = document.getElementsByClassName('option');
 
                 option.addEventListener('click', function(){
                     dialog_popup.open = true;
@@ -77,7 +77,7 @@
                     <h2>Summary</h2>
                     <p> Summary starts here...</p>
                 </post-summary>
-                <button id="option">Option</button>
+                <button class="option">Option</button>
                 <!-- <button>Delete</button> -->
             </post-articles>
         </template>
