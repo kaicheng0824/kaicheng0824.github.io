@@ -38,8 +38,8 @@
                     console.log('POST BELOW')
                     console.log(post)
                     Posts.insertPost(post);
-                    addListener();
                     Posts.redisplayAllPosts(container);
+                    addListener();
                 });
 
                 add_dialog.addEventListener('click', function(){
