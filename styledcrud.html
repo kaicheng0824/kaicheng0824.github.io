@@ -41,6 +41,7 @@
                     console.log(post)
                     Posts.insertPost(post);
                     Posts.redisplayAllPosts(container);
+                    stylePost();
                     addListener();
                 });
 
@@ -70,6 +71,7 @@
                         Posts.deletePost(id);
                         window.location.reload(true);
                         Posts.redisplayAllPosts(container);
+                        stylePost();
                     });
 
                     cancel.addEventListener('click', ()=> {
@@ -93,6 +95,7 @@
                             const container = document.getElementById('posts');
                             Posts.redisplayAllPosts(container);
                             addListener();
+                            stylePost();
                             TurnOnEditInterface(false);
                         });
 
