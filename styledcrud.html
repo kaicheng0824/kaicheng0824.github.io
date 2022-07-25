@@ -66,7 +66,7 @@
                     // let clicked = document.querySelector(`post-articles #${id}:parent`);
                     // clicked.style.backgroundColor = 'red';
                     
-                    dialog_popup.open = true;
+                    dialog_popup.show();
                     styleEdit();
 
                     let edit = document.getElementById('edit');                    
@@ -86,7 +86,7 @@
                     });
 
                     cancelBtn.addEventListener('click', ()=> {
-                        dialog_popup.open = false;
+                        dialog_popup.close()
                     })
 
                     edit.addEventListener('click', ()=> {
