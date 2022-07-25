@@ -79,10 +79,9 @@
                     TurnOnEditInterface(false);
 
                     deleteBtn.addEventListener('click', ()=>{
-                        const container = document.getElementById('posts');
                         console.log('delete');
                         Posts.deletePost(id);
-                        // window.location.reload(true);
+                        const container = document.getElementById('posts');
                         Posts.redisplayAllPosts(container);
                         stylePost();
                     });
