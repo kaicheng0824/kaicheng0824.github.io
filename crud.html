@@ -10,14 +10,13 @@
 
             Posts.definePost();
             document.addEventListener('DOMContentLoaded', (_ev) => {
+                const add_dialog = document.getElementById('add');
+                const dialog = document.getElementById('dialog');
+
                 const container = document.getElementById('posts');
-                // console.log(container)
                 const id = Posts.generatePostId();
-                // console.log(id)
                 const post = Posts.examplePost;
-                // console.log(post)
                 Posts.displayPost(id, post, container);
-                // console.log('Displayed')
 
                 const add = document.getElementById('submitAdd');
                 add.addEventListener('click',function(){
@@ -32,6 +31,10 @@
                         "summary": summary
                     };
                     Posts.displayPost(id, post, container);
+                });
+
+                add_dialog.addEventListener('click', function(){
+                    dialog.open = true;
                 });
             });
         </script>
