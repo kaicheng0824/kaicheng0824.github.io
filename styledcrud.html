@@ -121,7 +121,10 @@
                         option[i].addEventListener('click' , showDialog) ; 
                         option[i].addEventListener('mouseover', function(){
                             option[i].style.backgroundColor = 'yellow';
-                        })
+                        });
+                        option[i].addEventListener('mouseout', function(){
+                            option[i].style.backgroundColor = 'grey';
+                        });
                         console.log('eventListener Registered');
                     }
                 }
@@ -155,6 +158,9 @@
                         option[i].style.borderRadius = '1em';
                         console.log('HERE');
                     }
+                }
+                function styleEditDialog() {
+
                 }
 
                 function styleEdit() {
