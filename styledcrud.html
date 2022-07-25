@@ -49,8 +49,8 @@
                     console.log('POST BELOW')
                     console.log(post)
                     Posts.insertPost(post);
-                    Posts.redisplayAllPosts(container);
                     styleContainer(container);
+                    Posts.redisplayAllPosts(container);
                     addListener();
                 });
 
