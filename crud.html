@@ -38,6 +38,7 @@
                     console.log('POST BELOW')
                     console.log(post)
                     Posts.insertPost(post);
+                    window.location.reload(true);
                     Posts.redisplayAllPosts(container);
                 });
 
