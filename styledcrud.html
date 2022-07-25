@@ -41,7 +41,7 @@
                 const addPostForm = document.getElementById("insert-post");
                 addPostForm.addEventListener('submit',(ev) =>{
                     ev.preventDefault();
-                    TurnOnDialog(false);
+                    TurnOnEditDialog(false);
                     const container = document.getElementById('posts');
                     const id = Posts.generatePostId();
                     const post = {};
@@ -95,11 +95,12 @@
                         let dialog = document.getElementById('dialog');
                         let dialog_popup = document.getElementById('dialog_popup');
                         console.log('CANCEL PRESSEDDDDD');
-                        TurnOnDialog(false);
+                        TurnOnEditDialog(false);
                         // window.location.reload(true);
                     })
 
                     edit.addEventListener('click', ()=> {
+                        TurnOnAddDialog(false);
                         TurnOnEditInterface(true);
                         
                         let submitEdit = document.getElementById('submitEdit');
@@ -139,7 +140,7 @@
                     }
                 }
 
-                function TurnOnDialog(flag) {
+                function TurnOnEditDialog(flag) {
                     let dialog_popup = document.getElementById('dialog_popup');
                     if(flag==false) {
                         dialog_popup.style.display = 'none';
@@ -148,6 +149,16 @@
                         dialog_popup.style.display = 'block';
                     }
                     
+                }
+
+                function TurnOnAddDialog(flag) {
+                    let dialog = document.getElementById('dialog');
+                    if(flag==false) {
+                        dialog.style.display = 'none';
+                    }
+                    else{
+                        dialog.style.display = 'block';
+                    }                    
                 }
 
                 function TurnOnEditInterface(flag) {
