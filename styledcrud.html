@@ -21,14 +21,12 @@
 
             Posts.definePost();
             document.addEventListener('DOMContentLoaded', (_ev) => {
-                stylePost();
                 const add_dialog = document.getElementById('add');
                 const dialog = document.getElementById('dialog');
 
                 const container = document.getElementById('posts');
                 // const id = Posts.generatePostId();
                 // const post = Posts.examplePost;
-                stylePost()
                 Posts.redisplayAllPosts(container);
 
                 const addPostForm = document.getElementById("insert-post");
@@ -50,7 +48,6 @@
                     // }
                     console.log(post)
                     Posts.insertPost(post);
-                    stylePost();
                     Posts.redisplayAllPosts(container);
                     addListener();
                 });
@@ -81,7 +78,6 @@
                         Posts.deletePost(id);
                         window.location.reload(true);
                         Posts.redisplayAllPosts(container);
-                        stylePost();
                     });
 
                     cancel.addEventListener('click', ()=> {
@@ -105,7 +101,6 @@
                             const container = document.getElementById('posts');
                             Posts.redisplayAllPosts(container);
                             addListener();
-                            stylePost();
                             TurnOnEditInterface(false);
                         });
 
@@ -138,16 +133,6 @@
                         cancelBtn.style.display = 'none';
                         edit.style.display = 'none';
                         modify.style.display = 'block';
-                    }
-                }
-                function stylePost() {
-                    let option = document.getElementsByTagName('post-articles');
-                    for (let i = 0 ; i < option.length; i++) {
-                        option[i].style.border = '1px solid black';
-                        option[i].style.padding = '10px';
-                        option[i].style.margin = '10px';
-
-                        console.log('HERE');
                     }
                 }
             });

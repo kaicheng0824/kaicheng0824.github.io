@@ -116,7 +116,8 @@ export function renderPost(postId,post){
     dateH2.textContent = post['date']
 
     const summaryP= postElement.querySelector("post-summary > p");
-    summaryP.textContent = post['summary']
+    summaryP.textContent = post['summary'];
+    stylePost();
 
     return postElement
 };
@@ -130,6 +131,7 @@ export function renderPost(postId,post){
  export function displayPost(postId, post, container) {
     console.log('Error in display');
     const postElement = renderPost(postId,post);
+    stylePost();
 
     const existing = container.querySelector(`[data-post-id="${postId}"]`)
     if(existing) {
@@ -150,11 +152,23 @@ export function renderPost(postId,post){
     const posts = selectAllPosts();
 
     for (const [id, post] of Object.entries(posts)) {
+        stylePost();
         console.log('Error in redisplay');
         displayPost(id, post, container);
     }
 }
 
+
+export function stylePost() {
+    let option = document.getElementsByTagName('post-articles');
+    for (let i = 0 ; i < option.length; i++) {
+        option[i].style.border = '1px solid black';
+        option[i].style.padding = '10px';
+        option[i].style.margin = '10px';
+
+        console.log('HERE');
+    }
+}
 
 //export { definePost, generatePostId, examplePost, renderPost,displayPost};
 
