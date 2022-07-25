@@ -32,6 +32,7 @@
             document.addEventListener('DOMContentLoaded', (_ev) => {
                 const add_dialog = document.getElementById('add');
                 const dialog = document.getElementById('dialog');
+                let dialog_popup = document.getElementById('dialog_popup');
 
                 const container = document.getElementById('posts');
                 Posts.redisplayAllPosts(container);
@@ -58,7 +59,6 @@
                     dialog_popup.open = false;
                 });
 
-                let dialog_popup = document.getElementById('dialog_popup');
                 let result = document.getElementById('result');
                 addListener();
 
