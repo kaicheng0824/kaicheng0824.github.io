@@ -50,6 +50,10 @@
                     console.log(post)
                     Posts.insertPost(post);
                     styleContainer(container);
+                    console.log('check container')
+                    console.log(container)
+                    console.log(container.children[0])
+                    console.log('----------')
                     Posts.redisplayAllPosts(container);
                     addListener();
                 });
