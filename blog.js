@@ -85,7 +85,7 @@ export function deletePost(postId) {
     // if (!(postId in posts)) return false;
     delete posts[postId];
     
-    storePosts(postId)
+    storePosts(posts)
     return true;
 }
 
