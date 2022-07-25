@@ -48,7 +48,7 @@ function storePosts(posts) {
     localStorage.setItem('posts', JSON.stringify(posts));
 }
 
-function insertPost(post) {
+export function insertPost(post) {
     const posts = loadBooks();
     const postId = generateBookId();
 
