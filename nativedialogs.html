@@ -4,19 +4,6 @@
         <meta charset='utf-8'/>
         <meta name="viewport" content="width=device-width, initial-scale=0.5">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.js"></script>
-        <!-- <script type="text/javascript" src="./customdialog.js">
-            const alertBtn2 = document.getElementById('alert');
-            const confirmBtn2 = document.getElementById('confirm');
-            const promptBtn2 = document.getElementById('prompt');
-            const safe_prompt2 = document.getElementById('safer_prompt');
-
-            alertBtn2.addEventListener('click', function() {
-                let dialog = document.getElementById('dialog')
-                let template = document.getElementById('template')
-                var clon = template.content.cloneNode(true);
-                document.body.appendChild(clon);
-            });
-        </script> -->
     </head>
     <body>
         <header>
@@ -24,6 +11,7 @@
             <button id="confirm">Confirm</button>
             <button id="prompt">Prompt</button>
             <button id="safer_prompt">Safer Prompt</button>
+            <hr/>
             <dialog id="dialog">
                 <output id="output"><p id="text"></p>
                 </output>

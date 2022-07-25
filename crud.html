@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.js"></script>
+        <script type="text/javascript" src="./blog.js" defer></script>
+
+        <template id="post-template">
+            <post>
+                <post-title>
+                    <h1>Title</h1>
+                </post-title>
+                <post-date>
+                    <h2>Date</h2>
+                </post-date>
+                <post-summary>
+                    <h2>Summary</h2>
+                    <p> Summary starts here...</p>
+                </post-summary>
+            </post>
+        </template>
+
+        <script type="module">
+            import * as Posts from './blog.js'
+            Posts.definePost();
+            Posts.renderPost(Posts.generatePostId(),Posts.examplePost)
+        </script>
+
+    </head>
+    <body>
+        <h1>Blog Post Lists</h1>
+        <button id="add">Add Blog Post</button>
+        <dialog id="dialog" style="margin: 10px;">
+            <form action="">
+                <label for="title">Post Title</label><br>
+                <input type="text" id="title" name="title"/><br/>
+                <label for="date">Date</label><br>
+                <input type="text" id="date" name="date"/><br/>
+                <label for="summary">Summary</label><br>
+                <textarea id="summary" name="summary" rows="4" cols="50">Type Something here...
+                </textarea><br/>
+                <input id="submitAdd" type="submit" value="submitAdd">
+              </form> 
+        </dialog>
+    </body>
+</html>

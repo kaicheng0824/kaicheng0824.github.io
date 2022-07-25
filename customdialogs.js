@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         input.style.display = "none";
         ok.addEventListener('click',function(){
             dialog.open=false;
+            result.style.display = "none";
         }); 
     });
 
