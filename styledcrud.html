@@ -50,6 +50,7 @@
                     console.log(post)
                     Posts.insertPost(post);
                     Posts.redisplayAllPosts(container);
+                    styleContainer(container);
                     addListener();
                 });
 
@@ -134,6 +135,10 @@
                         edit.style.display = 'none';
                         modify.style.display = 'block';
                     }
+                }
+
+                function styleContainer(container) {
+                    container.style.border = "1px solid black";
                 }
             });
         </script>
