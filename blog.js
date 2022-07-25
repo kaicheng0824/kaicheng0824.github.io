@@ -54,6 +54,7 @@ function insertPost(post) {
 
     posts[postId] = post;
     storePosts(post);
+    console.log('Error in insert');
     
     return postId;
 }
@@ -118,6 +119,7 @@ export function renderPost(postId,post){
  * @param {HTMLElement} container 
  */
  export function displayPost(postId, post, container) {
+    console.log('Error in display');
     const postElement = renderPost(postId,post);
 
     const existing = container.querySelector(`[data-post-id="${postId}"]`)
@@ -139,6 +141,7 @@ export function renderPost(postId,post){
     const posts = selectAllPosts();
 
     for (const [id, post] of Object.entries(posts)) {
+        console.log('Error in redisplay');
         displayPost(id, post, container);
     }
 }
