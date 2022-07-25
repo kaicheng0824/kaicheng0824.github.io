@@ -46,11 +46,11 @@
                 let option = document.getElementsByClassName('option');
 
                 for (let i = 0 ; i < option.length; i++) {
-                    option[i].addEventListener('click' , showDialog(option[i].id)) ; 
-                    console.log(option[i].id);
+                    option[i].addEventListener('click' , showDialog) ; 
+                    // console.log(option[i].id);
                 }
 
-                function showDialog(id){
+                function showDialog{
                     console.log('Show dialog called')
                     dialog_popup.open = true;
                     let edit = document.getElementById('edit');
