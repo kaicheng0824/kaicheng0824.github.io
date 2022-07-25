@@ -68,7 +68,7 @@
             });
         </script>
 
-        <template id="post-template" onclick="edit_dialog()">
+        <template id="post-template">
             <post-articles>
                 <post-title>
                     <h1>Title</h1>
@@ -80,8 +80,8 @@
                     <h2>Summary</h2>
                     <p> Summary starts here...</p>
                 </post-summary>
-                <button>Edit</button>
-                <button>Delete</button>
+                <button onclick="edit_dialog()">Edit</button>
+                <!-- <button>Delete</button> -->
             </post-articles>
         </template>
 
