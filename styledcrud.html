@@ -25,7 +25,6 @@
                 const dialog = document.getElementById('dialog');
 
                 const container = document.getElementById('posts');
-                styleContainer(container);
                 const id = Posts.generatePostId();
                 const post = Posts.examplePost;
                 Posts.redisplayAllPosts(container);
@@ -47,14 +46,8 @@
 
                     //     post[key] = value;
                     // }
-                    console.log('POST BELOW')
                     console.log(post)
                     Posts.insertPost(post);
-                    styleContainer(container);
-                    console.log('check container')
-                    console.log(container)
-                    console.log(container.children[0])
-                    console.log('----------')
                     Posts.redisplayAllPosts(container);
                     addListener();
                 });
@@ -72,7 +65,8 @@
                     let id = this.id;
                     dialog_popup.open = true;
 
-                    let edit = document.getElementById('edit');                    let deleteBtn = document.getElementById('delete');
+                    let edit = document.getElementById('edit');                    
+                    let deleteBtn = document.getElementById('delete');
                     let cancelBtn = document.getElementById('cancel');
                     let text = document.getElementById('text');
                     let modify = document.getElementById('modify');
@@ -139,20 +133,6 @@
                         cancelBtn.style.display = 'none';
                         edit.style.display = 'none';
                         modify.style.display = 'block';
-                    }
-                }
-
-                function styleContainer(container) {
-                    console.log('Styling Container......')
-                    let box = container.children[0];
-                    console.log(box);
-                    if(box==null) {
-
-                    }
-                    else {
-                        box.style.border = "1px solid black";
-                        box.style.padding = '10px';
-                        box.style.margin = '10px';
                     }
                 }
             });
