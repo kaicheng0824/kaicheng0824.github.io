@@ -101,7 +101,7 @@ export function renderPost(postId,post){
     postElement.children[0].dataset.postId = postId;
 
     const titleH1= postElement.querySelector("post-articles > post-title > h1");
-    titleH1.textContent = post.title;
+    titleH1.textContent = post;
     console.log(post.title)
     console.log(post)
 

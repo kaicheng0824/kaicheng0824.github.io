@@ -29,6 +29,7 @@
                     for (const [key, value] of formData.entries()) {
                         post[key] = value;
                     }
+                    console.log('POST BELOW')
                     console.log(post)
                     Posts.insertPost(post);
                     Posts.redisplayAllPosts(container);
