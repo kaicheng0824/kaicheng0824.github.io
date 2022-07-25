@@ -47,6 +47,7 @@
 
                 for (let i = 0 ; i < option.length; i++) {
                     option[i].addEventListener('click' , showDialog(option[i].id)) ; 
+                    console.log(option[i].id);
                 }
                 function showDialog(id){
                     dialog_popup.open = true;
