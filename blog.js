@@ -75,7 +75,7 @@ export function updatePost(postId, post) {
 
     posts[postId] = post;
 
-    storePosts();
+    storePosts(posts);
 }
 
 export function deletePost(postId) {
