@@ -77,16 +77,17 @@
 
                     edit.addEventListener('click', ()=> {
                         modify.style.display = 'block';
-                        let postId = id;
-                        let post = {
-                            'title': titleEdit.value,
-                            'date': dateEdit.value,
-                            'summary': summaryEdit.value
-                        }
-                        this.style.display = 'none';
+                        edit.style.display = 'none';
                         let submitEdit = document.getElementById('submitEdit');
                         let cancelEdit = document.getElementById('cancelEdit');
                         submitEdit.addEventListener('click', ()=>{
+                        
+                            let postId = edit.id;
+                            let post = {
+                                'title': document.getElementById('titleEdit').value,
+                                'date': document.getElementById('dateEdit').value,
+                                'summary': document.getElementById('summaryEdit').value,
+                            }
                             Posts.updatePost(postId,post);
                             const container = document.getElementById('posts');
                             Posts.redisplayAllPosts(container);
