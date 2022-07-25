@@ -31,6 +31,63 @@ export const examplePost = {
     "summary": "Today was a great day"
 };
 
+/* Storage Layer
+ * ============= */
+
+/**
+ * @returns the JSON map of books from local storage.
+ */
+ function loadPosts() {
+    return JSON.parse(localStorage.getItem('posts')) || {};
+}
+
+/**
+ * @param {{string: Book}} books a JSON map of id->book to put into local storage.
+ */
+function storePosts(posts) {
+    localStorage.setItem('posts', JSON.stringify(posts));
+}
+
+function insertBook(post) {
+    const posts = loadBooks();
+    const postId = generateBookId();
+
+    posts[postId] = post;
+    storePosts(post);
+    
+    return postId;
+}
+
+function selectPost(postId) {
+    const posts = loadPosts();
+
+    return posts[bookId];
+}
+
+function selectAllPosts() {
+    const posts = loadPosts();
+    return posts;
+}
+
+function updatePost(postId, post) {
+    const posts = loadPosts();
+
+    posts[postId] = post;
+
+    storePosts();
+}
+
+function deleteBook(postId) {
+    const posts = loadPosts();
+
+    // If it's not there, just return false. If it is there, delete it.
+    if (!(postId in posts)) return false;
+    delete posts[postId];
+    
+    storePosts(postId)
+    return true;
+}
+
 /**
  * @param {string} [postId] id of post
  * @param {Post} [post]  post
@@ -73,6 +130,19 @@ export function renderPost(postId,post){
     }
 
 }
+
+/**
+ * 
+ * @param {*} container 
+ */
+ export function redisplayAllPosts(container) {
+    const posts = selectAllPosts();
+
+    for (const [id, post] of Object.entries(posts)) {
+        displayPost(id, post, container);
+    }
+}
+
 
 //export { definePost, generatePostId, examplePost, renderPost,displayPost};
 

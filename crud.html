@@ -30,7 +30,8 @@
                         "date": date,
                         "summary": summary
                     };
-                    Posts.displayPost(id, post, container);
+                    Posts.insertPost(post);
+                    Posts.redisplayAllPosts(container);
                 });
 
                 add_dialog.addEventListener('click', function(){
