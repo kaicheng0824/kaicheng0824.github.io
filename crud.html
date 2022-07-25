@@ -88,8 +88,8 @@
                             }
                             Posts.updatePost(postId,post);
                             const container = document.getElementById('posts');
-                            addListener();
                             Posts.redisplayAllPosts(container);
+                            addListener();
                             TurnOnEditInterface(false);
                         });
 
