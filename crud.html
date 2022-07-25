@@ -56,8 +56,7 @@
                     let id = this.id;
                     dialog_popup.open = true;
 
-                    let edit = document.getElementById('edit');
-                    let deleteBtn = document.getElementById('delete');
+                    let edit = document.getElementById('edit');                    let deleteBtn = document.getElementById('delete');
                     let cancel = document.getElementById('cancel');
                     let text = document.getElementById('text');
                     let modify = document.getElementById('modify');
@@ -77,7 +76,7 @@
 
                     edit.addEventListener('click', ()=> {
                         modify.style.display = 'block';
-                        edit.style.display = 'none';
+                        TurnOnEditInterface(true);
                         let submitEdit = document.getElementById('submitEdit');
                         let cancelEdit = document.getElementById('cancelEdit');
                         submitEdit.addEventListener('click', ()=>{
@@ -90,12 +89,12 @@
                             }
                             Posts.updatePost(postId,post);
                             const container = document.getElementById('posts');
+                            addListener();
                             Posts.redisplayAllPosts(container);
                         });
 
                         cancelEdit.addEventListener('click', ()=>{
-                            modify.style.display = 'none';
-                            edit.style.display = 'block';
+                            TurnOnEditInterface(false);
                         })
                     })
                 }
@@ -104,6 +103,25 @@
                     for (let i = 0 ; i < option.length; i++) {
                         option[i].addEventListener('click' , showDialog) ; 
                         console.log('eventListener Registered');
+                    }
+                }
+
+                function TurnOnEditInterface(flag) {
+                    let deleteBtn = document.getElementById('delete');
+                    let cancel = document.getElementById('cancel');
+                    let text = document.getElementById('text');
+                    let modify = document.getElementById('modify');
+                    if(flag==false) {
+                        deleteBtn.style.display = 'block';
+                        cancel.style.display = 'block;'
+                        edit.style.display = 'block';
+                        modify.style.display = 'none';
+                    }
+                    else {
+                        deleteBtn.style.display = 'none';
+                        cancel.style.display = 'none;'
+                        edit.style.display = 'none';
+                        modify.style.display = 'block';
                     }
                 }
             });
