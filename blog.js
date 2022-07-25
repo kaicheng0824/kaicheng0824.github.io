@@ -49,7 +49,7 @@ function storePosts(posts) {
 }
 
 export function insertPost(post) {
-    const posts = loadBooks();
+    const posts = loadPosts();
     const postId = generateBookId();
 
     posts[postId] = post;
