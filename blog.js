@@ -101,15 +101,15 @@ export function renderPost(postId,post){
     postElement.children[0].dataset.postId = postId;
 
     const titleH1= postElement.querySelector("post-title > h1");
-    titleH1.textContent = post;
-    console.log(post.title)
-    console.log(post)
+    titleH1.textContent = post[0];
+    // console.log(post.title)
+    // console.log(post)
 
     const dateH2= postElement.querySelector("post-date > h2");
-    dateH2.textContent = post.date;
+    dateH2.textContent = post[1]
 
     const summaryP= postElement.querySelector("post-summary > p");
-    summaryP.textContent = post.summary;
+    summaryP.textContent = post[2]
 
     return postElement
 };
