@@ -27,6 +27,9 @@
                     const formData = new FormData(ev.target);
                     const post = {};
                     for (const [key, value] of formData.entries()) {
+                        console.log(key);
+                        console.log(value);
+
                         post[key] = value;
                     }
                     console.log('POST BELOW')
