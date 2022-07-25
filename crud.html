@@ -19,7 +19,7 @@
                 Posts.redisplayAllPosts(container);
 
                 const addPostForm = document.getElementById("insert-post");
-                addPostForm.addEventListener('submit',function(){
+                addPostForm.addEventListener('submit',(ev) =>{
                     ev.preventDefault();
                     // const formData = new FormData(ev.target);
                     const container = document.getElementById('posts');
