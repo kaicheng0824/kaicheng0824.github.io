@@ -24,6 +24,11 @@
             // const exampleId = Posts.generatePostId();
             // Posts.renderPost(exampleId,Posts.examplePost)
         </script>
+        <style>
+            template {
+                border: 1px solid black;
+            }
+        </style>
 
 <template id="post-template">
     <post-articles>
@@ -42,8 +47,9 @@
 
     </head>
     <body>
-        <section id="posts"></section>
+        
         <h1>Blog Post Lists</h1>
+        <section id="posts"></section>
         <button id="add">Add Blog Post</button>
         <dialog id="dialog" style="margin: 10px;">
             <form action="">
