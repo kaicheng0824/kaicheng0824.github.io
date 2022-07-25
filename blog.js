@@ -74,6 +74,8 @@ function displayPost(postId, post, container) {
 
 }
 
+export { definePost, generatePostId, examplePost, renderPost,displayPost};
+
 
 // let posts = [{title:"title",date:"date",summary:"summary"}];
 
