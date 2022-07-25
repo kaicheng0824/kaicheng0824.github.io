@@ -55,6 +55,8 @@
                 });
 
                 add_dialog.addEventListener('click', function(){
+                    let dialog = document.getElementById('dialog');
+                    let dialog_popup = document.getElementById('dialog_popup');
                     dialog.open = true;
                     dialog_popup.open = false;
                     // window.location.reload(true);
@@ -88,8 +90,10 @@
                     });
 
                     cancelBtn.addEventListener('click', ()=> {
+                        let dialog = document.getElementById('dialog');
+                        let dialog_popup = document.getElementById('dialog_popup');
                         dialog_popup.open = false;
-                        window.location.reload(true);
+                        // window.location.reload(true);
                     })
 
                     edit.addEventListener('click', ()=> {
