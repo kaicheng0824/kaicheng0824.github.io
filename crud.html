@@ -24,14 +24,11 @@
                     // const formData = new FormData(ev.target);
                     const container = document.getElementById('posts');
                     const id = Posts.generatePostId();
-                    const title = document.getElementById('title').value;
-                    const date = document.getElementById('date').value;
-                    const summary = document.getElementById('summary').value;
-                    const post = {
-                        "title": title,
-                        "date": date,
-                        "summary": summary
-                    };
+                    const formData = new FormData(ev.target);
+                    const post = {};
+                    for (const [key, value] of formData.entries()) {
+                        post[key] = value;
+                    }
                     console.log(post)
                     Posts.insertPost(post);
                     Posts.redisplayAllPosts(container);
