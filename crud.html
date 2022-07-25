@@ -39,7 +39,7 @@
                     dialog.open = true;
                 });
 
-                dialog_popup = document.getElementById('dialog_popup');
+                let dialog_popup = document.getElementById('dialog_popup');
                 let edit = document.getElementById('edit');
                 let deleteBtn = document.getElementById('delete');
                 let cancel = document.getElementById('cancel');
@@ -48,17 +48,18 @@
                 let result = document.getElementById('result');
                 function edit_dialog() {
                     dialog_popup.open = true;
-                    // edit.addEventListener('click', text_input());
-                    // deleteBtn.addEventListener('click', delete_input());
+                    edit.addEventListener('click', text_input());
+                    deleteBtn.addEventListener('click', delete_input());
                 }
 
-                // function text_input(){
-
-                // }
+                function text_input(){
+                    deleteBtn.style.display = 'none';
+                    text.style.display = 'visible';
+                }
                 
-                // function delete_input() {
+                function delete_input() {
 
-                // }
+                }
 
                 
 
