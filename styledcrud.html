@@ -81,10 +81,10 @@
                     deleteBtn.addEventListener('click', ()=>{
                         // let container = document.getElementById('posts');
                         // Posts.redisplayAllPosts(container);
+                        container.innerHTML = '';
                         Posts.deletePost(id);
-                        let container2 = document.getElementById('posts');
-                        // window.location.reload(true);
-                        Posts.redisplayAllPosts(container2);
+                        let container = document.getElementById('posts');
+                        Posts.redisplayAllPosts(container);
                         stylePost();
                     });
 

@@ -123,7 +123,7 @@ export function renderPost(postId,post){
  * @param {HTMLElement} container 
  */
  export function displayPost(postId, post, container) {
-    console.log('Error in display');
+    // console.log('Error in display');
     const postElement = renderPost(postId,post);
 
     const existing = container.querySelector(`[data-post-id="${postId}"]`)
@@ -145,7 +145,7 @@ export function renderPost(postId,post){
     const posts = selectAllPosts();
 
     for (const [id, post] of Object.entries(posts)) {
-        console.log('Error in redisplay');
+        // console.log('Error in redisplay');
         displayPost(id, post, container);
     }
 }
