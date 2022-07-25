@@ -133,12 +133,12 @@
                 function stylePost() {
                     let option = document.getElementsByTagName('post-articles');
                     for (let i = 0 ; i < option.length; i++) {
+                        option[i].style.width = '100px';
                         option[i].style.border = '1px solid black';
                         option[i].style.padding = '10px';
                         option[i].style.margin = '10px';
                         option[i].style.backgroundColor = 'yellow';
-                        
-
+                        option[i].style.borderRadius = '1em';
                         console.log('HERE');
                     }
                 }
