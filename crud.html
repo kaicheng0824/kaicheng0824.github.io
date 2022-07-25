@@ -47,26 +47,6 @@
                 let text = document.getElementById('text');
                 let result = document.getElementById('result');
                 let option = document.getElementById('option');
-                option.addEventListener('click', edit_dialog());
-                function edit_dialog() {
-                    dialog_popup.open = true;
-                    edit.addEventListener('click', text_input());
-                    deleteBtn.addEventListener('click', delete_input());
-                }
-
-                function text_input(){
-                    deleteBtn.style.display = 'none';
-                    text.style.display = 'visible';
-                }
-                
-                function delete_input() {
-
-                }
-
-                
-
-                
-
             });
         </script>
 
