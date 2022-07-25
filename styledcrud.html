@@ -62,6 +62,9 @@
 
                 function showDialog(){
                     let id = this.id;
+                    let clicked = document.querySelector(`${id}:parent`);
+                    clicked.style.backgroundColor = 'red';
+                    
                     dialog_popup.open = true;
                     styleEdit();
 
@@ -186,6 +189,18 @@
         
         <h1>Blog Post Lists</h1>
         <button id="add">Add Blog Post</button>
+        <dialog id="dialog" style="margin: 10px;">
+            <form id='insert-post' action="">
+                <label for="title">Post Title</label><br>
+                <input type="text" id="title" name="title"/><br/>
+                <label for="date">Date</label><br>
+                <input type="text" id="date" name="date"/><br/>
+                <label for="summary">Summary</label><br>
+                <textarea id="summary" name="summary" rows="4" cols="50">Type Something here...
+                </textarea><br/>
+                <input id="submitAdd" type="submit" value="Add">
+              </form> 
+        </dialog>
         <dialog id="dialog_popup">
             <output id="output"><p id="text"></p></output>
             <button id="edit" style="display:flex">Edit </button>
@@ -203,18 +218,6 @@
             </div>
         </dialog>
         <section id="posts"></section>
-        <dialog id="dialog" style="margin: 10px;">
-            <form id='insert-post' action="">
-                <label for="title">Post Title</label><br>
-                <input type="text" id="title" name="title"/><br/>
-                <label for="date">Date</label><br>
-                <input type="text" id="date" name="date"/><br/>
-                <label for="summary">Summary</label><br>
-                <textarea id="summary" name="summary" rows="4" cols="50">Type Something here...
-                </textarea><br/>
-                <input id="submitAdd" type="submit" value="Add">
-              </form> 
-        </dialog>
 
         <p style='display:none' id="result"></p>
     </body>
