@@ -90,6 +90,7 @@
                             const container = document.getElementById('posts');
                             addListener();
                             Posts.redisplayAllPosts(container);
+                            TurnOnEditInterface(false);
                         });
 
                         cancelEdit.addEventListener('click', ()=>{
