@@ -135,6 +135,12 @@
                         modify.style.display = 'block';
                     }
                 }
+                function stylePost() {
+                    let option = document.getElementsByTagName('post-articles');
+                    for (let i = 0 ; i < option.length; i++) {
+                        option[i].style.border = '1px solid black';
+                    }
+                }
             });
         </script>
 

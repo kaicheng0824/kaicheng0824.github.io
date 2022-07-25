@@ -118,19 +118,6 @@ export function renderPost(postId,post){
     const summaryP= postElement.querySelector("post-summary > p");
     summaryP.textContent = post['summary']
 
-    //Style Container
-    console.log('Styling Container......')
-    let box = postElement;
-    console.log(box);
-    if(box==null) {
-
-    }
-    else {
-        box.style.border = "1px solid black";
-        box.style.padding = '10px';
-        box.style.margin = '10px';
-    }
-
     return postElement
 };
 
