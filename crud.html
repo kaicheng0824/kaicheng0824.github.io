@@ -38,7 +38,7 @@
                     console.log('POST BELOW')
                     console.log(post)
                     Posts.insertPost(post);
-                    window.location.reload(true);
+                    addListener();
                     Posts.redisplayAllPosts(container);
                 });
 
@@ -50,12 +50,7 @@
                 let dialog_popup = document.getElementById('dialog_popup');
                 
                 let result = document.getElementById('result');
-                let option = document.getElementsByClassName('option');
-
-                for (let i = 0 ; i < option.length; i++) {
-                    option[i].addEventListener('click' , showDialog) ; 
-                    console.log('eventListener Registered');
-                }
+                addListener();
 
                 function showDialog(){
                     let id = this.id;
@@ -76,6 +71,13 @@
                         window.location.reload(true);
                         Posts.redisplayAllPosts(container);
                     });
+                }
+                function addListener() {
+                    let option = document.getElementsByClassName('option');
+                    for (let i = 0 ; i < option.length; i++) {
+                        option[i].addEventListener('click' , showDialog) ; 
+                        console.log('eventListener Registered');
+                    }
                 }
             });
         </script>
