@@ -16,6 +16,12 @@
                 padding: 20px;
                 border: 1px solid black;
             }
+            #add {
+                padding:20px;
+                margin: 20px;
+                width:2em;
+                height:1em;
+            }
         </style>
         <script type="module">
             import * as Posts from './blog.js'
@@ -134,7 +140,7 @@
                 function stylePost() {
                     let option = document.getElementsByTagName('post-articles');
                     for (let i = 0 ; i < option.length; i++) {
-                        option[i].style.width = '100px';
+                        option[i].style.width = '200px';
                         option[i].style.border = '1px solid black';
                         option[i].style.padding = '10px';
                         option[i].style.margin = '10px';
@@ -152,8 +158,8 @@
                     dialog.style.left = "50%";
 
                     let body = document.querySelector('body');
-                    body.style.opacity = '0.5';
-                    dialog.style.opacity = "1";
+                    // body.style.opacity = '0.5';
+                    // dialog.style.opacity = "1";
                 }
             });
         </script>
