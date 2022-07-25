@@ -57,6 +57,7 @@
                 function showDialog(){
                     let id = this.id;
                     dialog_popup.open = true;
+                    styleEdit();
 
                     let edit = document.getElementById('edit');                    
                     let deleteBtn = document.getElementById('delete');
@@ -141,6 +142,16 @@
                         option[i].style.borderRadius = '1em';
                         console.log('HERE');
                     }
+                }
+
+                function styleEdit() {
+                    let dialog = document.getElementsById('dialog_popup');
+                    dialog.style.borderRadius = '1em';
+                    dialog.style.position = 'absolute';
+                    dialog.style.top = "50%";
+                    dialog.style.left = "50%";
+                    let body = document.getElementsByTagName('body');
+                    body.style.opacity = '0.5';
                 }
             });
         </script>
