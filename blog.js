@@ -100,14 +100,14 @@ export function renderPost(postId,post){
     const postElement = template.content.cloneNode(true);
     postElement.children[0].dataset.postId = postId;
 
-    const titleH1= postElement.querySelector("post-title > h1");
+    const titleH1= postElement.querySelector("post-articles > post-title > h1");
     titleH1.textContent = post.title;
     console.log(post.title)
 
-    const dateH2= postElement.querySelector("post-date > h2");
+    const dateH2= postElement.querySelector("post-articles > post-date > h2");
     dateH2.textContent = post.date;
 
-    const summaryP= postElement.querySelector("post-summary > p");
+    const summaryP= postElement.querySelector("post-articles > post-summary > p");
     summaryP.textContent = post.summary;
 
     return postElement
