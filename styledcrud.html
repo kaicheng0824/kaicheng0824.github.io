@@ -68,11 +68,10 @@
                 addListener();
 
                 function showDialog(){
+                    TurnOnAddDialog(false);
+                    TurnOnEditDialog(true);
                     let id = this.id;
-                    // let clicked = document.querySelector(`post-articles #${id}:parent`);
-                    // clicked.style.backgroundColor = 'red';
-                    
-                    dialog_popup.open = true;
+                   
                     styleEdit();
 
                     let edit = document.getElementById('edit');                    
@@ -96,7 +95,6 @@
                         let dialog_popup = document.getElementById('dialog_popup');
                         console.log('CANCEL PRESSEDDDDD');
                         TurnOnEditDialog(false);
-                        // window.location.reload(true);
                     })
 
                     edit.addEventListener('click', ()=> {
