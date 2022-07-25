@@ -102,6 +102,7 @@ export function renderPost(postId,post){
 
     const titleH1= postElement.querySelector("post-title > h1");
     titleH1.textContent = post.title;
+    console.log(post.title)
 
     const dateH2= postElement.querySelector("post-date > h2");
     dateH2.textContent = post.date;
