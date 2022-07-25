@@ -13,10 +13,10 @@
                 const add_dialog = document.getElementById('add');
                 const dialog = document.getElementById('dialog');
 
-                // const container = document.getElementById('posts');
+                const container = document.getElementById('posts');
                 // const id = Posts.generatePostId();
                 // const post = Posts.examplePost;
-                // Posts.redisplayAllPosts(container);
+                Posts.redisplayAllPosts(container);
 
                 const addPostForm = document.getElementById("insert-post");
                 addPostForm.addEventListener('submit',(ev) =>{
@@ -47,6 +47,12 @@
                 let text = document.getElementById('text');
                 let result = document.getElementById('result');
                 let option = document.getElementById('option');
+
+                option.addEventListener('click', dialog_popup());
+                function dialog_popup() {
+                    dialog_popup.open = true;
+                }
+
             });
         </script>
 
