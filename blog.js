@@ -37,7 +37,7 @@ export const examplePost = {
 /**
  * @returns the JSON map of books from local storage.
  */
- function loadPosts() {
+export function loadPosts() {
     return JSON.parse(localStorage.getItem('posts')) || {};
 }
 
@@ -59,18 +59,18 @@ export function insertPost(post) {
     return postId;
 }
 
-function selectPost(postId) {
+export function selectPost(postId) {
     const posts = loadPosts();
 
     return posts[bookId];
 }
 
-function selectAllPosts() {
+export function selectAllPosts() {
     const posts = loadPosts();
     return posts;
 }
 
-function updatePost(postId, post) {
+export function updatePost(postId, post) {
     const posts = loadPosts();
 
     posts[postId] = post;
@@ -78,7 +78,7 @@ function updatePost(postId, post) {
     storePosts();
 }
 
-function deleteBook(postId) {
+export function deletePost(postId) {
     const posts = loadPosts();
 
     // If it's not there, just return false. If it is there, delete it.
