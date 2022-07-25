@@ -55,7 +55,8 @@
                     let id = this.id;
                     dialog_popup.open = true;
 
-                    let edit = document.getElementById('edit');                    let deleteBtn = document.getElementById('delete');
+                    let edit = document.getElementById('edit');                    
+                    let deleteBtn = document.getElementById('delete');
                     let cancelBtn = document.getElementById('cancel');
                     let text = document.getElementById('text');
                     let modify = document.getElementById('modify');
@@ -69,7 +70,7 @@
                         Posts.redisplayAllPosts(container);
                     });
 
-                    cancel.addEventListener('click', ()=> {
+                    cancelBtn.addEventListener('click', ()=> {
                         dialog_popup.open = false;
                     })
 
