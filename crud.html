@@ -40,16 +40,26 @@
                 });
 
                 let dialog_popup = document.getElementById('dialog_popup');
-                let edit = document.getElementById('edit');
-                let deleteBtn = document.getElementById('delete');
-                let cancel = document.getElementById('cancel');
-                //let input = document.getElementById('input');
-                let text = document.getElementById('text');
+                
                 let result = document.getElementById('result');
                 let option = document.getElementById('option');
 
                 option.addEventListener('click', function(){
                     dialog_popup.open = true;
+                    let edit = document.getElementById('edit');
+                    let deleteBtn = document.getElementById('delete');
+                    let cancel = document.getElementById('cancel');
+                    let text = document.getElementById('text');
+                    text.style.diaply = 'none';
+                    deleteBtn.addEventListener('click',deletePost())
+                    function editPost() {
+
+                    }
+
+                    function deletePost() {
+                        // let postId = document.querySelector('')
+                    }
+
                 });
             });
         </script>
