@@ -53,7 +53,7 @@ export function insertPost(post) {
     const postId = generatePostId();
 
     posts[postId] = post;
-    storePosts(post);
+    storePosts(posts);
     console.log('Error in insert');
     
     return postId;
