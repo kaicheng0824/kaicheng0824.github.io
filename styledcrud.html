@@ -21,12 +21,13 @@
 
             Posts.definePost();
             document.addEventListener('DOMContentLoaded', (_ev) => {
+                stylePost();
                 const add_dialog = document.getElementById('add');
                 const dialog = document.getElementById('dialog');
 
                 const container = document.getElementById('posts');
-                const id = Posts.generatePostId();
-                const post = Posts.examplePost;
+                // const id = Posts.generatePostId();
+                // const post = Posts.examplePost;
                 stylePost()
                 Posts.redisplayAllPosts(container);
 
