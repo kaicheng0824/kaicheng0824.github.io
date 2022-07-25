@@ -4,24 +4,8 @@
         <meta charset='utf-8'/>
         <meta name="viewport" content="width=device-width, initial-scale=0.5">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.js"></script>
-        <script type="text/javascript" src="./blog.js" defer></script>
-
-        <template id="post-template">
-            <post>
-                <post-title>
-                    <h1>Title</h1>
-                </post-title>
-                <post-date>
-                    <h2>Date</h2>
-                </post-date>
-                <post-summary>
-                    <h2>Summary</h2>
-                    <p> Summary starts here...</p>
-                </post-summary>
-            </post>
-        </template>
-
-        <script type="module" src="./blog.js">
+        <!-- <script type="text/javascript" src="./blog.js" defer></script> -->
+        <script type="module">
             import * as Posts from './blog.js'
 
             Posts.definePost();
@@ -40,6 +24,21 @@
             // const exampleId = Posts.generatePostId();
             // Posts.renderPost(exampleId,Posts.examplePost)
         </script>
+
+<template id="post-template">
+    <post>
+        <post-title>
+            <h1>Title</h1>
+        </post-title>
+        <post-date>
+            <h2>Date</h2>
+        </post-date>
+        <post-summary>
+            <h2>Summary</h2>
+            <p> Summary starts here...</p>
+        </post-summary>
+    </post>
+</template>
 
     </head>
     <body>
