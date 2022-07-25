@@ -56,7 +56,7 @@
                     let input = document.getElementById('input');
                     let text = document.getElementById('text');
                     input.style.diaply = 'none';
-                    deleteBtn.addEventListener('click',Posts.deletePost(id));
+                    deleteBtn.addEventListener('click', (id)=>{Posts.deletePost(id)});
                     function editPost() {
 
                     }
