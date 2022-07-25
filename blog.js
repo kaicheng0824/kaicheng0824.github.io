@@ -63,7 +63,7 @@ export function renderPost(postId,post){
  export function displayPost(postId, post, container) {
     const postElement = renderPost(postId,post);
 
-    const existing = container.querySelector(`[data-post-id]="${postId}"`)
+    const existing = container.querySelector(`[data-post-id="${postId}"]`)
     if(existing) {
         existing.remove();
     }
