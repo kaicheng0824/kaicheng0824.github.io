@@ -46,9 +46,19 @@
                 //let input = document.getElementById('input');
                 let text = document.getElementById('text');
                 let result = document.getElementById('result');
-                function dialog() {
+                function edit_dialog() {
                     dialog_popup.open = true;
+                    // edit.addEventListener('click', text_input());
+                    // deleteBtn.addEventListener('click', delete_input());
                 }
+
+                // function text_input(){
+
+                // }
+                
+                // function delete_input() {
+
+                // }
 
                 
 
@@ -57,7 +67,7 @@
             });
         </script>
 
-        <template id="post-template" onclick="dialog()">
+        <template id="post-template" onclick="edit_dialog()">
             <post-articles>
                 <post-title>
                     <h1>Title</h1>
