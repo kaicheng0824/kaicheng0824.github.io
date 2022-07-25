@@ -65,6 +65,7 @@
                     deleteBtn.addEventListener('click', ()=>{
                         console.log('delete');
                         Posts.deletePost(id);
+                        Posts.redisplayAllPosts();
                     });
                 }
             });
