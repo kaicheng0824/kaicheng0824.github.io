@@ -205,6 +205,11 @@
                     dialog.style.position = 'sticky';
                     dialog.style.marginLeft = "5em";
                     dialog.style.marginTop = "5em";
+                    let buttons = document.querySelector('dialog > *');
+
+                    for(let i = 0; i < buttons.length; i++) {
+                        buttons[i].style.padding = '10px';
+                    }
 
                     let body = document.querySelector('body');
                     // body.style.opacity = '0.5';
