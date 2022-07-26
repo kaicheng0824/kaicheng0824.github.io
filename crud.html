@@ -10,50 +10,55 @@
 
             Posts.definePost();
             document.addEventListener('DOMContentLoaded', (_ev) => {
+                TurnOnAddDialog(false);
+                TurnOnEditDialog(false);
                 const add_dialog = document.getElementById('add');
                 const dialog = document.getElementById('dialog');
+                const dialog_popup = document.getElementById('dialog_popup');
 
                 const container = document.getElementById('posts');
-                const id = Posts.generatePostId();
-                const post = Posts.examplePost;
                 Posts.redisplayAllPosts(container);
+                // stylePost();
 
-                const addPostForm = document.getElementById("insert-post");
-                addPostForm.addEventListener('submit',(ev) =>{
+                // const addPostForm = document.getElementById("insert-post");
+                let submitAdd = document.getElementById('submitAdd');
+                let cancelAdd = document.getElementById('cancelAdd');
+                cancelAdd.addEventListener('click', (ev)=> {
                     ev.preventDefault();
-                    // const formData = new FormData(ev.target);
+                    TurnOnAddDialog(false);
+                });
+
+                submitAdd.addEventListener('click',(ev) =>{
+                    ev.preventDefault();
+                    TurnOnEditDialog(false);
                     const container = document.getElementById('posts');
                     const id = Posts.generatePostId();
-                    // const formData = new FormData(ev.target);
                     const post = {};
                     post['title'] = document.getElementById('title').value
                     post['date'] = document.getElementById('date').value
                     post['summary'] = document.getElementById('summary').value
-                    // for (const [key, value] of formData.entries()) {
-                    //     console.log(key);
-                    //     console.log(value);
-
-                    //     post[key] = value;
-                    // }
-                    console.log('POST BELOW')
                     console.log(post)
                     Posts.insertPost(post);
                     Posts.redisplayAllPosts(container);
+                    // stylePost();
                     addListener();
+                    TurnOnAddDialog(false);
                 });
 
                 add_dialog.addEventListener('click', function(){
-                    dialog.open = true;
-                    dialog_popup.open = false;
+                    TurnOnAddDialog(true);
+                    TurnOnEditDialog(false);
                 });
 
-                let dialog_popup = document.getElementById('dialog_popup');
                 let result = document.getElementById('result');
                 addListener();
 
                 function showDialog(){
                     let id = this.id;
-                    dialog_popup.open = true;
+                    hideBtn(id);
+                    TurnOnAddDialog(false);
+                    TurnOnEditDialog(true);
+
 
                     let edit = document.getElementById('edit');                    
                     let deleteBtn = document.getElementById('delete');
@@ -68,11 +73,15 @@
                         Posts.deletePost(id);
                         window.location.reload(true);
                         Posts.redisplayAllPosts(container);
-                    });
+                        showBtn();
+                    },true);
 
-                    cancelBtn.addEventListener('click', ()=> {
-                        dialog_popup.open = false;
-                    })
+                    cancelBtn.addEventListener('click', (ev)=> {
+                        // ev.preventDefault();
+                        TurnOnEditDialog(false);
+                        window.location.reload(true);
+                        showBtn();
+                    },true);
 
                     edit.addEventListener('click', ()=> {
                         TurnOnEditInterface(true);
@@ -80,31 +89,91 @@
                         let submitEdit = document.getElementById('submitEdit');
                         let cancelEdit = document.getElementById('cancelEdit');
                         submitEdit.addEventListener('click', ()=>{
-                        
                             let postId = id;
+                            console.log(postId);
                             let post = {
                                 'title': document.getElementById('titleEdit').value,
                                 'date': document.getElementById('dateEdit').value,
                                 'summary': document.getElementById('summaryEdit').value,
                             }
+                            
                             Posts.updatePost(postId,post);
                             const container = document.getElementById('posts');
-                            Posts.redisplayAllPosts(container);
+                            // stylePost();
                             addListener();
+                            Posts.redisplayAllPosts(container);
+                            window.location.reload(true);
                             TurnOnEditInterface(false);
-                        });
+                            TurnOnAddDialog(false);
+                            TurnOnEditDialog(false);
+                            showBtn();
+                            return;
+                        },true);
 
                         cancelEdit.addEventListener('click', ()=>{
                             TurnOnEditInterface(false);
-                        })
-                    })
+                            window.location.reload(true);
+                        },true);
+                    });
                 }
                 function addListener() {
                     let option = document.getElementsByClassName('option');
                     for (let i = 0 ; i < option.length; i++) {
-                        option[i].addEventListener('click' , showDialog) ; 
-                        console.log('eventListener Registered');
+                        option[i].addEventListener('click' , showDialog); 
+                        // option[i].addEventListener('mouseover', function(){
+                        //     option[i].style.backgroundColor = 'yellow';
+                        // });
+                        // option[i].addEventListener('mouseout', function(){
+                        //     option[i].style.backgroundColor = 'grey';
+                        // });
+                        // console.log('eventListener Registered');
                     }
+                }
+
+                function hideBtn(id) {
+                    let option = document.getElementsByClassName('option');
+                    for (let i = 0 ; i < option.length; i++) {
+                        if(id==option[i].id) {
+                            continue;
+                        }
+                        option[i].style.display = 'none';
+                        console.log(option[i]);
+                        console.log('HERE');
+                    }                  
+                }
+
+                function showBtn() {
+                    let option = document.getElementsByClassName('option');
+                    for (let i = 0 ; i < option.length; i++) {
+                        option[i].style.display = 'block';
+                        console.log(option[i]);
+                        console.log('HERE');
+                    }  
+                }
+
+                function TurnOnEditDialog(flag) {
+                    let dialog_popup = document.getElementById('dialog_popup');
+                    if(flag==false) {
+                        dialog_popup.style.display = 'none';
+                    }
+                    else{
+                        dialog_popup.style.display = 'block';
+                    }
+                    
+                }
+
+                function ClearPostHTML() {
+                    document.getElementById('posts').innerHTML = '';
+                }
+
+                function TurnOnAddDialog(flag) {
+                    let dialog = document.getElementById('dialog');
+                    if(flag==false) {
+                        dialog.style.display = 'none';
+                    }
+                    else{
+                        dialog.style.display = 'block';
+                    }                    
                 }
 
                 function TurnOnEditInterface(flag) {
@@ -115,7 +184,11 @@
                     if(flag==false) {
                         deleteBtn.style.display = 'block';
                         cancelBtn.style.display = 'block';
-                        edit.style.display = 'block';
+                        // cancelBtn.style.width = '70px';
+                        // cancelBtn.style.height = '30px';
+                        // edit.style.display = 'block';
+                        // edit.style.width = '30px';
+                        // edit.style.height = '30px';
                         modify.style.display = 'none';
                     }
                     else {
@@ -124,6 +197,31 @@
                         edit.style.display = 'none';
                         modify.style.display = 'block';
                     }
+                }
+                function stylePost() {
+                    let option = document.getElementsByTagName('post-articles');
+                    for (let i = 0 ; i < option.length; i++) {
+                        option[i].style.width = '300px';
+                        option[i].style.border = '1px solid black';
+                        option[i].style.padding = '10px';
+                        option[i].style.margin = '10px';
+                        option[i].style.backgroundColor = 'rgb(111,111,111,0.2)';
+                        option[i].style.borderRadius = '1em';
+                        console.log('HERE');
+                    }
+                }
+
+                function styleEdit() {
+                    let dialog = document.getElementById('dialog_popup');
+                    dialog.style.borderRadius = '5em';
+                    dialog.style.width = '15em';
+                    dialog.style.display = 'flex';
+                    // dialog.style.justifyContent = 'center';
+                    dialog.style.position = 'fixed';
+                    // dialog.style.marginLeft = "5em";
+                    // dialog.style.marginTop = "5em";
+
+                    let body = document.querySelector('body');
                 }
             });
         </script>
