@@ -94,7 +94,6 @@
                         let submitEdit = document.getElementById('submitEdit');
                         let cancelEdit = document.getElementById('cancelEdit');
                         submitEdit.addEventListener('click', ()=>{
-                        
                             let postId = id;
                             let post = {
                                 'title': document.getElementById('titleEdit').value,
@@ -104,8 +103,10 @@
                             Posts.updatePost(postId,post);
                             const container = document.getElementById('posts');
                             Posts.redisplayAllPosts(container);
+                            stylePost();
                             addListener();
                             TurnOnEditInterface(false);
+                            TurnOnAddDialog(false);
                         });
 
                         cancelEdit.addEventListener('click', ()=>{
