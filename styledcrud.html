@@ -65,12 +65,9 @@
                 addListener();
 
                 function showDialog(){
-                    TurnOnAddDialog(false);
-                    TurnOnEditDialog(true);
                     let id = this.id;
-                    console.log(id);
-                   
-                    styleEdit();
+                    TurnOnAddDialog(true);
+                    TurnOnEditDialog(false);
 
                     let edit = document.getElementById('edit');                    
                     let deleteBtn = document.getElementById('delete');
@@ -80,52 +77,35 @@
                     TurnOnEditInterface(false);
 
                     deleteBtn.addEventListener('click', ()=>{
-                        ClearPostHTML();
+                        const container = document.getElementById('posts');
+                        console.log('delete');
                         Posts.deletePost(id);
-                        let container = document.getElementById('posts');
+                        window.location.reload(true);
                         Posts.redisplayAllPosts(container);
-                        stylePost();
-                        addListener();
-                        TurnOnEditDialog(false);
                     });
 
                     cancelBtn.addEventListener('click', ()=> {
-                        let dialog = document.getElementById('dialog');
-                        let dialog_popup = document.getElementById('dialog_popup');
-                        console.log('CANCEL PRESSEDDDDD');
-                        TurnOnEditDialog(false);
+                        dialog_popup.open = false;
                     })
 
-                    edit.addEventListener('click', (id)=> {
-                        console.log(id);
-                        TurnOnAddDialog(false);
+                    edit.addEventListener('click', ()=> {
                         TurnOnEditInterface(true);
                         
                         let submitEdit = document.getElementById('submitEdit');
                         let cancelEdit = document.getElementById('cancelEdit');
+                        submitEdit.addEventListener('click', ()=>{
                         
-                        submitEdit.addEventListener('click', (id)=>{
                             let postId = id;
-                            console.log('INNER ID')
-                            console.log(postId);
                             let post = {
                                 'title': document.getElementById('titleEdit').value,
                                 'date': document.getElementById('dateEdit').value,
                                 'summary': document.getElementById('summaryEdit').value,
                             }
-                            console.log("POST")
-                            console.log(post);
-
-                            // ClearPostHTML();
                             Posts.updatePost(postId,post);
-                            // ClearPostHTML();
                             const container = document.getElementById('posts');
                             Posts.redisplayAllPosts(container);
-                            
                             addListener();
-                            stylePost();
                             TurnOnEditInterface(false);
-                            TurnOnEditDialog(false);
                         });
 
                         cancelEdit.addEventListener('click', ()=>{
