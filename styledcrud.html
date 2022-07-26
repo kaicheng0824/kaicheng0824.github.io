@@ -35,6 +35,7 @@
         <script type="module">
             import * as Posts from './styledpost.js'
 
+            let flag = true;
             Posts.definePost();
             document.addEventListener('DOMContentLoaded', (_ev) => {
                 TurnOnAddDialog(false);
@@ -74,11 +75,17 @@
                 addListener();
 
                 function showDialog(){
+                    if(flag) {
+                        TurnOnEditDialog(true);
+                        flag = false;
+                    }
+                    else {
+                        TurnOnEditDialog(false);
+                    }
                     // hideBtn();
-                    TurnOnEditDialog(false);
                     let id = this.id;
                     TurnOnAddDialog(false);
-                    TurnOnEditDialog(true);
+
 
                     let edit = document.getElementById('edit');                    
                     let deleteBtn = document.getElementById('delete');
