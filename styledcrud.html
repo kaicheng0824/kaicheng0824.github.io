@@ -93,10 +93,12 @@
                         Posts.deletePost(id);
                         window.location.reload(true);
                         Posts.redisplayAllPosts(container);
+                        showBtn();
                     });
 
                     cancelBtn.addEventListener('click', ()=> {
                         TurnOnEditDialog(false);
+                        showBtn();
                     })
 
                     edit.addEventListener('click', ()=> {
@@ -121,10 +123,12 @@
                             TurnOnEditInterface(false);
                             TurnOnAddDialog(false);
                             TurnOnEditDialog(false);
+                            showBtn();
                         });
 
                         cancelEdit.addEventListener('click', ()=>{
                             TurnOnEditInterface(false);
+                            showBtn();
                         })
                     });
                 }
