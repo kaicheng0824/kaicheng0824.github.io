@@ -93,7 +93,6 @@
                         Posts.deletePost(id);
                         window.location.reload(true);
                         Posts.redisplayAllPosts(container);
-                        return;
                         // showBtn();
                     });
 
@@ -101,7 +100,7 @@
                         TurnOnEditDialog(false);
                         return;
                         // showBtn();
-                    })
+                    });
 
                     edit.addEventListener('click', ()=> {
                         TurnOnEditInterface(true);
@@ -140,7 +139,7 @@
                 function addListener() {
                     let option = document.getElementsByClassName('option');
                     for (let i = 0 ; i < option.length; i++) {
-                        option[i].addEventListener('click' , showDialog) ; 
+                        option[i].addEventListener('click mouseover' , showDialog) ; 
                         option[i].addEventListener('mouseover', function(){
                             option[i].style.backgroundColor = 'yellow';
                         });
