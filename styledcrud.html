@@ -53,7 +53,8 @@
                 // const addPostForm = document.getElementById("insert-post");
                 let submitAdd = document.getElementById('submitAdd');
                 let cancelAdd = document.getElementById('cancelAdd');
-                cancelAdd.addEventListener('click', function() {
+                cancelAdd.addEventListener('click', (ev)=> {
+                    ev.preventDefault();
                     TurnOnAddDialog(false);
                 });
 
