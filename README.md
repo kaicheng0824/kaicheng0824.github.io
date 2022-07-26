@@ -8,7 +8,7 @@ I created the following files for this assignment
 - [nativedialogs.html](nativedialogs.html)
     - Hosting native dialogs responses (For Part 1)
     - Link: https://fascinating-clafoutis-de33c2.netlify.app/nativedialogs.html
-- [custondialogs.html](custondialogs.html)
+- [customdialogs.html](customdialogs.html)
     - Hosting custom dialogs responses (For Part 2)
     - Link: https://fascinating-clafoutis-de33c2.netlify.app/customdialogs.html
 - [crud.html](crud.html)
