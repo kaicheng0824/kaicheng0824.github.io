@@ -74,8 +74,8 @@
                 addListener();
 
                 function showDialog(){
-                    hideBtn();
                     let id = this.id;
+                    hideBtn(id);
                     TurnOnAddDialog(false);
                     TurnOnEditDialog(true);
 
@@ -150,9 +150,12 @@
                     }
                 }
 
-                function hideBtn() {
+                function hideBtn(id) {
                     let option = document.getElementsByClassName('option');
                     for (let i = 0 ; i < option.length; i++) {
+                        if(id==option[i].id) {
+                            continue;
+                        }
                         option[i].style.display = 'none';
                         console.log(option[i]);
                         console.log('HERE');
