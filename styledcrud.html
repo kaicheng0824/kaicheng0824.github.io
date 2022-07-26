@@ -106,10 +106,10 @@
                         showBtn();
                     },true);
 
-                    cancelBtn.addEventListener('click', ()=> {
+                    cancelBtn.addEventListener('click', (ev)=> {
+                        ev.preventDefault();
                         TurnOnEditDialog(false);
-                        window.location.reload(true);
-                        return;
+                        // window.location.reload(true);
                         showBtn();
                     },true);
 
