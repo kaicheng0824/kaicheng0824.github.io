@@ -145,7 +145,7 @@
                         });
                         option[i].addEventListener('mouseout', function(){
                             option[i].style.backgroundColor = 'grey';
-                            option[i].removeChild('click' , showDialog); 
+                            option[i].removeEventListener('click' , showDialog); 
                         });
                         console.log('eventListener Registered');
                     }
