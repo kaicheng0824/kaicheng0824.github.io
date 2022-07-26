@@ -74,7 +74,7 @@
                 addListener();
 
                 function showDialog(){
-                    // hideBtn();
+                    hideBtn();
                     let id = this.id;
                     TurnOnAddDialog(false);
                     TurnOnEditDialog(true);
@@ -93,14 +93,14 @@
                         Posts.deletePost(id);
                         window.location.reload(true);
                         Posts.redisplayAllPosts(container);
-                        // showBtn();
+                        showBtn();
                     },true);
 
                     cancelBtn.addEventListener('click', ()=> {
                         TurnOnEditDialog(false);
                         window.location.reload(true);
                         return;
-                        // showBtn();
+                        showBtn();
                     },true);
 
                     edit.addEventListener('click', ()=> {
@@ -126,7 +126,7 @@
                             TurnOnEditInterface(false);
                             TurnOnAddDialog(false);
                             TurnOnEditDialog(false);
-                            // showBtn();
+                            showBtn();
                             return;
                         },true);
 
