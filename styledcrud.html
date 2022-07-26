@@ -96,7 +96,8 @@
                         TurnOnEditDialog(false);
                     })
 
-                    edit.addEventListener('click', ()=> {
+                    edit.addEventListener('click', (id)=> {
+                        console.log(id);
                         TurnOnAddDialog(false);
                         TurnOnEditInterface(true);
                         
