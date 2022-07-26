@@ -205,10 +205,9 @@
                     dialog.style.position = 'sticky';
                     dialog.style.marginLeft = "5em";
                     dialog.style.marginTop = "5em";
-                    let buttons = document.querySelector('#dialog_popup > *');
 
                     for(let i = 0; i < buttons.length; i++) {
-                        buttons[i].style.margin = '10px';
+                        dialog[i].style.margin = '10px';
                     }
 
                     let body = document.querySelector('body');
