@@ -220,7 +220,9 @@
                     if(flag==false) {
                         deleteBtn.style.display = 'block';
                         cancelBtn.style.display = 'block';
+                        cancelBtn.style.backgroundImage = 'url(asset/trash.png)';
                         edit.style.display = 'block';
+                        edit.style.backgroundImage = 'url(asset/edit.webp)';
                         modify.style.display = 'none';
                     }
                     else {
@@ -294,9 +296,9 @@
         </dialog>
         <dialog id="dialog_popup">
             <output id="output"><p id="text"></p></output>
-            <button id="edit" style="display:flex">Edit </button>
-            <button id="delete" style="display:flex">Delete</button>
-            <button id="cancel" style="display:flex">Cancel</button>
+            <button id="edit" style="display:flex"> </button>
+            <button id="delete" style="display:flex"></button>
+            <button id="cancel" style="display:flex"></button>
             <div id="modify" style="display: block">
                 <label for="titleEdit">New Title</label>
                 <input id="titleEdit" type="text" style="display:block"/>
