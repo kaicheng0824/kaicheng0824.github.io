@@ -206,8 +206,8 @@
                     dialog.style.marginLeft = "5em";
                     dialog.style.marginTop = "5em";
 
-                    for(let i = 0; i < buttons.length; i++) {
-                        dialog[i].style.margin = '10px';
+                    for(let i = 0; i < dialog.children.length; i++) {
+                        dialog.children[i].style.margin = '10px';
                     }
 
                     let body = document.querySelector('body');
