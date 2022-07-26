@@ -37,6 +37,8 @@
 
             Posts.definePost();
             document.addEventListener('DOMContentLoaded', (_ev) => {
+                TurnOnAddDialog(false);
+                TurnOnEditDialog(false);
                 const add_dialog = document.getElementById('add');
                 const dialog = document.getElementById('dialog');
                 const dialog_popup = document.getElementById('dialog_popup');
