@@ -94,13 +94,13 @@
                         window.location.reload(true);
                         Posts.redisplayAllPosts(container);
                         // showBtn();
-                    });
+                    },true);
 
                     cancelBtn.addEventListener('click', ()=> {
                         TurnOnEditDialog(false);
                         return;
                         // showBtn();
-                    });
+                    },true);
 
                     edit.addEventListener('click', ()=> {
                         TurnOnEditInterface(true);
@@ -126,16 +126,14 @@
                             TurnOnEditDialog(false);
                             // showBtn();
                             return;
-                        });
+                        },true);
 
                         cancelEdit.addEventListener('click', ()=>{
                             TurnOnEditInterface(false);
                             window.location.reload(true);
-                            // showBtn();
-                            // return;
-                        })
+                            
+                        },true);
                     });
-                    return;
                 }
                 function addListener() {
                     let option = document.getElementsByClassName('option');
