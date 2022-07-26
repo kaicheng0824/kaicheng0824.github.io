@@ -139,12 +139,13 @@
                 function addListener() {
                     let option = document.getElementsByClassName('option');
                     for (let i = 0 ; i < option.length; i++) {
-                        option[i].addEventListener('click mouseover' , showDialog) ; 
                         option[i].addEventListener('mouseover', function(){
+                            option[i].addEventListener('click' , showDialog); 
                             option[i].style.backgroundColor = 'yellow';
                         });
                         option[i].addEventListener('mouseout', function(){
                             option[i].style.backgroundColor = 'grey';
+                            option[i].removeChild('click' , showDialog); 
                         });
                         console.log('eventListener Registered');
                     }
