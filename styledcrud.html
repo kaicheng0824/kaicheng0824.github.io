@@ -222,9 +222,9 @@
                         cancelBtn.style.display = 'block';
                         cancelBtn.style.width = '30px';
                         cancelBtn.style.height = '30px';
-                        cancelBtn.style.backgroundImage = 'url(asset/trash_icon.png)';
+                        // cancelBtn.style.backgroundImage = 'url(asset/trash_icon.png)';
                         edit.style.display = 'block';
-                        edit.style.backgroundImage = 'url(asset/edit.png)';
+                        // edit.style.backgroundImage = 'url(asset/edit.png)';
                         edit.style.width = '30px';
                         edit.style.height = '30px';
                         modify.style.display = 'none';
@@ -300,8 +300,8 @@
         </dialog>
         <dialog id="dialog_popup">
             <output id="output"><p id="text"></p></output>
-            <button id="edit" style="display:flex"> </button>
-            <button id="delete" style="display:flex"></button>
+            <button id="edit" style="display:flex; background-image: url(asset/edit.png);"> </button>
+            <button id="delete" style="display:flex; background-image: url(asset/trash_icon.png);"></button>
             <button id="cancel" style="display:flex"></button>
             <div id="modify" style="display: block">
                 <label for="titleEdit">New Title</label>
