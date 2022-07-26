@@ -78,9 +78,10 @@
                     let id = this.id;
                     TurnOnAddDialog(false);
                     TurnOnEditDialog(true);
+                }
 
 
-                    let edit = document.getElementById('edit');                    
+                let edit = document.getElementById('edit');                    
                     let deleteBtn = document.getElementById('delete');
                     let cancelBtn = document.getElementById('cancel');
                     let text = document.getElementById('text');
@@ -135,7 +136,7 @@
                             window.location.reload(true);
                         },true);
                     });
-                }
+
                 function addListener() {
                     let option = document.getElementsByClassName('option');
                     for (let i = 0 ; i < option.length; i++) {
