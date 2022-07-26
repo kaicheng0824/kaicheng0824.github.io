@@ -98,6 +98,7 @@
 
                     cancelBtn.addEventListener('click', ()=> {
                         TurnOnEditDialog(false);
+                        window.location.reload(true);
                         return;
                         // showBtn();
                     },true);
@@ -132,7 +133,6 @@
                         cancelEdit.addEventListener('click', ()=>{
                             TurnOnEditInterface(false);
                             window.location.reload(true);
-                            
                         },true);
                     });
                 }
