@@ -68,6 +68,7 @@
                     TurnOnAddDialog(false);
                     TurnOnEditDialog(true);
                     let id = this.id;
+                    console.log('HELOOO');
                     console.log(id);
                    
                     styleEdit();
@@ -96,7 +97,9 @@
                         TurnOnEditDialog(false);
                     })
 
-                    edit.addEventListener('click', function(id) {
+                    edit.addEventListener('click', edit(id));
+                    
+                    function edit(id) {
                         console.log(id);
                         TurnOnAddDialog(false);
                         TurnOnEditInterface(true);
@@ -131,7 +134,7 @@
                         cancelEdit.addEventListener('click', ()=>{
                             TurnOnEditInterface(false);
                         })
-                    })
+                    }
                 }
                 function addListener() {
                     let option = document.getElementsByClassName('option');
