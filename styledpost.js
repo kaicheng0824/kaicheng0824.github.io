@@ -75,6 +75,8 @@ export function updatePost(postId, post) {
 
     posts[postId] = post;
 
+    console.log(posts[postId]);
+
     storePosts(posts);
 }
 
