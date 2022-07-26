@@ -105,6 +105,8 @@
                         
                         submitEdit.addEventListener('click', (id)=>{
                             let postId = id;
+                            console.log('INNER ID')
+                            console.log(postId);
                             let post = {
                                 'title': document.getElementById('titleEdit').value,
                                 'date': document.getElementById('dateEdit').value,
