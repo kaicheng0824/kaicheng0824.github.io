@@ -109,6 +109,7 @@
                         let cancelEdit = document.getElementById('cancelEdit');
                         submitEdit.addEventListener('click', ()=>{
                             let postId = id;
+                            console.log(postId);
                             let post = {
                                 'title': document.getElementById('titleEdit').value,
                                 'date': document.getElementById('dateEdit').value,
