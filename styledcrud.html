@@ -74,6 +74,7 @@
                 addListener();
 
                 function showDialog(){
+                    TurnOnEditDialog(false);
                     let id = this.id;
                     TurnOnAddDialog(false);
                     TurnOnEditDialog(true);
@@ -206,13 +207,7 @@
                     dialog.style.marginLeft = "5em";
                     dialog.style.marginTop = "5em";
 
-                    for(let i = 0; i < dialog.children.length; i++) {
-                        dialog.children[i].style.margin = '10px';
-                    }
-
                     let body = document.querySelector('body');
-                    // body.style.opacity = '0.5';
-                    // dialog.style.opacity = "1";
                 }
             });
         </script>
