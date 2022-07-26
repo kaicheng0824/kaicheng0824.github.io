@@ -74,7 +74,7 @@
                 addListener();
 
                 function showDialog(){
-                    hideBtn();
+                    // hideBtn();
                     TurnOnEditDialog(false);
                     let id = this.id;
                     TurnOnAddDialog(false);
@@ -93,12 +93,14 @@
                         Posts.deletePost(id);
                         window.location.reload(true);
                         Posts.redisplayAllPosts(container);
-                        showBtn();
+                        return;
+                        // showBtn();
                     });
 
                     cancelBtn.addEventListener('click', ()=> {
                         TurnOnEditDialog(false);
-                        showBtn();
+                        return;
+                        // showBtn();
                     })
 
                     edit.addEventListener('click', ()=> {
@@ -123,12 +125,14 @@
                             TurnOnEditInterface(false);
                             TurnOnAddDialog(false);
                             TurnOnEditDialog(false);
-                            showBtn();
+                            // showBtn();
+                            return;
                         });
 
                         cancelEdit.addEventListener('click', ()=>{
                             TurnOnEditInterface(false);
                             showBtn();
+                            return;
                         })
                     });
                 }
