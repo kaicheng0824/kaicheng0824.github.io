@@ -64,10 +64,10 @@
                 let result = document.getElementById('result');
                 addListener();
 
-                function showDialog(){
+                function showDialog(idx){
                     TurnOnAddDialog(false);
                     TurnOnEditDialog(true);
-                    let id = this.id;
+                    let id = idx;
                     console.log(this.id);
                    
                     styleEdit();
@@ -128,7 +128,7 @@
                 function addListener() {
                     let option = document.getElementsByClassName('option');
                     for (let i = 0 ; i < option.length; i++) {
-                        option[i].addEventListener('click' , showDialog) ; 
+                        option[i].addEventListener('click' , showDialog(option[i].id)) ; 
                         option[i].addEventListener('mouseover', function(){
                             option[i].style.backgroundColor = 'yellow';
                         });
