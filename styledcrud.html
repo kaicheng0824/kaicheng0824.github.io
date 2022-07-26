@@ -68,7 +68,6 @@
                     TurnOnAddDialog(false);
                     TurnOnEditDialog(true);
                     let id = this.id;
-                    console.log('HELOOO');
                     console.log(id);
                    
                     styleEdit();
@@ -97,9 +96,7 @@
                         TurnOnEditDialog(false);
                     })
 
-                    edit.addEventListener('click', edit(id));
-                    
-                    function edit(id) {
+                    edit.addEventListener('click', (id)=> {
                         console.log(id);
                         TurnOnAddDialog(false);
                         TurnOnEditInterface(true);
@@ -107,7 +104,7 @@
                         let submitEdit = document.getElementById('submitEdit');
                         let cancelEdit = document.getElementById('cancelEdit');
                         
-                        submitEdit.addEventListener('click', function(id){
+                        submitEdit.addEventListener('click', (id)=>{
                             let postId = id;
                             console.log('INNER ID')
                             console.log(postId);
@@ -134,7 +131,7 @@
                         cancelEdit.addEventListener('click', ()=>{
                             TurnOnEditInterface(false);
                         })
-                    }
+                    })
                 }
                 function addListener() {
                     let option = document.getElementsByClassName('option');
