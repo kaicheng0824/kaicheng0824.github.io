@@ -100,11 +100,13 @@
                                 'date': document.getElementById('dateEdit').value,
                                 'summary': document.getElementById('summaryEdit').value,
                             }
+                            
                             Posts.updatePost(postId,post);
                             const container = document.getElementById('posts');
-                            Posts.redisplayAllPosts(container);
                             stylePost();
                             addListener();
+                            Posts.redisplayAllPosts(container);
+                            window.location.reload(true);
                             TurnOnEditInterface(false);
                             TurnOnAddDialog(false);
                             TurnOnEditDialog(false);
