@@ -102,6 +102,7 @@
                         
                         let submitEdit = document.getElementById('submitEdit');
                         let cancelEdit = document.getElementById('cancelEdit');
+                        
                         submitEdit.addEventListener('click', (id)=>{
                             let postId = id;
                             let post = {
@@ -110,10 +111,12 @@
                                 'summary': document.getElementById('summaryEdit').value,
                             }
 
-                            ClearPostHTML();
+                            // ClearPostHTML();
                             Posts.updatePost(postId,post);
+                            ClearPostHTML();
                             const container = document.getElementById('posts');
                             Posts.redisplayAllPosts(container);
+                            
                             addListener();
                             stylePost();
                             TurnOnEditInterface(false);
