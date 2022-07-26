@@ -74,6 +74,7 @@
                 addListener();
 
                 function showDialog(){
+                    removeListener();
                     TurnOnEditDialog(false);
                     let id = this.id;
                     TurnOnAddDialog(false);
@@ -126,6 +127,7 @@
                             TurnOnEditInterface(false);
                         })
                     })
+                    addListener();
                 }
                 function addListener() {
                     let option = document.getElementsByClassName('option');
@@ -139,6 +141,20 @@
                         });
                         console.log('eventListener Registered');
                     }
+                }
+
+                function removeListener() {
+                    let option = document.getElementsByClassName('option');
+                    for (let i = 0 ; i < option.length; i++) {
+                        option[i].removeEventListener('click' , showDialog) ; 
+                        option[i].removeEventListener('mouseover', function(){
+                            option[i].style.backgroundColor = 'yellow';
+                        });
+                        option[i].removeEventListener('mouseout', function(){
+                            option[i].style.backgroundColor = 'grey';
+                        });
+                        console.log('removed Registered');
+                    }                  
                 }
 
                 function TurnOnEditDialog(flag) {
