@@ -3,4 +3,6 @@
 - Updated more experiences in the professional section
 - Added Google Analytics javascript tag
 - Added downloadable pdf resume and transcript
-- Added external links to other personal work
+- Added Reading list tab in personal
+- Added external links to projects and writing
+- Added links to github and linkedin in contactme.html
