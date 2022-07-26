@@ -50,13 +50,14 @@
                 Posts.redisplayAllPosts(container);
                 stylePost();
 
-                const addPostForm = document.getElementById("insert-post");
-                // let cancelAdd = document.getElementById('cancelAdd');
-                // cancelAdd.addEventListener('click', function() {
-                //     window.location.reload(true);
-                // });
+                // const addPostForm = document.getElementById("insert-post");
+                let submitAdd = document.getElementById('submitAdd');
+                let cancelAdd = document.getElementById('cancelAdd');
+                cancelAdd.addEventListener('click', function() {
+                    window.location.reload(true);
+                });
 
-                addPostForm.addEventListener('submit',(ev) =>{
+                submitAdd.addEventListener('click',(ev) =>{
                     ev.preventDefault();
                     TurnOnEditDialog(false);
                     const container = document.getElementById('posts');
