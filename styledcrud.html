@@ -145,9 +145,9 @@
                             console.log(postId);
                             let post = Posts.selectPost(postId);
                             
-                            let title = document.getElementById('title').value;
-                            let date = document.getElementById('date').value;
-                            let summary = document.getElementById('summary').value;
+                            let title = document.getElementById('titleEdit').value;
+                            let date = document.getElementById('titleDate').value;
+                            let summary = document.getElementById('titleSumary').value;
 
                             if(title!='') {
                                 post['title'] = title;
