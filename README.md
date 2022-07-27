@@ -21,6 +21,8 @@ I created the following files for this assignment
     - Unstyled crud javascript (For part 3)
 - [styledpost.js](styledpost.js)
     - styled crud javascript (For part 3)
+- [customdialogs.js](customdialogs.js)
+    - styled for custom dialog (For part 2)
 - [link.md](link.md)
     - Contain Netlify link
 
