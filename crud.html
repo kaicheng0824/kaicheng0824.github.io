@@ -34,10 +34,28 @@
                     const container = document.getElementById('posts');
                     const id = Posts.generatePostId();
                     const post = {};
-                    post['title'] = document.getElementById('title').value
-                    post['date'] = document.getElementById('date').value
-                    post['summary'] = document.getElementById('summary').value
-                    console.log(post)
+                    
+                    let title = document.getElementById('title').value;
+                    let date = document.getElementById('date').value;
+                    let summary = document.getElementById('summary').value;
+
+                    if(title=='') {
+                        title = 'No Title';
+                    }
+
+                    if(date=='') {
+                        date = 'No Date';
+                    }
+
+                    if(summary=='') {
+                        summary = 'No Summary';
+                    }
+
+                    post['title'] = title;
+                    post['date'] = date;
+                    post['summary'] = summary;
+
+                    // console.log(post)
                     Posts.insertPost(post);
                     Posts.redisplayAllPosts(container);
                     // stylePost();
