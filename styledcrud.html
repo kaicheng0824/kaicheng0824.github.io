@@ -138,6 +138,7 @@
                         
                         let submitEdit = document.getElementById('submitEdit');
                         let cancelEdit = document.getElementById('cancelEdit');
+
                         submitEdit.addEventListener('click', ()=>{
                             
                             let postId = id;
@@ -148,21 +149,17 @@
                             let date = document.getElementById('date').value;
                             let summary = document.getElementById('summary').value;
 
-                            if(title=='') {
-                                title = post['title'];
+                            if(title!='') {
+                                post['title'] = title;
                             }
 
-                            if(date=='') {
-                                date = post['date'];
+                            if(date!='') {
+                                post['date'] = date;
                             }
 
-                            if(summary=='') {
-                                summary = post['summary'];
+                            if(summary!='') {
+                                post['summary'] = summary;
                             }
-
-                            post['title'] = title;
-                            post['date'] = date;
-                            post['summary'] = summary;
                                 
                             Posts.updatePost(postId,post);
                             const container = document.getElementById('posts');
