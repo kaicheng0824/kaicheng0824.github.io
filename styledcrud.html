@@ -139,9 +139,10 @@
                         let submitEdit = document.getElementById('submitEdit');
                         let cancelEdit = document.getElementById('cancelEdit');
                         submitEdit.addEventListener('click', ()=>{
+                            
                             let postId = id;
                             console.log(postId);
-                            const post = Posts.selectPost(postId);
+                            let post = Posts.selectPost(postId);
                             
                             let title = document.getElementById('title').value;
                             let date = document.getElementById('date').value;
