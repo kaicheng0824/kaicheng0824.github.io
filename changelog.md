@@ -7,3 +7,4 @@
 - Added external links to projects and writing
 - Added links to github and linkedin in contactme.html
 - Added SVG icons for github, linked, instagram, and twitter
+- Adjust footer
