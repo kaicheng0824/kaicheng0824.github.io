@@ -261,3 +261,8 @@ details[open] summary {
     0%    {opacity: 1; margin-bottom: -10px}
     100%  {opacity: 1; margin-top: 0px}
 }
+
+.icon {
+    width: 2em;
+    height: 2em;
+}
