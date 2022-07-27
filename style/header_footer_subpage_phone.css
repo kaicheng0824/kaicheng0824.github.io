@@ -293,3 +293,8 @@ details[open] summary {
     padding: 0.5em;
     border: 1px solid black;
 }
+
+.icon {
+    width: 3.5em;
+    height: 3.5em;
+}

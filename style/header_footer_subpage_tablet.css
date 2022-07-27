@@ -309,3 +309,8 @@ details[open] summary {
     display: none;
     background-color: transparent;
 }
+
+.icon {
+    width: 3em;
+    height: 3em;
+}
