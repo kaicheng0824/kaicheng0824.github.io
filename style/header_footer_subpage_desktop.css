@@ -82,6 +82,7 @@ main {
 
 footer > ul {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     /* grid-template-rows: 2fr 1fr;
     grid-template-columns: 1fr 1fr 1fr; */
