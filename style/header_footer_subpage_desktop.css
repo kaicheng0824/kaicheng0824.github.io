@@ -81,17 +81,18 @@ main {
 }
 
 footer > ul {
-    display: grid;
-    grid-template-rows: 2fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-rows: 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr; */
     border-radius: 1em;
 
 }
 
-footer > ul #legal {
+/* footer > ul #legal {
     grid-row: 1;
     grid-column: 1 / span 10;
-}
+} */
 
 ul,ol {
     text-align: center;
