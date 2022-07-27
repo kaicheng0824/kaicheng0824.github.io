@@ -109,11 +109,28 @@
                         submitEdit.addEventListener('click', ()=>{
                             let postId = id;
                             console.log(postId);
-                            let post = {
-                                'title': document.getElementById('titleEdit').value,
-                                'date': document.getElementById('dateEdit').value,
-                                'summary': document.getElementById('summaryEdit').value,
+
+                            const post = Posts.selectPost(postId);
+                            
+                            let title = document.getElementById('title').value;
+                            let date = document.getElementById('date').value;
+                            let summary = document.getElementById('summary').value;
+
+                            if(title=='') {
+                                title = post['title'];
                             }
+
+                            if(date=='') {
+                                date = post['date'];
+                            }
+
+                            if(summary=='') {
+                                summary = post['summary'];
+                            }
+
+                            post['title'] = title;
+                            post['date'] = date;
+                            post['summary'] = summary;
                             
                             Posts.updatePost(postId,post);
                             const container = document.getElementById('posts');
