@@ -62,7 +62,7 @@ export function insertPost(post) {
 export function selectPost(postId) {
     const posts = loadPosts();
 
-    return posts[bookId];
+    return posts[postId];
 }
 
 export function selectAllPosts() {
