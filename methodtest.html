@@ -121,7 +121,9 @@
 ​
     } /* jsSend */
 
-    async function jsGet() {
+    async function jsGet(event) {
+        event.preventDefault();
+        event.stopPropagation();
         log(`Entering fetchSend`);
 ​
         let form = document.getElementById('test_form');
