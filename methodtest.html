@@ -4,6 +4,32 @@
         <meta charset='utf-8'/>
         <meta name="viewport" content="width=device-width, initial-scale=0.5">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.js"></script>
+        <script type="module">
+                function init() {
+                    document.getElementById('get').addEventListener('click', get);
+                    document.getElementById('post').addEventListener('click', post);
+                    document.getElementById('delete').addEventListener('click', del);
+                    document.getElementById('put').addEventListener('click', put);
+            ​
+                    log(`Initialized at ${new Date()}`);
+                } 
+
+                function post() {
+                    log(`Entering post`);
+            ​
+                    let xhr = new XMLHttpRequest();
+            ​
+                    let payload = `id=${document.getElementById('id').value}&article_name=${document.getElementById('article_name').value}&article_body=${document.getElementById('article_body').value}`;
+            ​
+                    xhr.open('POST','https://www.httpbin.org/post', true);
+                    xhr.setRequestHeader('X-Powered-By','Hot Tea');
+                    xhr.onload = function () {
+                            document.getElementById('response').innerHTML = xhr.responseText;
+                    }
+                    xhr.send(payload);
+                }
+        </script>
+
     </head>
     <body>
         <form>
@@ -13,8 +39,17 @@
                 <input type="text" id="article_name" name="article_name">
                 <label for="article_body">Article Body: </label>
                 <textarea id="article_body" name="article_body">
-
                 </textarea>
+                <button id="get">GET</button>
+                <button id="post">POST</button>
+                <button id="put">PUT</button>
+                <button id="delete">DELETE</button>
+                <fieldset>
+                    <legend>Ajax/Fetch Server Response</legend>
+                    ​
+                        <output id="response"></output>
+                    ​
+                    </fieldset>
         </form>
     </body>
 </html>
