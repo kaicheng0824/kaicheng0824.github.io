@@ -43,9 +43,9 @@
         <legend>Server Response</legend>
 ​
         <output id="response"></output>
-        <!-- <noscript>
+        <noscript>
             <iframe id="response_frame" name="response_frame"></iframe>
-        </noscript> -->
+        </noscript>
 ​
     </fieldset>
 ​
@@ -69,24 +69,7 @@
     } /* init */
 ​
 ​
-// function jsGet(event) {
-//         log(`Entering jsGet`);
-//         event.preventDefault();
-//         event.stopPropagation();
-// ​
-//         let form = document.getElementById('test_form');
-// ​
-//         let method = 'get';
-//         let endpoint = 'https://httpbin.org/'+method;
-//         let payload = new FormData(form);
-// ​
-//         let xhr = new XMLHttpRequest();
-// ​
-//         xhr.open(method,endpoint, true);
-//         xhr.onload = () => document.getElementById('response').innerHTML = xhr.responseText;
-//         xhr.send(payload);
 
-//     }
     
     function jsPost(event) {
         log(`Entering jsGet`);
