@@ -5,15 +5,15 @@
     <title>HW5 - Part 1</title>
 </head>
 <body>
-​
+
 <h1>HW5 - Part 1</h1>
 <form action="#" method="#" target="response_frame" id="test_form">
-​
+
     <div>
         <label for="id">ID: </label>
         <input type="number" name="id" id="id">
     </div>
-​
+
     <div>
         <label for="article_name">Article Name: </label>
         <input type="text" name="article_name" id="article_name">
@@ -25,18 +25,18 @@
 
         </textarea>
     </div>
-​
+
     <div>
-        <button type="submit" id="get">GET</button>
+        <button id="get">GET</button>
     </div>
     <div>
-        <button type="submit" id="post">POST</button>
+        <button id="post">POST</button>
     </div>
     <div>
-        <button type="submit" id="del">DELETE</button>
+        <button id="del">DELETE</button>
     </div>
     <div>
-        <button type="submit" id="put">PUT</button>
+        <button id="put">PUT</button>
     </div>
 ​
     <fieldset>
@@ -52,96 +52,37 @@
 </form>
 ​
 <script type="module">
-​
-​
     window.addEventListener('DOMContentLoaded',init);
-​
     /**
      * init - bind DOM properties, read defaults, and set-up for execution
      */
     function init() {
         document.getElementById('get').addEventListener('submit', jsGet);
-        document.getElementById('post').addEventListener('submit', jsPost);
-        document.getElementById('del').addEventListener('submit', jsDel);
-        document.getElementById('put').addEventListener('submit', jsPut);
-​
+        // document.getElementById('post').addEventListener('submit', jsPost);
+        // document.getElementById('del').addEventListener('submit', jsDel);
+        // document.getElementById('put').addEventListener('submit', jsPut);
         log(`Initialized at ${new Date()}`);
     } /* init */
-​
-​
-
-    
-    function jsPost(event) {
-        log(`Entering jsGet`);
-​
-        // kill the submit of the form by the browser and handle it ourselves
-        event.preventDefault();
-        event.stopPropagation();
-​
-        let form = document.getElementById('test_form');
-​
-        let method = 'post';
-        let endpoint = 'https://httpbin.org/'+method;
-        console.log(form)
-        let payload = new FormData(form);
-​
-        let xhr = new XMLHttpRequest();
-​
-        xhr.open(method,endpoint, true);
-        xhr.onload = () => document.getElementById('response').innerHTML = xhr.responseText;
-        xhr.send(payload);
-
-    } 
-    /* jsSend */
-​
-    /**
-     * function jsSend - sends an XHR request to the endpoint but uses the FORMData API and
-     *                     other small improvements
-     */
-    function jsSend(event) {
-        log(`Entering jsSend`);
-​
-        // kill the submit of the form by the browser and handle it ourselves
-        event.preventDefault();
-        event.stopPropagation();
-​
-        let form = document.getElementById('test_form');
-​
-        let method = form.method;
-        let endpoint = form.action;
-        let payload = new FormData(form);
-​
-        let xhr = new XMLHttpRequest();
-​
-        xhr.open(method,endpoint, true);
-​
-        xhr.onload = () => document.getElementById('response').innerHTML = xhr.responseText;
-​
-        xhr.send(payload);
-​
-    } /* jsSend */
 
     async function jsGet(event) {
         event.preventDefault();
         event.stopPropagation();
         log(`Entering fetchSend`);
-​
+
         let form = document.getElementById('test_form');
-​
+
         let method = 'get';
         let endpoint = 'https://httpbin.org/'+method;
         let payload = new FormData(form);
-​
+
         let request = await fetch(endpoint, {
             method : method,
             body : payload
         });
-​
-        document.getElementById('response').innerHTML = await request.text();
-​
+
+        document.getElementById('response').innerHTML = await request.text();​
     }
-​
-​
+
     // simple trace scaffold -- could consider naming a certain way for auto-stripping
     const DEBUG = true;
     const log = (msg) => {if (DEBUG) console.log(msg)}
