@@ -2,25 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>It's HTTP Time Take 2</title>
+    <title>HW5 - Part 1</title>
 </head>
 <body>
 ​
-<h1>It's HTTP Time Take 2!</h1>
-<form action="https://www.httpbin.org/post" method="post" target="response_frame" id="test_form">
+<h1>HW5 - Part 1</h1>
+<form action="#" method="#" target="response_frame" id="test_form">
 ​
     <div>
-        <label for="user_name">Username: </label>
-        <input type="text" name="user_name" id="user_name">
+        <label for="id">ID: </label>
+        <input type="number" name="id" id="id">
     </div>
 ​
     <div>
-        <label for="user_pass">Password: </label>
-        <input type="text" name="user_pass" id="user_pass">
+        <label for="article_name">Article Name: </label>
+        <input type="text" name="article_name" id="article_name">
+    </div>
+
+    <div>
+        <label for="article_body">Article Body: </label>
+        <textarea name="article_body" id="article_body">
+
+        </textarea>
     </div>
 ​
     <div>
-        <button type="submit">Send</button>
+        <button type="submit" id="get">GET</button>
+    </div>
+    <div>
+        <button type="submit" id="post">POST</button>
+    </div>
+    <div>
+        <button type="submit" id="del">DELETE</button>
+    </div>
+    <div>
+        <button type="submit" id="put">PUT</button>
     </div>
 ​
     <fieldset>
@@ -44,12 +60,37 @@
      * init - bind DOM properties, read defaults, and set-up for execution
      */
     function init() {
-        document.getElementById('test_form').addEventListener('submit', jsSend);
+        document.getElementById('get').addEventListener('submit', jsGet);
+        document.getElementById('post').addEventListener('submit', jsPost);
+        document.getElementById('del').addEventListener('submit', jsDel);
+        document.getElementById('put').addEventListener('submit', jsPut);
 ​
         log(`Initialized at ${new Date()}`);
     } /* init */
 ​
 ​
+function jsGet(event) {
+        log(`Entering jsGet`);
+​
+        // kill the submit of the form by the browser and handle it ourselves
+        event.preventDefault();
+        event.stopPropagation();
+​
+        let form = document.getElementById('test_form');
+​
+        let method = 'get';
+        let endpoint = 'https://httpbin.org/'+method;
+        let payload = new FormData(form);
+​
+        let xhr = new XMLHttpRequest();
+​
+        xhr.open(method,endpoint, true);
+​
+        xhr.onload = () => document.getElementById('response').innerHTML = xhr.responseText;
+​
+        xhr.send(payload);
+
+    } /* jsSend */
 ​
     /**
      * function jsSend - sends an XHR request to the endpoint but uses the FORMData API and
