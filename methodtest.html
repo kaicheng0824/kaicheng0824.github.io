@@ -38,19 +38,14 @@
     <div>
         <button id="put">PUT</button>
     </div>
-​
     <fieldset>
         <legend>Server Response</legend>
-​
         <output id="response"></output>
         <noscript>
             <iframe id="response_frame" name="response_frame"></iframe>
         </noscript>
-​
     </fieldset>
-​
 </form>
-​
 <script type="module">
     window.addEventListener('DOMContentLoaded',init);
     /**
@@ -80,19 +75,16 @@
             body : payload
         });
 
-        document.getElementById('response').innerHTML = await request.text();​
+        document.getElementById('response').innerHTML = await request.text;​
     }
 
     // simple trace scaffold -- could consider naming a certain way for auto-stripping
     const DEBUG = true;
     const log = (msg) => {if (DEBUG) console.log(msg)}
-​
 </script>
 <script nomodule>
     // handle the JS is on but no module situation if you think that is important
 </script>
-​
 <!-- could address the CSS on/off as well -->
-​
 </body>
 </html>
