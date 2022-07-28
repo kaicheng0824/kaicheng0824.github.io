@@ -90,7 +90,31 @@ function jsGet(event) {
 ​
         xhr.send(payload);
 
-    } /* jsSend */
+    }
+    
+    function jsPost(event) {
+        log(`Entering jsGet`);
+​
+        // kill the submit of the form by the browser and handle it ourselves
+        event.preventDefault();
+        event.stopPropagation();
+​
+        let form = document.getElementById('test_form');
+​
+        let method = 'post';
+        let endpoint = 'https://httpbin.org/'+method;
+        let payload = new FormData(form);
+​
+        let xhr = new XMLHttpRequest();
+​
+        xhr.open(method,endpoint, true);
+​
+        xhr.onload = () => document.getElementById('response').innerHTML = xhr.responseText;
+​
+        xhr.send(payload);
+
+    } 
+    /* jsSend */
 ​
     /**
      * function jsSend - sends an XHR request to the endpoint but uses the FORMData API and
