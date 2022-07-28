@@ -75,7 +75,7 @@
             body : payload
         });
 
-        document.getElementById('response').innerHTML = await request.json();
+        document.getElementById('response').innerHTML = await request.text();
     }
 
     // simple trace scaffold -- could consider naming a certain way for auto-stripping
