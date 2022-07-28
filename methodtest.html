@@ -103,6 +103,7 @@ function jsGet(event) {
 ​
         let method = 'post';
         let endpoint = 'https://httpbin.org/'+method;
+        console.log(form)
         let payload = new FormData(form);
 ​
         let xhr = new XMLHttpRequest();
