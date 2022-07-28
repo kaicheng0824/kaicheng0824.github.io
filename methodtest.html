@@ -1,55 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset='utf-8'/>
-        <meta name="viewport" content="width=device-width, initial-scale=0.5">
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.js"></script>
-        <script type="module">
-                function init() {
-                    document.getElementById('get').addEventListener('click', get);
-                    document.getElementById('post').addEventListener('click', post);
-                    document.getElementById('delete').addEventListener('click', del);
-                    document.getElementById('put').addEventListener('click', put);
-            ​
-                    log(`Initialized at ${new Date()}`);
-                } 
-
-                function post() {
-                    log(`Entering post`);
-            ​
-                    let xhr = new XMLHttpRequest();
-            ​
-                    let payload = `id=${document.getElementById('id').value}&article_name=${document.getElementById('article_name').value}&article_body=${document.getElementById('article_body').value}`;
-            ​
-                    xhr.open('POST','https://www.httpbin.org/post', true);
-                    xhr.setRequestHeader('X-Powered-By','Hot Tea');
-                    xhr.onload = function () {
-                            document.getElementById('response').innerHTML = xhr.responseText;
-                    }
-                    xhr.send(payload);
-                }
-        </script>
-
-    </head>
-    <body>
-        <form action="https://www.httpbin.org/post" method="post" target="response_frame"  id="test_form">>
-                <label for="id">ID: </label>
-                <input type="number" id="id" name="id">
-                <label for="article_name">Article Name: </label>
-                <input type="text" id="article_name" name="article_name">
-                <label for="article_body">Article Body: </label>
-                <textarea id="article_body" name="article_body">
-                </textarea>
-                <button id="get">GET</button>
-                <button id="post">POST</button>
-                <button id="put">PUT</button>
-                <button id="delete">DELETE</button>
-                <fieldset>
-                    <legend>Ajax/Fetch Server Response</legend>
-                    ​
-                        <output id="response"></output>
-                    ​
-                    </fieldset>
-        </form>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>It's HTTP Time Take 2</title>
+</head>
+<body>
+​
+<h1>It's HTTP Time Take 2!</h1>
+<form action="https://www.httpbin.org/post" method="post" target="response_frame" id="test_form">
+​
+    <div>
+        <label for="user_name">Username: </label>
+        <input type="text" name="user_name" id="user_name">
+    </div>
+​
+    <div>
+        <label for="user_pass">Password: </label>
+        <input type="text" name="user_pass" id="user_pass">
+    </div>
+​
+    <div>
+        <button type="submit">Send</button>
+    </div>
+​
+    <fieldset>
+        <legend>Server Response</legend>
+​
+        <output id="response"></output>
+        <noscript>
+            <iframe id="response_frame" name="response_frame"></iframe>
+        </noscript>
+​
+    </fieldset>
+​
+</form>
+​
+<script type="module">
+​
+​
+    window.addEventListener('DOMContentLoaded',init);
+​
+    /**
+     * init - bind DOM properties, read defaults, and set-up for execution
+     */
+    function init() {
+        document.getElementById('test_form').addEventListener('submit', jsSend);
+​
+        log(`Initialized at ${new Date()}`);
+    } /* init */
+​
+​
+​
+    /**
+     * function jsSend - sends an XHR request to the endpoint but uses the FORMData API and
+     *                     other small improvements
+     */
+    function jsSend(event) {
+        log(`Entering jsSend`);
+​
+        // kill the submit of the form by the browser and handle it ourselves
+        event.preventDefault();
+        event.stopPropagation();
+​
+        let form = document.getElementById('test_form');
+​
+        let method = form.method;
+        let endpoint = form.action;
+        let payload = new FormData(form);
+​
+        let xhr = new XMLHttpRequest();
+​
+        xhr.open(method,endpoint, true);
+​
+        xhr.onload = () => document.getElementById('response').innerHTML = xhr.responseText;
+​
+        xhr.send(payload);
+​
+    } /* jsSend */
+​
+​
+    // simple trace scaffold -- could consider naming a certain way for auto-stripping
+    const DEBUG = true;
+    const log = (msg) => {if (DEBUG) console.log(msg)}
+​
+</script>
+<script nomodule>
+    // handle the JS is on but no module situation if you think that is important
+</script>
+​
+<!-- could address the CSS on/off as well -->
+​
+</body>
 </html>
