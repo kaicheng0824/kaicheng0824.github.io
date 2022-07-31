@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>It's HTTP Time</title>
+</head>
+<body>
+
+<h1>It's HTTP Time!</h1>
+<form action="https://www.httpbin.org/post" method="post" target="response_frame"  id="test_form">
+
+    <div>
+        <label for="user_name">Username: </label>
+        <input type="text" name="user_name" id="user_name">
+    </div>
+
+    <div>
+        <label for="user_pass">Password: </label>
+        <input type="password" name="user_pass" id="user_pass">
+    </div>
+
+    <div>
+        <button type="submit">Send</button>
+
+        <button type="button" id="button1">XHR Send #1</button>
+        <button type="button" id="button2">XHR Send #2</button>
+        <button type="button" id="button3">Fetch Send</button>
+
+    </div>
+
+
+<fieldset>
+    <legend>Standard Server Response</legend>
+    <!-- careful on name and id here -->
+    <iframe id="response_frame" name="response_frame"></iframe>
+
+</fieldset>
+
+<fieldset>
+<legend>Ajax/Fetch Server Response</legend>
+
+    <output id="response"></output>
+
+</fieldset>
+
+</form>
+
+<script type="module">
+
+
+    window.addEventListener('DOMContentLoaded',init);
+
+    /**
+     * init - bind DOM properties, read defaults, and set-up for execution
+     */
+    function init() {
+        document.getElementById('button1').addEventListener('click', xhrSend1);
+        document.getElementById('button2').addEventListener('click', xhrSend2);
+        document.getElementById('button3').addEventListener('click', fetchSend);
+
+        log(`Initialized at ${new Date()}`);
+    } /* init */
+
+    /**
+     * function xhrSend1 - sends an HTTP request in a hardcoded fashion to an endpoint
+     *                     uses more modern style XHR thinking where possible
+     */
+    function xhrSend1() {
+        log(`Entering xhrSend1`);
+
+        let xhr = new XMLHttpRequest();
+
+        let payload = `user_name=${document.getElementById('user_name').value}&user_pass=${document.getElementById('user_pass').value}`;
+
+
+        xhr.open('POST','https://www.httpbin.org/post', true);
+        xhr.setRequestHeader('X-Powered-By','Hot Tea');
+        xhr.onload = function () {
+                document.getElementById('response').innerHTML = xhr.responseText;
+        }
+        xhr.send(payload);
+    } /* xhrSend1 */
+
+    /**
+     * function xhrSend2 - sends an XHR request to the endpoint but uses the FORMData API and
+     *                     other small improvements
+     */
+    function xhrSend2() {
+        log(`Entering xhrSend2`);
+
+        let form = document.getElementById('test_form');
+
+        let method = form.method;
+        let endpoint = form.action;
+        let payload = new FormData(form);
+
+        let xhr = new XMLHttpRequest();
+
+        if (xhr) {
+            xhr.open(method,endpoint, true);
+            xhr.onload = function () {
+                document.getElementById('response').innerHTML = xhr.responseText;
+            }
+            xhr.send(payload);
+        }
+
+    } /* xhrSend2 */
+
+    /**
+     * fetchSend - a simple fetch example to mimic XHR example
+     * @returns {Promise<void>}
+     */
+    async function fetchSend() {
+        log(`Entering fetchSend`);
+
+        let form = document.getElementById('test_form');
+
+        let method = form.method;
+        let endpoint = form.action;
+        let payload = new FormData(form);
+
+        let request = await fetch(endpoint, {
+            method : method,
+            body : payload
+        });
+
+        document.getElementById('response').innerHTML = await request.text();
+
+    } /* fetchSend */
+
+    // TODO: use an interceptor to make the form submit button use JS when available and fallback to without
+    //  Example: <noscript> submit button </noscript> or have a submit button and then kill the submission
+
+
+    // simple trace scaffold -- could consider naming a certain way for auto-stripping
+    const DEBUG = true;
+    const log = (msg) => {if (DEBUG) console.log(msg)}
+
+</script>
+</body>
+</html>

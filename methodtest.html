@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HW5 - Part 1</title>
+    <title>HW5 Part 1</title>
 </head>
 <body>
 
-<h1>HW5 - Part 1</h1>
-<form action="#" method="#" target="response_frame" id="test_form">
+<h1>HW5 Part 1</h1>
+<form action="#" method="#" target="response_frame"  id="test_form">
 
     <div>
-        <label for="id">ID: </label>
-        <input type="number" name="id" id="id">
+        <label for="user_id">ID: </label>
+        <input type="number" name="user_id" id="user_id">
     </div>
 
     <div>
@@ -26,65 +26,139 @@
         </textarea>
     </div>
 
+
     <div>
-        <button id="get">GET</button>
+        <button type="button" id="xhrPost">POST</button>
+        <button type="button" id="xhrGet">GET</button>
+        <button type="button" id="xhrPut">PUT</button>
+        <button type="button" id="xhrDel">DEL</button>
     </div>
-    <div>
-        <button id="post">POST</button>
-    </div>
-    <div>
-        <button id="del">DELETE</button>
-    </div>
-    <div>
-        <button id="put">PUT</button>
-    </div>
-    <fieldset>
-        <legend>Server Response</legend>
-        <output id="response"></output>
-        <noscript>
-            <iframe id="response_frame" name="response_frame"></iframe>
-        </noscript>
-    </fieldset>
+
+
+<fieldset>
+<legend>Ajax/Fetch Server Response</legend>
+
+    <output id="response"></output>
+
+</fieldset>
+
 </form>
+
 <script type="module">
+
+
     window.addEventListener('DOMContentLoaded',init);
+
     /**
      * init - bind DOM properties, read defaults, and set-up for execution
      */
     function init() {
-        document.getElementById('get').addEventListener('submit', jsGet);
-        // document.getElementById('post').addEventListener('submit', jsPost);
-        // document.getElementById('del').addEventListener('submit', jsDel);
-        // document.getElementById('put').addEventListener('submit', jsPut);
+        document.getElementById('xhrPost').addEventListener('click', xhrPost);
+        document.getElementById('xhrGet').addEventListener('click', xhrGet);
+        document.getElementById('xhrPut').addEventListener('click', xhrPut);
+        document.getElementById('xhrDel').addEventListener('click', xhrDel);
         log(`Initialized at ${new Date()}`);
     } /* init */
 
-    async function jsGet(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        log(`Entering fetchSend`);
+    function xhrPost() {
+        log(`Entering xhrPost`);
+
+        let xhr = new XMLHttpRequest();
 
         let form = document.getElementById('test_form');
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'date'; // 'the key/name of the attribute/field that is sent to the server
+        input.value = new Date();
+        form.appendChild(input);
 
-        let method = 'get';
-        let endpoint = 'https://httpbin.org/'+method;
         let payload = new FormData(form);
 
-        let request = await fetch(endpoint, {
-            method : method,
-            body : payload
-        });
 
-        document.getElementById('response').innerHTML = await request.text();
+        xhr.open('POST','https://www.httpbin.org/post', true);
+        xhr.setRequestHeader('X-Powered-By','Something');
+        xhr.onload = function () {
+                let responseJ = JSON.parse(xhr.responseText);
+                console.log(responseJ);
+                // console.log(responseJ['form']['date']);
+                //document.getElementById('response').innerHTML = `<pre>${JSON.stringify(responseJ)}</pre>`;
+                document.getElementById('response').innerHTML = `<pre>${xhr.responseText}</pre>`;
+        }
+        xhr.send(payload);
+    } 
+
+    function xhrGet() {
+        log(`Entering xhrPost`);
+
+        let xhr = new XMLHttpRequest();
+
+        let form = document.getElementById('test_form');
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'date'; // 'the key/name of the attribute/field that is sent to the server
+        input.value = new Date();
+        
+        let payload = new FormData(form);
+
+        xhr.open('GET','https://www.httpbin.org/get', true);
+        xhr.setRequestHeader('X-Powered-By','Something');
+        xhr.onload = function () {
+                let responseJ = JSON.parse(xhr.responseText);
+                console.log(responseJ);
+                // document.getElementById('response').innerHTML = xhr.responseText;
+                document.getElementById('response').innerHTML = `<pre>${xhr.responseText}</pre>`;
+        }
+        xhr.send(payload);
+    } 
+
+    function xhrPut() {
+        log(`Entering xhrSend1`);
+
+        let xhr = new XMLHttpRequest();
+
+        let form = document.getElementById('test_form');
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'date'; // 'the key/name of the attribute/field that is sent to the server
+        input.value = new Date();
+
+        let payload = new FormData(form);
+
+        xhr.open('PUT','https://www.httpbin.org/put', true);
+        xhr.setRequestHeader('X-Powered-By','Something');
+        xhr.onload = function () {
+            let responseJ = JSON.parse(xhr.responseText);
+                console.log(responseJ);
+                // document.getElementById('response').innerHTML = xhr.responseText;
+                document.getElementById('response').innerHTML = `<pre>${xhr.responseText}</pre>`;
+        }
+        xhr.send(payload);
     }
 
-    // simple trace scaffold -- could consider naming a certain way for auto-stripping
+    function xhrDel() {
+        log(`Entering xhrSend1`);
+
+        let xhr = new XMLHttpRequest();
+
+        let form = document.getElementById('test_form');
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'date'; // 'the key/name of the attribute/field that is sent to the server
+        input.value = new Date();
+
+        xhr.open('DELETE','https://www.httpbin.org/delete', true);
+        xhr.setRequestHeader('X-Powered-By','Something');
+        xhr.onload = function () {
+            let responseJ = JSON.parse(xhr.responseText);
+            console.log(responseJ);
+            document.getElementById('response').innerHTML = `<pre>${xhr.responseText}</pre>`;
+        }
+        xhr.send();
+    }
+
     const DEBUG = true;
     const log = (msg) => {if (DEBUG) console.log(msg)}
+
 </script>
-<script nomodule>
-    // handle the JS is on but no module situation if you think that is important
-</script>
-<!-- could address the CSS on/off as well -->
 </body>
 </html>
